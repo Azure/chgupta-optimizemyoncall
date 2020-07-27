@@ -1,0 +1,274 @@
+{
+  "bv": 10,
+  "component": "ServiceManagement",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "Started",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "Service Management",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          "DCM-Test-MWH02P,DCM-Test-DB3P,DCM-Test-BN4Q"
+        ],
+        [
+          "FileVersion",
+          "*",
+          ""
+        ],
+        [
+          "Service",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "groupby Message\r\nlet PreciseTimeStamp = Last().PreciseTimeStamp\r\nlet RoleInstance = Last().RoleInstance\r\nlet Version = Last().Version\r\nlet Logger = Last().Logger\r\norderby PreciseTimeStamp desc",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "WorkerCoreDcmCoreTraceEvent",
+              "namespaceRegex": "Dcmx",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "ServiceName": [
+              "{Monitor.Dimension.Service}"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-1&offsetUnit=Hours&ep=Diagnostics%20PROD&ns=Dcmx&en=WorkerCoreDcmCoreTraceEvent&serverQuery=select%20PreciseTimeStamp,%20RoleInstance,%20Version,%20Logger,%20Message\r%0A&scopingConditions=[[\"ServiceName\",\"{Monitor.Dimension.Service}\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=false&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]&UTC=false&clientQuery=groupby%20Message\r%0Alet%20PreciseTimeStamp%20=%20Last().PreciseTimeStamp\r%0Alet%20RoleInstance%20=%20Last().RoleInstance\r%0Alet%20Version%20=%20Last().Version\r%0Alet%20Logger%20=%20Last().Logger\r%0Aorderby%20PreciseTimeStamp%20desc",
+          "lookback": "01:00:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "select PreciseTimeStamp, RoleInstance, Version, Logger, Message\r\n",
+          "serverQuerySimpleConditions": null,
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "{Monitor.Dimension.Service} Example Errors, last hour",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": false
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  ""
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.GenericCustomLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "executionDelay": "00:00:00",
+          "link": "https://jarvis-west.dc.ad.msft.net/dashboard/AzureComputeDcmx/Dcmx/Deployment%2520Status?globalStartTime=-86400000&globalEndTime=-1&pinGlobalTimeRange=true",
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "DCM Service Deployment Dashboard",
+          "type": "Custom"
+        }
+      ],
+      "customMessage": "The {Monitor.Dimension.Service} service has restarted {Monitor.EvaluatedValue} times in 3 minutes, so appears to be cyclying. Use the dashboard and query below to determine if there is a new build being deployed that is causing this or some other error.",
+      "customTitle": "DCM PF Service {Monitor.Dimension.Service} is cycling.",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor detects high rate of restarts of {Service}, when more than 100 restarts of the service are detected in a 3 minute period.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ServiceManagement",
+        "id": "Started",
+        "tenant": "AzureComputeDcmx"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:06:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "DCM PF Service Cycling",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "tabarthw",
+      "lastUpdateTime": "2019-10-16T19:21:22.2104135Z",
+      "lookbackDuration": "00:05:00",
+      "metadata": [
+        {
+          "metadataKey": "Icm.Title",
+          "metadataValue": ""
+        },
+        {
+          "metadataKey": "Icm.Summary",
+          "metadataValue": "The {Monitor.Dimension.Service} service appears to be cyclying."
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "DcmService",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "metric": "Count"
+      },
+      "templateType": 2,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 30.0
+        },
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 100.0
+        }
+      ],
+      "version": 8
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "AzureComputeDcmx",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

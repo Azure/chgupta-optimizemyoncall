@@ -1,0 +1,652 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheProvider",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "RpSideQueryDuration",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Cluster",
+          "https://gov-art-eus-sailfish-two.eastus.cloudapp.azure.com,https://gov-art-weu-sailfish-two.westeurope.cloudapp.azure.com,https://gov-art-eus-sailfish-four.eastus.cloudapp.azure.com,https://gov-art-wus2-sailfish-two.westus2.cloudapp.azure.com",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": true,
+          "dimensionsToOverride": [
+            "Cluster"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "06:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Query Performance"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Query Performance Dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "clientQuery": "let ClusterUrl = Regex.Match(properties, \"`* ClusterUri=\\[([^\\]]+)\\]\").Groups[1].Value\r\nwhere durationMilliseconds > 5000",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            },
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityFailed",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Environment": [
+              "eus",
+              "sea",
+              "weu"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-1&offsetUnit=Hours&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted,ActivityFailed&conditions=[[\"activityName\",\"==\",\"KustoDataStoreRetryEngine.CreateAndExecuteRequestAsync\"],[\"properties\",\"contains\",\"Portal\"]]&scopingConditions=[[\"Environment\",\"eus,sea,weu\"]]&aggregatesVisible=true&aggregates=[\"Count%20by%20ClusterUrl\"]&chartsVisible=false&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]&UTC=false&clientQuery=let%20ClusterUrl%20=%20Regex.Match(properties,%20\"`*%20ClusterUri=\\[([^\\]]+)\\]\").Groups[1].Value\r%0Awhere%20durationMilliseconds%20>%205000",
+          "lookback": "01:00:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "(activityName.EqualsI(\"KustoDataStoreRetryEngine.CreateAndExecuteRequestAsync\")) and (properties.ContainsI(\"Portal\"))",
+          "serverQuerySimpleConditions": [
+            {
+              "comparand": "activityName",
+              "operator": "==",
+              "values": "KustoDataStoreRetryEngine.CreateAndExecuteRequestAsync"
+            },
+            {
+              "comparand": "properties",
+              "operator": "contains",
+              "values": "Portal"
+            }
+          ],
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Logs for requests to clusters",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": true
+            },
+            {
+              "key": "aggregates",
+              "value": [
+                "Count by ClusterUrl"
+              ]
+            },
+            {
+              "key": "chartsVisible",
+              "value": false
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  ""
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.GenericCustomLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "executionDelay": "00:00:00",
+          "link": "https://microsoft.sharepoint.com/teams/GovernanceVteam/_layouts/OneNote.aspx?id=%2Fteams%2FGovernanceVteam%2FSiteAssets%2FGovernance%20Vteam%20Notebook&wd=target%28ART%2FLivesite.one%7C0D4CF9B6-4A2C-40E4-92FE-742E1448468D%2F%5BQuery%5D%20How%20to%20add%5C%2Fremove%20clusters%20from%20pool%7C409D5F78-3C43-4BAA-8D24-24A2DA6BA782%2F%29 onenote:https://microsoft.sharepoint.com/teams/GovernanceVteam/SiteAssets/Governance%20Vteam%20Notebook/ART/Livesite.one#%5bQuery%5d%20How%20to%20add/remove%20clusters%20from%20pool&section-id={0D4CF9B6-4A2C-40E4-92FE-742E1448468D}&page-id={409D5F78-3C43-4BAA-8D24-24A2DA6BA782}&end",
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "TSG For Adding/Removing Clusters from Pool",
+          "type": "Custom"
+        }
+      ],
+      "customMessage": "This monitor monitors the per-cluster portal query duration from RP side. Please refer to the [Query Duration P99 Observed From RP] chart under QueryPerformance in the dashboard. You can also check what's the failing cluster in the <Additional troubleshotting information> in the icm email.",
+      "customTitle": "[QueryApiService] At least one portal cluster is unhealthy",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Monitoring on per-cluster portal query duration observed from RP side.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "RpSideQueryDuration",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:02:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:04:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "PortalClusterQueryDurationOnRpSide",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "guayang",
+      "lastUpdateTime": "2019-12-04T00:15:16.9335688Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Query",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 1,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 2,
+                    "conditions": [
+                      [
+                        "Cluster",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "RpSideQueryDuration",
+                    "metricsSourceAggregateType": 2,
+                    "monitoringAccount": "AzureResourcesTopology",
+                    "namespace": "ResourcesCacheProvider",
+                    "samplingType": "95th percentile",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 5000.0
+        },
+        "skipOnNoData": true,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 8.0
+        }
+      ],
+      "version": 19
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Cluster",
+          "https://gov-art-eus-sailfish-one.eastus.cloudapp.azure.com,https://gov-art-wus2-sailfish-one.westus2.cloudapp.azure.com,https://gov-art-weu-sailfish-three.westeurope.cloudapp.azure.com,https://gov-art-neu-sailfish-one.northeurope.cloudapp.azure.com",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": true,
+          "dimensionsToOverride": [
+            "Cluster"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "06:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Query Performance"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Query Performance Dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "clientQuery": "let ClusterUrl = Regex.Match(properties, \"`* ClusterUri=\\[([^\\]]+)\\]\").Groups[1].Value\r\nwhere durationMilliseconds > 5000",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            },
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityFailed",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Environment": [
+              "eus",
+              "sea",
+              "weu"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-1&offsetUnit=Hours&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted,ActivityFailed&conditions=[[\"activityName\",\"==\",\"KustoDataStoreRetryEngine.CreateAndExecuteRequestAsync\"],[\"properties\",\"contains\",\"NonPortal\"]]&scopingConditions=[[\"Environment\",\"eus,sea,weu\"]]&aggregatesVisible=true&aggregates=[\"Count%20by%20ClusterUrl\"]&chartsVisible=false&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]&UTC=false&clientQuery=let%20ClusterUrl%20=%20Regex.Match(properties,%20\"`*%20ClusterUri=\\[([^\\]]+)\\]\").Groups[1].Value\r%0Awhere%20durationMilliseconds%20>%205000",
+          "lookback": "01:00:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "(activityName.EqualsI(\"KustoDataStoreRetryEngine.CreateAndExecuteRequestAsync\")) and (properties.ContainsI(\"NonPortal\"))",
+          "serverQuerySimpleConditions": [
+            {
+              "comparand": "activityName",
+              "operator": "==",
+              "values": "KustoDataStoreRetryEngine.CreateAndExecuteRequestAsync"
+            },
+            {
+              "comparand": "properties",
+              "operator": "contains",
+              "values": "NonPortal"
+            }
+          ],
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Logs for requests to clusters",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": true
+            },
+            {
+              "key": "aggregates",
+              "value": [
+                "Count by ClusterUrl"
+              ]
+            },
+            {
+              "key": "chartsVisible",
+              "value": false
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  ""
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.GenericCustomLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "executionDelay": "00:00:00",
+          "link": "https://microsoft.sharepoint.com/teams/GovernanceVteam/_layouts/OneNote.aspx?id=%2Fteams%2FGovernanceVteam%2FSiteAssets%2FGovernance%20Vteam%20Notebook&wd=target%28ART%2FLivesite.one%7C0D4CF9B6-4A2C-40E4-92FE-742E1448468D%2F%5BQuery%5D%20How%20to%20add%5C%2Fremove%20clusters%20from%20pool%7C409D5F78-3C43-4BAA-8D24-24A2DA6BA782%2F%29 onenote:https://microsoft.sharepoint.com/teams/GovernanceVteam/SiteAssets/Governance%20Vteam%20Notebook/ART/Livesite.one#%5bQuery%5d%20How%20to%20add/remove%20clusters%20from%20pool&section-id={0D4CF9B6-4A2C-40E4-92FE-742E1448468D}&page-id={409D5F78-3C43-4BAA-8D24-24A2DA6BA782}&end",
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "TSG For Adding/Removing Clusters from Pool",
+          "type": "Custom"
+        }
+      ],
+      "customMessage": "This monitor monitors the per-cluster non-portal query duration from RP side. Please refer to the [Query Duration P99 Observed From RP] chart under QueryPerformance in the dashboard. You can also check what's the failing cluster in the <Additional troubleshotting information> in the icm email.",
+      "customTitle": "[QueryApiService] At least one non-portal cluster is unhealthy",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Monitoring on per-cluster non-portal query duration observed from RP side.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "RpSideQueryDuration",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:02:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:04:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "NonPortalClusterQueryDurationOnRpSide",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "guayang",
+      "lastUpdateTime": "2019-12-04T00:14:54.1336044Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Query",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 1,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 2,
+                    "conditions": [
+                      [
+                        "Cluster",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "RpSideQueryDuration",
+                    "metricsSourceAggregateType": 4,
+                    "monitoringAccount": "AzureResourcesTopology",
+                    "namespace": "ResourcesCacheProvider",
+                    "samplingType": "95th percentile",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 20000.0
+        },
+        "skipOnNoData": true,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 2,
+          "severity": 3,
+          "value": 8.0
+        }
+      ],
+      "version": 15
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

@@ -1,0 +1,505 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheProvider",
+  "computedMetrics": [
+    {
+      "displayName": "Average",
+      "expression": "raw.Sum / (raw.Count || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "Average",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "NullableAverage",
+      "expression": "raw.Count ? (raw.Sum / raw.Count) : null",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "NullableAverage",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Rate",
+      "expression": "raw.Sum / 60",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "Rate",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "dimensions": [
+    {
+      "id": "Application"
+    },
+    {
+      "id": "Environment"
+    },
+    {
+      "id": "NodeNumber"
+    },
+    {
+      "id": "NodeType"
+    },
+    {
+      "id": "Service"
+    },
+    {
+      "id": "Tenant"
+    },
+    {
+      "id": "NotificationQueueTypeDimension"
+    },
+    {
+      "id": "SignDimension"
+    },
+    {
+      "id": "NotificationSourceDimension"
+    },
+    {
+      "id": "EventHubTypeDimension"
+    },
+    {
+      "id": "RoleInstance"
+    },
+    {
+      "id": "ServiceInstance"
+    },
+    {
+      "id": "NotificationRetryPriorityQueueLevelDimension"
+    },
+    {
+      "id": "SubscriptionId"
+    },
+    {
+      "id": "TimeBucket"
+    },
+    {
+      "id": "DequeueCountDimension"
+    },
+    {
+      "id": "ProviderNamespaceDimension"
+    },
+    {
+      "id": "ScaleUnit"
+    },
+    {
+      "id": "ResourceTypeDimension"
+    }
+  ],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "SuccessfulNotificationTime",
+  "isFromNewPipeline": true,
+  "isQosMetric": false,
+  "metrics": [
+    {
+      "displayName": "Count",
+      "expression": null,
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Count",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Sum",
+      "expression": null,
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Sum",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 36,
+  "views": [
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "NotificationQueueTypeDimension",
+        "NotificationSourceDimension",
+        "Tenant"
+      ],
+      "displayName": "By-Environment-Tenant-NodeType-NodeNumber-NotificationSourceDimension-NotificationQueueTypeDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NotificationQueueTypeDimension",
+        "NotificationSourceDimension",
+        "Service"
+      ],
+      "displayName": "By-Environment-NotificationQueueTypeDimension-NotificationSourceDimension-Service",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "SignDimension",
+        "Tenant"
+      ],
+      "displayName": "By-Environment-Tenant-NodeType-NodeNumber-SignDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "NotificationQueueTypeDimension",
+        "NotificationSourceDimension",
+        "SignDimension",
+        "Tenant"
+      ],
+      "displayName": "By-Environment-Tenant-NotificationQueueTypeDimension-NotificationSourceDimension-SignDimension-NodeType-NodeNumber",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "NotificationQueueTypeDimension",
+        "NotificationRetryPriorityQueueLevelDimension",
+        "NotificationSourceDimension",
+        "SignDimension",
+        "Tenant",
+        "TimeBucket"
+      ],
+      "displayName": "By-Environment-Tenant-NodeType-NodeNumber-NotificationQueueTypeDimension-NotificationSourceDimension-SignDimension-NotificationRetryPriorityQueueLevelDimension-TimeBucket",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "Service"
+      ],
+      "displayName": "By-Environment-Service",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NotificationRetryPriorityQueueLevelDimension",
+        "TimeBucket"
+      ],
+      "displayName": "By-Environment-NotificationRetryPriorityQueueLevelDimension-TimeBucket",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "DequeueCountDimension",
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "NotificationQueueTypeDimension",
+        "NotificationSourceDimension",
+        "Tenant"
+      ],
+      "displayName": "By-Environment-NotificationQueueTypeDimension-NotificationSourceDimension-Tenant-NodeNumber-NodeType-DequeueCountDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NotificationQueueTypeDimension",
+        "NotificationSourceDimension",
+        "ProviderNamespaceDimension",
+        "Service"
+      ],
+      "displayName": "By-Environment-Service-NotificationQueueTypeDimension-NotificationSourceDimension-ProviderNamespaceDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NotificationQueueTypeDimension",
+        "Service"
+      ],
+      "displayName": "By-Environment-Service-NotificationQueueTypeDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "NotificationQueueTypeDimension",
+        "NotificationRetryPriorityQueueLevelDimension",
+        "NotificationSourceDimension",
+        "ScaleUnit",
+        "SignDimension",
+        "Tenant",
+        "TimeBucket"
+      ],
+      "displayName": "By-Environment-ScaleUnit-Tenant-NodeType-NodeNumber-NotificationQueueTypeDimension-NotificationSourceDimension-SignDimension-NotificationRetryPriorityQueueLevelDimension-TimeBucket",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "NotificationQueueTypeDimension",
+        "NotificationSourceDimension",
+        "ScaleUnit",
+        "SignDimension",
+        "Tenant"
+      ],
+      "displayName": "By-Environment-ScaleUnit-Tenant-NodeType-NodeNumber-NotificationQueueTypeDimension-NotificationSourceDimension-SignDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NotificationQueueTypeDimension",
+        "NotificationSourceDimension",
+        "ProviderNamespaceDimension",
+        "ScaleUnit",
+        "Service"
+      ],
+      "displayName": "By-Environment-ScaleUnit-Service-NotificationQueueTypeDimension-NotificationSourceDimension-ProviderNamespaceDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NotificationQueueTypeDimension",
+        "NotificationSourceDimension",
+        "ScaleUnit",
+        "Service"
+      ],
+      "displayName": "By-Environment-ScaleUnit-Service-NotificationQueueTypeDimension-NotificationSourceDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NotificationRetryPriorityQueueLevelDimension",
+        "ScaleUnit",
+        "TimeBucket"
+      ],
+      "displayName": "By-Environment-ScaleUnit-NotificationRetryPriorityQueueLevelDimension-TimeBucket",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "ScaleUnit",
+        "Service"
+      ],
+      "displayName": "By-Environment-ScaleUnit-Service",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "NotificationRetryPriorityQueueLevelDimension",
+        "NotificationSourceDimension"
+      ],
+      "displayName": "By-NotificationSourceDimension-NotificationRetryPriorityQueueLevelDimension",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

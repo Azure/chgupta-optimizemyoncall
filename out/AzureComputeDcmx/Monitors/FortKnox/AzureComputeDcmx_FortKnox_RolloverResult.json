@@ -1,0 +1,596 @@
+{
+  "bv": 10,
+  "component": "FortKnox",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "RolloverResult",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Cluster",
+          "*",
+          "*pfcc*",
+          "w"
+        ],
+        [
+          "Exception",
+          "*",
+          ""
+        ],
+        [
+          "HostPfCluster",
+          "*",
+          ""
+        ],
+        [
+          "IsSuccess",
+          "false",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureComputeDcmx",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "HostPfCluster"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Fortknox",
+            "Rollover"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Rollover",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "AzureDCMDb",
+          "endpoint": "https://azuredcm.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "cluster(\"azuredcm\").database(\"AzureDCMDb\").RhFortknoxEvents\n| where PreciseTimeStamp > ago(1d)\n| where Task contains \"Rollover\"\n| where Tenant contains \"{Monitor.Dimension.HostPfCluster}\"\n| where Status == \"Failed\"\n| extend Exception = extract(\"Exception=([[:graph:]]*)\", 1, FailureInfo)\n| where Exception contains \"{Monitor.Dimension.Exception}\"\n| summarize make_set(Resource) by Cluster\n| project DeviceName = tostring(set_Resource), Cluster",
+          "title": "Check the Devices",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "AzureDCMDb",
+          "endpoint": "https://azuredcm.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "cluster(\"azuredcm\").database(\"AzureDCMDb\").RhFortknoxEvents\n| where PreciseTimeStamp > ago(1d)\n| where Task contains \"Rollover\"\n| where Tenant contains \"{Monitor.Dimension.HostPfCluster}\"\n| where Status == \"Failed\"\n| extend Exception = extract(\"Exception=([[:graph:]]*)\", 1, FailureInfo)\n| where Exception == \"{Monitor.Dimension.Exception}\"\n| summarize CountOfExceptions = dcount(Resource) by FailureInfo\n| sort by CountOfExceptions",
+          "title": "Check the Exceptions",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.GenericCustomLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "executionDelay": "00:00:00",
+          "link": "https://msazure.visualstudio.com/One/_wiki/wikis/One.wiki/52297/Manually-Rollover-Credential",
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Playbook",
+          "type": "Custom"
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "[FortKnox] Device Credential Rollover Failing with {Monitor.Dimension.Exception} in {Monitor.Dimension.HostPfCluster}",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Disabled, as this is largely redundant to the credential health alert. However, as of 7/23/2020, it is working and could be enabled if the need arises - e.g. there becomes a diff between devices we're able to roll over and devices we're able to log in to. There's another Rollover Alert that ensures the vast majority of devices (regardless of PF) are succeeding rollover",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "FortKnox",
+        "id": "RolloverResult",
+        "tenant": "AzureComputeDcmx"
+      },
+      "explicitPreAgg": null,
+      "frequency": "04:00:00",
+      "healthyCountToMitigateIncident": 6,
+      "healthyDurationToMitigateIncident": "20:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "DeviceCredRollover",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": true,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-07-23T17:04:00.7842029Z",
+      "lookbackDuration": "2.00:00:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "FortknoxInstance_PfCredRollover",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 1440,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [
+                      [
+                        "Cluster",
+                        "*",
+                        "*pfcc*",
+                        "w"
+                      ],
+                      [
+                        "Exception",
+                        "*",
+                        "",
+                        "w"
+                      ],
+                      [
+                        "HostPfCluster",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "IsSuccess",
+                        "*",
+                        "",
+                        "w"
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "RolloverResult",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "AzureComputeDcmx",
+                    "namespace": "FortKnox",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 100.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [
+                      [
+                        "Cluster",
+                        "*",
+                        "*pfcc*",
+                        "w"
+                      ],
+                      [
+                        "Exception",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "HostPfCluster",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "IsSuccess",
+                        "false",
+                        ""
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "RolloverResult",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "AzureComputeDcmx",
+                    "namespace": "FortKnox",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 2.5
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 18
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "IsSuccess",
+          "True",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureComputeDcmx",
+          "autoExecute": false,
+          "dimensionsToOverride": [],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Fortknox",
+            "Rollover"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Rollover",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "AzureDCMDb",
+          "endpoint": "https://azuredcm.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "cluster(\"azuredcm\").database(\"AzureDCMDb\").RhFortknoxEvents\n| where PreciseTimeStamp > ago(1d)\n| where Task contains \"Rollover\"\n| where Status == \"Failed\"\n| summarize make_set(Resource) by Cluster\n| project DeviceName = tostring(set_Resource), Cluster",
+          "title": "Check the Devices",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "AzureDCMDb",
+          "endpoint": "https://azuredcm.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "cluster(\"azuredcm\").database(\"AzureDCMDb\").RhFortknoxEvents\n| where PreciseTimeStamp > ago(1d)\n| where Task contains \"Rollover\"\n| where Status == \"Failed\"\n| summarize CountOfExceptions = dcount(Resource) by FailureInfo\n| sort by CountOfExceptions",
+          "title": "Check the Exceptions",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.GenericCustomLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "executionDelay": "00:00:00",
+          "link": "https://msazure.visualstudio.com/One/_wiki/wikis/One.wiki/52297/Manually-Rollover-Credential",
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Playbook",
+          "type": "Custom"
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "[FortKnox] Less than 155,000 devices are succeeding Device Credential Rollover, endangering compliance",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "FortKnox",
+        "id": "RolloverResult",
+        "tenant": "AzureComputeDcmx"
+      },
+      "explicitPreAgg": null,
+      "frequency": "04:00:00",
+      "healthyCountToMitigateIncident": 6,
+      "healthyDurationToMitigateIncident": "20:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "DeviceCredRollover_TotalDevices",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-07-21T22:19:00.7426919Z",
+      "lookbackDuration": "2.00:00:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "FortKnox_RolloversNotHappening",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": "<",
+          "bucketDurationInMinutes": 1440,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [
+                      [
+                        "IsSuccess",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "RolloverResult",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "AzureComputeDcmx",
+                    "namespace": "FortKnox",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 155000.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 20
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "AzureComputeDcmx",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

@@ -1,0 +1,319 @@
+{
+  "allSeriesThrottleLimit": 2400000,
+  "apPkiAcls": [
+    {
+      "acl": "APMF\\DCM.Autopilot.*",
+      "description": "DCM Machine Function AP ACL",
+      "role": "MetricPublisher"
+    }
+  ],
+  "autoPreAggWarmPathMappings": [],
+  "certificates": [
+    {
+      "description": "Hackthon",
+      "role": "MetricAndMonitorEditor",
+      "thumbprint": "650C83849E473A9947B9534AF8DC4B76B9918CC1"
+    },
+    {
+      "description": "MooncakeIdentity_2021",
+      "role": "MetricPublisher",
+      "thumbprint": "7CE769B7DE49AB457EFD1978BEDD73340590E841"
+    },
+    {
+      "description": "Kusto Geneva Pipeline for Mooncake",
+      "role": "MetricPublisher",
+      "thumbprint": "E55C2FB64F1D9D10FA9F25A714D39E6875C61803"
+    },
+    {
+      "description": "Kusto Geneva Pipeline for Fairfax",
+      "role": "MetricPublisher",
+      "thumbprint": "52C1B0D927E800CD5E1B7299F811290C10998FE3"
+    },
+    {
+      "description": "Kusto Geneva Pipeline for Blackforest",
+      "role": "MetricPublisher",
+      "thumbprint": "95D9BA1956C1EC906E1180FC2F87AF65DA91F693"
+    },
+    {
+      "description": "Test cloud DCMx identity",
+      "role": "MetricPublisher",
+      "thumbprint": "77EEC17FA0EFC4F50176234B84532B87C23787BE"
+    },
+    {
+      "description": "Public cloud DCMx identity",
+      "role": "MetricPublisher",
+      "thumbprint": "72B44EE9DABDF29B3575FC056B0DF766F100AA3B"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "C9F8FB715CD68F5BE6DF09499BB060091AC7B775"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "9B99C3103CBB3CFA87C06DB95D56A1C9F82D5B61"
+    },
+    {
+      "description": "DcmBox identity",
+      "role": "MetricPublisher",
+      "thumbprint": "C9F8FB715CD68F5BE6DF09499BB060091AC7B775"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "93F88284AEEB4413F44C934446FE0917872A08AE"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "0B24E63A862306B3764F7E8F377D55040C7D98F3"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "121EC370D5E4A32B3176F7F16BA6797F8B396BB8"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "1735D5372F555FFEE9CDC2AC55208A7C753A31D3"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "72E835A483A9BF663014D37D44BC5AB1B62DE151"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "2D82499B0BE68BE07C7D0C263A6F91FCDC8AD00A"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "534B4E2CBA55BBDA778A19F8ACFC6A19CA514EDD"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "9B99C3103CBB3CFA87C06DB95D56A1C9F82D5B61"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "9868BBA65BD334981FD95F4F31B4F5B458C3B4FC"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "3EB84EA31285BFAE426A2BC17447B445945D2015"
+    },
+    {
+      "description": "MooncakeIdentity_2019",
+      "role": "MetricPublisher",
+      "thumbprint": "84DDFA997FB7EF6DD5D780D641EFE443E5DCF89F"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "F5B53E8312FA8255973BF69D42AA6F09C953346E"
+    },
+    {
+      "description": "FairFax DCMx identity",
+      "role": "MetricPublisher",
+      "thumbprint": "291DAC946C8AA02398DF229A94DA7594A1CC4F6D"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "B1BBAD5D7881438B46E2D1E7B2C37EEBF52E42F5"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "3F06A42C92B67294E25D8436D0F2C8C5155F2D42"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "F5B53E8312FA8255973BF69D42AA6F09C953346E"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "28A3A0A556AC38148C778735C643CBD392CFE7CB"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "B3F68F7C9CD879D6509770914AC0C4D0F4B50507"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "87526F9A841436C0F89C9CD22DF3C4D5DD0FF1EF"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "EBEA31BAA0F5EDDB83E836788A73737541F90688"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "B943FD8BB332A6A8E60B5F4EA3550F8D869CB89F"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "D5C3DBFE62C80A53BA15A33D1FDBAC17B521679C"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "68FAE134BE08C461AD7FBD9836A2EF3C847361BA"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "444732C3AE1A86DEE570E3C03422F9657949D79F"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "28861DC9B267EC37975DA3BCDF21CD5B935C8359"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "E0B19ADDDCEACD11081694835992AFDB58704F53"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "A527084524A4C069EEF9256178914AE0CA60082E"
+    }
+  ],
+  "clientMetricCountPerMinuteLimit": 300000,
+  "cloudReplicationType": "LXBackfill",
+  "contributors": [
+    {
+      "alias": "tsso",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "alkurian",
+      "role": "ConfigurationEditor"
+    },
+    {
+      "alias": "kevtran",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "hangc",
+      "role": "Administrator"
+    },
+    {
+      "alias": "vladimia",
+      "role": "Administrator"
+    },
+    {
+      "alias": "sestappa",
+      "role": "Executor"
+    },
+    {
+      "alias": "arkris",
+      "role": "Administrator"
+    },
+    {
+      "alias": "yurido",
+      "role": "Administrator"
+    },
+    {
+      "alias": "vishmur",
+      "role": "Administrator"
+    },
+    {
+      "alias": "avgupta",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "adnankh",
+      "role": "Administrator"
+    },
+    {
+      "alias": "cbilson",
+      "role": "Administrator"
+    },
+    {
+      "alias": "gakuma",
+      "role": "Administrator"
+    },
+    {
+      "alias": "zhengmu",
+      "role": "Administrator"
+    },
+    {
+      "alias": "vik",
+      "role": "Administrator"
+    },
+    {
+      "alias": "akilm",
+      "role": "Administrator"
+    },
+    {
+      "alias": "Asady",
+      "role": "Administrator"
+    },
+    {
+      "alias": "soumyap",
+      "role": "Administrator"
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "displayName": "",
+  "dsmsAcls": [],
+  "endpointForAlternateQuery": null,
+  "endpointForClientForking": "",
+  "endpointsForClientForking": [],
+  "globalSamplesThrottlingLimitThousandsPerMinute": null,
+  "globalSamplesWithHistogramThrottlingLimitThousandsPerMinute": null,
+  "homeStampGslbHostname": "prod2.metrics.nsatc.net",
+  "isReadsBlocked": false,
+  "isThirdPartyAccount": false,
+  "isWritesBlocked": false,
+  "keyVaultAcls": [],
+  "lastUpdatedBy": "haiczhu",
+  "lastUpdateTime": "2020-07-24T23:56:24.4149734Z",
+  "maxMetricAge": "00:00:00",
+  "metricsStoreMigrationTimeUtcExceptPercentileDistinctCount": "2018-08-13T11:00:00-07:00",
+  "metricsStoreTimeSeriesThrottlingLimit": 6000000,
+  "mirrorMonitoringAccountList": [],
+  "nameToIdMapForSecurityGroups": {
+    "redmonD\\admetricsadm": "d9333179-bb27-4285-828d-e73376daa8a6",
+    "redmonD\\bm-dcmx": "dc9f51ea-ce8a-466c-a17c-5b2c50b9da7f",
+    "redmond\\dcmss": "781c9a4f-7499-4f42-97c7-237474eadfb3"
+  },
+  "newSeriesThrottleLimit": 2000000,
+  "operationToGlobalThresholdWithFallback": {
+    "entries": {},
+    "fallbackValue": 0
+  },
+  "operationToLocalThresholdWithFallback": {
+    "entries": {},
+    "fallbackValue": 0
+  },
+  "preaggregateMergingEnabled": false,
+  "replicationState": 0,
+  "securityGroups": {
+    "amE\\TM-AzureHardware_DCMPlatform": "MetricAndMonitorEditor",
+    "amE\\TM-AzureHardwareDatacenterManager": "Administrator",
+    "redmonD\\bm-dcmx": "DashboardEditor",
+    "redmond\\dcmss": "Administrator"
+  },
+  "tenant": "AzureComputeDcmx",
+  "useClientSideReplication": true,
+  "version": 85
+}

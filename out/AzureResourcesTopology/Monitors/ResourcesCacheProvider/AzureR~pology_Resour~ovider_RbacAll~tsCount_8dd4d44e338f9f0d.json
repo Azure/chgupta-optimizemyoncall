@@ -1,0 +1,314 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheProvider",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "RbacAllCachedCosmosRoleAssignmentsCount",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          "EUS2EUAP"
+        ],
+        [
+          "NodeNumber",
+          "*",
+          ""
+        ],
+        [
+          "NodeType",
+          "*",
+          ""
+        ],
+        [
+          "Tenant",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": true,
+          "dimensionsToOverride": [
+            "Environment",
+            "NodeNumber",
+            "NodeType",
+            "Tenant"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "12:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "RbacV3",
+            "Query flow"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": null,
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "orderby PreciseTimeStamp asc\r\nlet CachedCosmosRoleAssignmentsCount = Int32.Parse(Regex.Match(properties, \"RbacAllCachedCosmosRoleAssignmentsCount=\\[([^\\]]+)\\]\").Groups[1].Value)",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            },
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityFailed",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Environment": [
+              "eus",
+              "sea",
+              "weu"
+            ],
+            "Role": [
+              "nt3art"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-12&offsetUnit=Hours&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted,ActivityFailed&conditions=[[\"service\",\"contains\",\"Query\"],[\"activityName\",\"contains\",\"RoleAssignmentCacheDataAccess.RefreshTenantObjectIdsToRoleAssignments\"]]&scopingConditions=[[\"Role\",\"nt3art\"],[\"Environment\",\"eus,sea,weu\"]]&aggregatesVisible=true&aggregates=[\"Count%20by%20Environment\"]&chartsVisible=true&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"groupby%20TIMESTAMP.roundDown(\\\"PT1M\\\")%20as%20X\\nlet%20CachedCosmosRoleAssignmentsCount%20=%20Average(CachedCosmosRoleAssignmentsCount)\"],[\"New%20Layer92\",\"groupby%20TIMESTAMP.roundDown(\\\"PT1M\\\")%20as%20X\\nlet%20durationMilliseconds%20=%20Max(durationMilliseconds)\"]]&UTC=false&clientQuery=orderby%20PreciseTimeStamp%20asc\r%0Alet%20CachedCosmosRoleAssignmentsCount%20=%20Int32.Parse(Regex.Match(properties,%20\"RbacAllCachedCosmosRoleAssignmentsCount=\\[([^\\]]+)\\]\").Groups[1].Value)",
+          "lookback": "12:00:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "(service.ContainsI(\"Query\")) and (activityName.ContainsI(\"RoleAssignmentCacheDataAccess.RefreshTenantObjectIdsToRoleAssignments\"))",
+          "serverQuerySimpleConditions": [
+            {
+              "comparand": "service",
+              "operator": "contains",
+              "values": "Query"
+            },
+            {
+              "comparand": "activityName",
+              "operator": "contains",
+              "values": "RoleAssignmentCacheDataAccess.RefreshTenantObjectIdsToRoleAssignments"
+            }
+          ],
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "CachedCosmosRoleAssignmentsCount",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": true
+            },
+            {
+              "key": "aggregates",
+              "value": [
+                "Count by Environment"
+              ]
+            },
+            {
+              "key": "chartsVisible",
+              "value": true
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  "groupby TIMESTAMP.roundDown(\"PT1M\") as X\nlet CachedCosmosRoleAssignmentsCount = Average(CachedCosmosRoleAssignmentsCount)"
+                ],
+                [
+                  "New Layer92",
+                  "groupby TIMESTAMP.roundDown(\"PT1M\") as X\nlet durationMilliseconds = Max(durationMilliseconds)"
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor tracks number of role assignments notifications cached on query nodes. Every minute cache refreshes last updates from cosmos db where role assignment notifications are stored. This number fluctuates a little bit, so if the change is significant it has to be investigated.\nIf after the refresh there are too few RA notifications, we may drop some of the notifications or fail to save in cosmos db or write path slowed down significantly. Cosmos throttling rates are also worth to check.\nIf there are too many RA notifications, we should investigate if no new bugs were introduced (for ex. issues with casing).",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "RbacAllCachedCosmosRoleAssignmentsCount",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 15,
+      "healthyDurationToMitigateIncident": "01:10:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Abnormal cached CosmosRoleAssignments",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-07-02T18:56:23.0433975Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Scenario Health Per Environment",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "alertOnDivideByZeroError": "false",
+        "lookbackType": "01:00:00",
+        "metric": "Average"
+      },
+      "templateType": 4,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        },
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 0.4
+        }
+      ],
+      "version": 14
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

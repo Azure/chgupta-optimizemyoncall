@@ -1,0 +1,69 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheProvider",
+  "computedMetrics": [
+    {
+      "displayName": "TotalNotificationCount",
+      "expression": "success.count + error.count + dropped.count",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "TotalNotificationCount",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "dimensions": [],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "TotalNotifcationCount",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "dropped": {
+      "metricName": "DroppedNotificationCount",
+      "metricNamespace": "ResourcesCacheProvider",
+      "monitoringAccount": "AzureResourcesTopology"
+    },
+    "error": {
+      "metricName": "ErroredNotificationTime",
+      "metricNamespace": "ResourcesCacheProvider",
+      "monitoringAccount": "AzureResourcesTopology"
+    },
+    "success": {
+      "metricName": "SuccessfulNotificationTime",
+      "metricNamespace": "ResourcesCacheProvider",
+      "monitoringAccount": "AzureResourcesTopology"
+    }
+  },
+  "metrics": [],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": true,
+  "version": 1,
+  "views": [
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

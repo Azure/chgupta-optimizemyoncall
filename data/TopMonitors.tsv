@@ -1,0 +1,101 @@
+MonitorId	OwningTenantName	Severity	count_
+Microsoft.SPO.AD.SPDTrustProbe	SharePointOnlineCentral	2	7464
+BitLockerUnlockService V2 Running	SharePointOnlineCentral	2	6396
+TaxonomyDataServiceHandlerReliability	SharePoint IDC	2	5021
+dc867f5c-e3d3-4d47-9dc2-222b746a3f5f	SharePointOnlineCentral	2	4795
+OperationUnexpectedException	Azure Site Recovery	2	3342
+Prod Average Query Duration	SharePointOnlineCentral	2	3246
+ OWSTimer BOT Working Set Long Term	SharePointOnlineCentral	2	2551
+QASAS High Pri	Autosuggest on Falcon	2	2271
+ODL Running	SharePointOnlineCentral	2	2041
+ OWSTimer USR Working Set Long Term	SharePointOnlineCentral	2	2022
+REST 4xx spike	Exchange	3	67228
+TelemetryWorkflow	Azure Site Recovery	3	51782
+ServiceRestartsAlerts	Cloudnet	3	40031
+XnsGcFailurePercentageMonitor	Xstore	3	37234
+NmAgentRegistryFailure	Host Plugin Deployment	3	37063
+OperationUnexpectedException	Azure Site Recovery	3	34119
+SignIn-ConsecMins TooHigh-Role IS FES	Skype For Business	3	14384
+Job dequeue count anomaly	SharePoint SPEED	3	11019
+AzSecPak_SecurityScanMgr	Azure Batch	3	10785
+DevicesWithFaultyPSU	Cloudnet	3	8968
+Equivio_HBaseMonitor_ResourceManagerGetHBaseClusterFail_HDI Reso	EOP	3	8453
+Equivio_HDIMonitor_ResourceManagerGetHadoopClusterFail_HDI Resou	EOP	3	8007
+Equivio_HBaseMonitor_DeadNodesCount_HBase cluster has Dead Nodes	EOP	3	7453
+MetricAlert	Azure Firewall	3	7202
+XNS GC Live Blob Not Found	Xstore	3	6904
+PossibleCodeBugs	Azure Site Recovery	3	6701
+Equivio_HDIMonitor_GetClusterMetricsFail_Get HDI Cluster Metrics	EOP	3	6634
+MR_StorageBootstrapException	Xstore	3	5608
+FullDiffBackupSLA	Azure SQL DB	3	5259
+MetricsDropped	Xstore	3	4898
+TooManySafetyCheckFailures	Xstore	3	4855
+CPAggMonitor	Cloudnet	3	4832
+AzSMFshNotMakingProgressMetric	Compute Manager	3	4798
+App State Monitor BE	Power BI	3	4503
+UpgradeException_XCFGFST	Windows Azure Operations Center	3	4417
+MonitorForUpdateCreate-TIP	Demo Service - Automation	3	4306
+MonitorForUpdateCreate	Demo Service - Automation	3	4301
+HighProcessorTimePercentByInstanceWebRolePublic	Azure Monitor Essentials	3	4234
+Data Loss Prevention (DLP)_FileSyncOtherErrorEventMonitor_LocalA	EOP	3	4211
+Advanced Threat Protection_SafeLinks.ConflictedSafeLinksPolicyMo	EOP	3	4013
+Public Folders BLR_PublicFolderSyncFailureMonitor_LocalActiveMon	Outlook	3	4004
+Equivio_HDIMonitor_ResourceManagerGetStorageAccountsFail_HDI Res	EOP	3	3909
+SR_FB_Prod_OperationHealth_CSOM_Reliability_1	SharePoint SNAP	3	3882
+S500 Tenant Monitor	Skype Teams	3	3835
+Monitoring - LAM, XAM, Passive_MaintenanceFailureMonitor.Monitor	Exchange	3	3827
+Small Business_CalculatedValueTimeBasedAssistant_ExMonitor_Local	Exchange	3	3808
+Substrate Search - Suggestions_AlertBox_O365 Passive MDM	Exchange	3	3777
+OsDriveNkpRequestFailed	Azure Hardware Datacenter Manager	3	3763
+InterfaceDown_LowSeverity	Cloudnet	3	3740
+IsVFPPresent	Cloudnet	3	3651
+CLP V2 Workflow Success Rates	Office Client	3	3625
+SR_FB_Prod_OperationHealth_SPFileSync_Reliability_1	SharePoint SNAP	3	3610
+F5_High_Link_Utilization_Sev2	Cloudnet	3	3497
+UpgradeException	Windows Azure Operations Center	3	3450
+ErrorLoadVXNS	Xstore	3	3439
+Pool Health	Azure Managed HSM	3	3409
+Equivio_TaskServiceWebRole_KeepAliveRoleDead_Can't connect Task 	EOP	3	3393
+DCOT-HeartbeatLost TooLow-Instance IS lsass	Skype For Business	3	3367
+Advanced Threat Protection_AtpCpSubmitReputationFailureMonitor_L	EOP	3	3313
+dc867f5c-e3d3-4d47-9dc2-222b746a3f5f	SharePointOnlineCentral	3	3304
+FortKnoxPerfDegraded	Azure Hardware Datacenter Manager	3	3302
+InterfaceDown_HighSeverity	Cloudnet	3	3203
+ExceptionRateCounter	Microsoft Bing for Commerce	3	3181
+HANonUrgent_ClusterEndpointMonitor_LocalActiveMonitoring	Exchange	3	3163
+NmAgentRegistryFailure	Cloudnet	3	3001
+OWA Framework_OWSAvailability_O365 Passive MDM	Outlook	3	2993
+PutVMAgentLog (Cluster)	AzureRT	3	2959
+Infrastructure_DataBaseAccessibilityMonitor_LocalActiveMonitorin	EOP	3	2928
+HANonUrgent_FolderQuotaUsageMonitor_LocalActiveMonitoring	Exchange	3	2913
+Microsoft.LS.2015.Monitoring.UnitMonitor.TimerResetEvent.CloudPs	Skype For Business	3	2909
+SR_FB_Prod_OperationHealth_SPFileSync_Reliability_1	SharePointOnlineCentral	3	2876
+RDMA_CRC_ERRORS	Xstore	3	2867
+SR_FB_Prod_OperationHealth_REST_Reliability_1	SharePoint SNAP	3	2755
+UcsFlowControlMonitor	Azure SQL DB	3	2642
+ScheduledBackupUnhealthy	Backup (MAB)	3	2623
+Arista_SyslogTemp	Cloudnet	3	2596
+HighProcessorTimePercentByInstanceSosRolePublic	Azure Monitor Essentials	3	2508
+CPU consumption is exceeded limits	Cloudnet	3	2504
+Monitoring - LAM, XAM, Passive_PassiveMonitoringGenevaMonitor_Lo	Exchange	3	2501
+Advanced Threat Protection_AtpCustomPipelineMsgProcessingFailure	EOP	3	2486
+Infrastructure_DatabaseOffline_Mtrt_Responder_LocalActiveMonitor	EOP	3	2431
+NextReachedPreallocatedTimestamp	Xstore	3	2418
+MRM/Archive_NumberOfFailuresPerHourMonitor_LocalActiveMonitoring	Exchange	3	2416
+AzSecffxstgausgsynaltusgovmns	Azure Security Monitoring (ASM SLAM)	3	2346
+Directory_MapiAddressBookAppPoolMonitor_LocalActiveMonitoring	Exchange	3	2343
+Infrastructure_DatabaseOffline_DataInsights_Responder_LocalActiv	EOP	3	2340
+AzSecffxstgausgsynaltusgovmns	CE Security Service Operations Center	3	2328
+Smoke Test Failure	Xstore	3	2293
+d9d78d0b43a6405ea1861d6e46ba4503	Payment Services - ICM Tenant	3	2268
+High or low ODS Processing duration	Azure Workload Monitor	3	2267
+Directory_ReplicationKccInsufficientInfoMonitor_LocalActiveMonit	Exchange	3	2236
+CPUExceedsThreshold_5min	Conversation	3	2224
+Directory and Database Infrastructure_FfoProvisioning.EOPInstant	EOP	3	2191
+[PROD] Time between Evaluations	Dynamics 365 - Marketing	3	2167
+OWAPassiveMonitorTeam_OWSAvailability_O365 Passive MDM	Outlook	3	2161
+Intelligence and Reporting_BJM.DataPump.Monitor_LocalActiveMonit	EOP	3	2145
+Intelligence and Reporting_Webstore.Excessive.MaxRetry.Mtrt.Moni	EOP	3	2127
+SR_FB_Prod_ComponentHealth_Vroom20_Reliability_1	SharePointOnlineCentral	3	2122
+En Capacity Alert	Xstore	3	2024
+uber_ha	Cloudyn	3	2020
