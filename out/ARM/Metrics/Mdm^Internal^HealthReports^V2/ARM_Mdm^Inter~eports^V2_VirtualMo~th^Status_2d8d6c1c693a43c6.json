@@ -1,0 +1,83 @@
+{
+  "bv": 10,
+  "component": "Mdm/Internal/HealthReports/V2",
+  "computedMetrics": [
+    {
+      "displayName": "Status",
+      "expression": "Unhealthy.Sum === 0 ? (Degraded.Sum === 0 ? (Healthy.Sum === 0 ? null : 1) : 2) : 0",
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Status",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "VirtualMonitorHealth/Status",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "Degraded": {
+      "metricName": "VirtualMonitorHealth/Degraded",
+      "metricNamespace": "Mdm/Internal/HealthReports/V2",
+      "monitoringAccount": "ARM"
+    },
+    "Healthy": {
+      "metricName": "VirtualMonitorHealth/Healthy",
+      "metricNamespace": "Mdm/Internal/HealthReports/V2",
+      "monitoringAccount": "ARM"
+    },
+    "Unhealthy": {
+      "metricName": "VirtualMonitorHealth/Unhealthy",
+      "metricNamespace": "Mdm/Internal/HealthReports/V2",
+      "monitoringAccount": "ARM"
+    }
+  },
+  "metrics": null,
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": true,
+  "version": 0,
+  "views": [
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": false
+    },
+    {
+      "dimensions": [
+        "ResourceName"
+      ],
+      "displayName": "ResourceName",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

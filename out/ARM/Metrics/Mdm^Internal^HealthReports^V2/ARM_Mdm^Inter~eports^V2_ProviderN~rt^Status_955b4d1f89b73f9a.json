@@ -1,0 +1,89 @@
+{
+  "bv": 10,
+  "component": "Mdm/Internal/HealthReports/V2",
+  "computedMetrics": [
+    {
+      "displayName": "Status",
+      "expression": "unhealthy.Sum === 0 ? (degraded.Sum === 0 ? (healthy.Sum === 0 ? null : 1) : 2) : 0",
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Status",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "ProviderNamespaceWatchdogReport/Status",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "degraded": {
+      "metricName": "ProviderNamespaceWatchdogReport/Degraded",
+      "metricNamespace": "Mdm/Internal/HealthReports/V2",
+      "monitoringAccount": "ARM"
+    },
+    "healthy": {
+      "metricName": "ProviderNamespaceWatchdogReport/Healthy",
+      "metricNamespace": "Mdm/Internal/HealthReports/V2",
+      "monitoringAccount": "ARM"
+    },
+    "unhealthy": {
+      "metricName": "ProviderNamespaceWatchdogReport/Unhealthy",
+      "metricNamespace": "Mdm/Internal/HealthReports/V2",
+      "monitoringAccount": "ARM"
+    },
+    "unknown": {
+      "metricName": "ProviderNamespaceWatchdogReport/Unknown",
+      "metricNamespace": "Mdm/Internal/HealthReports/V2",
+      "monitoringAccount": "ARM"
+    }
+  },
+  "metrics": null,
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": true,
+  "version": 0,
+  "views": [
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ResourceName",
+        "WatchdogName"
+      ],
+      "displayName": "ResourceName/WatchdogName",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

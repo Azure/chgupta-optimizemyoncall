@@ -1,0 +1,83 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": [
+    {
+      "displayName": "ServerFailurePercentage",
+      "expression": "(100.0 * (Failure.Count || 0)) / (Total.Count || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "ServerFailurePercentage",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": null,
+  "dimensions": [],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "StorageFailurePercentage",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "Failure": {
+      "metricName": "StorageServerFailureLatency",
+      "metricNamespace": "Requests",
+      "monitoringAccount": "ARM"
+    },
+    "Total": {
+      "metricName": "StorageRequestsLatency",
+      "metricNamespace": "Requests",
+      "monitoringAccount": "ARM"
+    }
+  },
+  "metrics": [],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": [
+    {
+      "dimensions": [
+        "AccountName",
+        "OperationName",
+        "ResourceType",
+        "RoleLocation",
+        "__Role",
+        "__Tenant"
+      ],
+      "displayName": "Location.Role.Tenant.Account.Type.Operation",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

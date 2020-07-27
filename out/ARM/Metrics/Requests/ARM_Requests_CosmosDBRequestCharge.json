@@ -1,0 +1,186 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": [
+    {
+      "displayName": "Total",
+      "expression": "CosmosDBRequestCharge.Total",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "Total",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "dimensions": [],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "CosmosDBRequestCharge",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "CosmosDBRequestCharge": {
+      "metricName": "RequestCharge",
+      "metricNamespace": "Customer",
+      "monitoringAccount": "DocumentDBPartner"
+    }
+  },
+  "metrics": [],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": [
+    {
+      "dimensions": [
+        "Role"
+      ],
+      "displayName": "Role",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "GlobalDatabaseAccountName"
+      ],
+      "displayName": "GlobalAccount",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "CollectionRid",
+        "SubscriptionId"
+      ],
+      "displayName": "SubscriptionIdCollectionRid",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "OperationType",
+        "SubscriptionId"
+      ],
+      "displayName": "SubscriptionIdOperation",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "CollectionRid",
+        "DatabaseAccount",
+        "DatabaseRid",
+        "ResourceType",
+        "SubscriptionId"
+      ],
+      "displayName": "PortalMetric",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "DatabaseAccount"
+      ],
+      "displayName": "Account",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "CollectionName",
+        "DatabaseName",
+        "GlobalDatabaseAccountName",
+        "Region",
+        "Role",
+        "StatusCode"
+      ],
+      "displayName": "AzureMonitoringMetadata",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "CollectionName",
+        "DatabaseName",
+        "GlobalDatabaseAccountName",
+        "Role",
+        "StatusCode"
+      ],
+      "displayName": "By-CollectionName-DatabaseName-GlobalDatabaseAccountName-Role-StatusCode",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

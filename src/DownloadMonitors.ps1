@@ -14,7 +14,7 @@ foreach($ac in ("AzureComputeManager","AzureComputeDcmx")){ #, "AzureResourcesTo
 
 	}
 
-	$ac = "AzureResourcesTopology"
+	$ac = "ARM"
 # Process the monitors and build Powershell objects
 $monitors = @()
 $records = @()

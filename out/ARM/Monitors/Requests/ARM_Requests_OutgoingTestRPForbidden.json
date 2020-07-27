@@ -1,0 +1,613 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "OutgoingTestRPForbidden",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "GET/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/*",
+          "",
+          "w"
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          "csmCentralUSEUAPRPF,csmEastUS2EUAPRPF"
+        ],
+        [
+          "__Role",
+          "Frontdoor.Web.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e,b3c2ce463d2e444b956ec860360029d4,2dabd70b19bf46729179a91f8a9bbe0a"
+        ],
+        [
+          "RoutingName",
+          "*",
+          "MICROSOFT.BIZTALKSERVICES,MICROSOFT.STORAGESYNCDEV"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:00:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "Errors\n| where (TIMESTAMP >= datetime({monitor.DataStartTime}) and TIMESTAMP < datetime({monitor.DataEndTime})) \n| where operationName == \"{monitor.Dimension.OperationName}\" and Deployment == \"{monitor.Dimension.__Tenant}\" and Role == \"Frontdoor.Web.razzle\" and SourceNamespace == \"{monitor.Dimension.SourceNamespace}\"\n| summarize count() by bin(TIMESTAMP, 1h), subscriptionId\n| take 10\n",
+          "title": "Sample list of (up to 10) Subscriptions Impacted from Errors Table",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({monitor.DataStartTime}) and TIMESTAMP < datetime({monitor.DataEndTime}))\n| where TaskName == \"HttpOutgoingRequestEndWithClientFailure\"\n| where httpStatusCode == 403\n| where operationName == \"{monitor.Dimension.OperationName}\" and SourceNamespace == \"{monitor.Dimension.SourceNamespace}\"\n| summarize count() by subscriptionId\n| order by count_ desc\n| take 10\n| join  cluster('ARMProd').database('CosmosToKusto').Subscriptions on $left.subscriptionId == $right.SubscriptionId \n| project subscriptionId, count_, State, SnapshotDate\n| summarize arg_max(SnapshotDate, *) by subscriptionId\n| sort by count_ desc ",
+          "title": "Check for disabled subscriptions",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "Wheneven this happens, it may mean service client cert need to be whitelisted by the RP, go to RP manifest to get the contact, ask WALS to involve them. Impact: all calls to RP will fail.  In some cases this may simply be caused by one subscription.  If that is the case check if the subscription is disabled - query is provided in the links here.",
+      "customTitle": "Frontdoor Alert: High 403 Forbidden failure rate for outgoing http requests to RP for operation {monitor.Dimension.OperationName} from {monitor.Dimension.RoleLocation}",
+      "description": "maphad: temporarily exclude west us due to ongoing issue with RP 141181432\nIan: Add extra debugging info into the message, and cleanup the kusto and jarvis links that are populated in the ticket.  Also add sample list of impacted subsriptions\nIan: (2020-04-29) Added kusto query to get information about subscription state\nTian: (2020-05-04) removed west us from exclusion list",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingTestRPForbidden",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "00:20:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_RPForbidden_30M_Sev2",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T13:44:38.1768888Z",
+      "lookbackDuration": "00:10:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "Frontdoor-OutgoingRequestsToRP-Forbidden30M:{monitor.Dimension.__Role}"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "* link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests | where (TIMESTAMP >= datetime({monitor.DataStartTime}) and TIMESTAMP < datetime({monitor.DataEndTime}))  | where operationName == \"{monitor.Dimension.OperationName}\" and Deployment == \"{monitor.Dimension.__Tenant}\" and SourceNamespace == \"{monitor.Dimension.SourceNamespace}\"| Kusto Errors from HttpOutgoingRequests} {newline} * link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests | where (TIMESTAMP >= datetime({monitor.DataStartTime}) and TIMESTAMP < datetime({monitor.DataEndTime})) | where TaskName == \"HttpOutgoingRequestEndWithClientFailure\" | where httpStatusCode == 403 | where operationName == \"{monitor.Dimension.OperationName}\" and SourceNamespace == \"{monitor.Dimension.SourceNamespace}\" | summarize count() by subscriptionId | order by count_ desc | take 10 | join  cluster('ARMProd').database('CosmosToKusto').Subscriptions on $left.subscriptionId == $right.SubscriptionId  | project subscriptionId, count_, State, SnapshotDate | summarize arg_max(SnapshotDate, *) by subscriptionId | sort by count_ desc | Check subscriptions state for disabled}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"RoleInstance\",\"{monitor.Dimension.__RoleInstance}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20| Jarvis Error Search}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 500.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "OutgoingTestRPForbidden",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.8
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 39
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "HttpMethod",
+          "*",
+          ""
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "GET/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/PROVIDERS.TEST/STATEFULRESOURCES/",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Web.razzle,Frontdoor.Admin.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "__RoleInstance",
+          "*",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "2dabd70b19bf46729179a91f8a9bbe0a,b3c2ce463d2e444b956ec860360029d4,659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": null,
+      "customTitle": "Frontdoor Alert: High 403 Forbidden failure rate for outgoing http requests to Test RP from {monitor.Dimension.__RoleInstance} in {monitor.Dimension.RoleLocation}",
+      "description": "Yushus: excluded RX tenants",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingTestRPForbidden",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "00:20:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_TestRPForbidden_30M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T13:45:10.0365212Z",
+      "lookbackDuration": "00:10:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "Frontdoor-OutgoingRequestsToTestRP-Forbidden30M:{monitor.Dimension.__Role}"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+httpMethod+%3d%3d+%22{monitor.Dimension.HttpMethod}%22+and+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+RoleInstance+%3d%3d+%22{monitor.Dimension.__RoleInstance}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"RoleInstance\",\"{monitor.Dimension.__RoleInstance}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 10.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "OutgoingTestRPForbidden",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.5
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 15
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

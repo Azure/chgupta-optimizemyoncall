@@ -1,0 +1,2123 @@
+{
+  "bv": 10,
+  "component": "SysPerfCounters",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "\\Processor(*)\\% Processor Time",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "Performance",
+      "conditions": [
+        [
+          "CounterInstance",
+          "_total",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          "USNat East,USNat West"
+        ],
+        [
+          "__Role",
+          "*",
+          "StorageOperations.Replicator.Platform.razzle"
+        ],
+        [
+          "__Tenant",
+          "*",
+          "659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e,f37da967c81d470f9c625a073247f7d1,87b2c93cb8a546debfc66aa6b5204c40,555ada1b8694405d82dcc4561f408da1,b3c2ce463d2e444b956ec860360029d4,2dabd70b19bf46729179a91f8a9bbe0a,7a5f064175054a0fb7d82175466eabcc,540536f31d0b4c18b037a5575db76485,e8da485443cb413cbaa539452eff9480"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "When you see this alert: 1) scale up from ACIS: Azure Resource Manager \\ Service Management \\ Update ARM Role Instance Count 2) Investigate what caused the high CPU, if it is worker, find out which job took the CPU (query JobHistory and group by call back)",
+      "customTitle": "[{Monitor.Dimension.__Role}] high CPU detected at [{Monitor.Dimension.RoleLocation}]",
+      "dashboardName": "CPU",
+      "dashboardNamespace": "PerfCounters",
+      "description": "Huiqing: exclude Replicator and create another one for Replicator\nYushus: excluded RX tenants",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "SysPerfCounters",
+        "id": "\\Processor(*)\\% Processor Time",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "00:45:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Role_High_CPU",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T12:32:49.6581204Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 1,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 75.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 15.0
+        }
+      ],
+      "version": 56
+    },
+    {
+      "category": "Performance",
+      "conditions": [
+        [
+          "CounterInstance",
+          "_total",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          "USNat East,USNat West,UK South 2"
+        ],
+        [
+          "__Role",
+          "StorageOperations.Replicator.Platform.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e,f37da967c81d470f9c625a073247f7d1,87b2c93cb8a546debfc66aa6b5204c40,555ada1b8694405d82dcc4561f408da1,b3c2ce463d2e444b956ec860360029d4,2dabd70b19bf46729179a91f8a9bbe0a,7a5f064175054a0fb7d82175466eabcc,540536f31d0b4c18b037a5575db76485,e8da485443cb413cbaa539452eff9480"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "CounterInstance",
+            "RoleLocation",
+            "__Role",
+            "__Tenant"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Replication"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Replication",
+          "type": "Dashboard"
+        }
+      ],
+      "customMessage": "When you see this alert: {newline} 1) scale up from ACIS: Azure Resource Manager \\ Service Management \\ Update ARM Role Instance Count {newline} 2) Investigate what caused the high CPU, if it is worker, find out which job took the CPU (query JobHistory and group by call back)",
+      "customTitle": "[{Monitor.Dimension.__Role}] high CPU detected at [{Monitor.Dimension.RoleLocation}]",
+      "dashboardName": "CPU",
+      "dashboardNamespace": "PerfCounters",
+      "description": "10/01/19 22:30 UTC (dabooher) - Excluding UK South 2 for ongoing issues connecting to storage accounts",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "SysPerfCounters",
+        "id": "\\Processor(*)\\% Processor Time",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 13,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Role_High_CPU_SOS",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T12:33:01.9041084Z",
+      "lookbackDuration": "00:30:00",
+      "metadata": [],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 1,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 75.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 15.0
+        }
+      ],
+      "version": 65
+    },
+    {
+      "category": "Performance",
+      "conditions": [
+        [
+          "CounterInstance",
+          "_total",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          "USSec East,USSec West,USNat East,USNat West,UK North,UK South 2,Brazil Southeast"
+        ],
+        [
+          "__Role",
+          "StorageOperations.Operator.razzle,StorageOperations.Replicator.Partner.razzle,StorageOperations.Replicator.Platform.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "87b2c93cb8a546debfc66aa6b5204c40,555ada1b8694405d82dcc4561f408da1,e8da485443cb413cbaa539452eff9480,540536f31d0b4c18b037a5575db76485,63fb0da927514a098106f44e3b185ff2"
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "Errors\n| where PreciseTimeStamp between (datetime({monitor.DataStartTime})..datetime({monitor.DataEndTime}))\n| where Role == \"{monitor.Dimension.__Role}\" and SourceNamespace == \"{monitor.Dimension.SourceNamespace}\"",
+          "title": "Errors",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "AzureCM",
+          "endpoint": " https://azurecm.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "TMMgmtTenantUpdatedEtwTable \n| where TIMESTAMP between (datetime({monitor.DataStartTime})..datetime({monitor.DataEndTime}))\n| where TenantName == \"<Insert Deployment from ARMProd Query>\"",
+          "title": "Fabric Health",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "This means we are not getting the MDM events from the instance and therefore can't monitor the service.  This could be caused by a few issues: 1. DR drill hasn't taken the region out 2. Issues with the instance.  Look at above Kusto Errors for that time/role/instance to see if there is an issue with starting the service. 3. Look at above Fabric Kusto query for this particular deployment to see if there are any issues with the cluster. 4. It could also be an issue with the MA agent not being able to connect - check MDM certificates, any failure in MDS config, or MDM outage.",
+      "customTitle": "[{Monitor.Dimension.__Role}] No MDM events detected at [{Monitor.Dimension.RoleLocation}]",
+      "dashboardName": "CPU",
+      "dashboardNamespace": "PerfCounters",
+      "description": "Vivek: Excluded BrazilSE and remove Norway regions from exclusion ist(6/07/2020)\nTian: Excluded UK North and UK South 2 since they are being decommissioned\nVivek: Excluded Norway West and Norway East and remove Germany and Switzerland regions from exclusion list (9/12/2019)\nVivek: excluded GermanyNorth and GermanyWestCentral role locations for New region buildout(7/22/2019)\nVivek: excluded SwitzerlandNorth and SwitzerlandWest role locations for New region buildout (07/14/2019)\nYushus: excluded RX tenants\nSanjaiga: Excluded old tenant (63fb0da927514a098106f44e3b185ff2) due to redeployment (delete) of SOSO cloud service in Japan West . We don't do this. Remove this later (after couple weeks). Incident 151968800  (10/09/2019)",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "SysPerfCounters",
+        "id": "\\Processor(*)\\% Processor Time",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 15,
+      "healthyDurationToMitigateIncident": "03:30:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Role_No_MDM_Events_SOS",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "vichauha",
+      "lastUpdateTime": "2020-06-08T00:21:32.9594949Z",
+      "lookbackDuration": "00:30:00",
+      "metadata": [],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "metric": "Count"
+      },
+      "templateType": 2,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 10.0
+        }
+      ],
+      "version": 54
+    },
+    {
+      "actionConfigurations": [
+        {
+          "actionDetails": {
+            "actionAuthSignature": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "ActionAuthSignature",
+              "type": "string",
+              "value": "EQKyTzaE+FSbNq6IJvN7IItOtf2SZG+y4sfdjHsYHZGjo1wRcfYYvu7DnQrjLqa366SW7RbkO/wyYlNCWA6t/pC/LTtzpIW3OKYzbZlpdgs75NW84rFKfkwYEi+JlLtVmOummhcH1ldXN3YDEXcjJNaySqtl/e9w5D8EdqBABdCtcRJuvE5WqgRns3kklGofd2mWlZ/Jn++OVmpZK19gq9aslCELTyesbWz36AVXIcU2NydHpCyUiLXCgjhHymNCgHly8GJWmroLMQV2PDJ6iER3QMNmZ6BYe+/UhAUCPuhS6V/yslpXbCSTJIxqIKnIBdnoByQsysqwnFJnvW1hSg=="
+            },
+            "endpoint": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Endpoint",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "environment": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Environment",
+              "type": "string",
+              "value": "Public"
+            },
+            "extension": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Extension",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "operation": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Operation",
+              "type": "string",
+              "value": "UpdateServiceInstancesWithCountingType"
+            },
+            "signatureExpiryUtc": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "SignatureExpiryUtc",
+              "type": "string",
+              "value": "11/09/2019 00:13:08"
+            }
+          },
+          "actionType": 2,
+          "autoExecute": true,
+          "completionTimeout": 600,
+          "description": null,
+          "executionDelay": "00:00:00",
+          "executionKind": 2,
+          "externalRecoveryLink": "",
+          "externalWorkflowName": "Increase instnace counts percentage",
+          "name": "Increase instnace counts percentage",
+          "parameters": [
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "armservice",
+              "type": "string",
+              "value": "Frontdoor"
+            },
+            {
+              "description": null,
+              "metadataProperty": "Monitor.Dimension.RoleLocation",
+              "name": "locationname",
+              "type": "string",
+              "value": null
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "slotname",
+              "type": "string",
+              "value": "Production"
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "instancecountingtype",
+              "type": "string",
+              "value": "DeltaPercentage"
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "serviceinstancecount",
+              "type": "string",
+              "value": "[{ \"Role\": \"Frontdoor.Web.razzle\", \"InstanceCount\": 10 }]"
+            }
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "retryCount": 0,
+          "stablizationTimeout": 0,
+          "title": "Increase instnace counts percentage",
+          "type": "Action"
+        }
+      ],
+      "category": "Performance",
+      "conditions": [
+        [
+          "CounterInstance",
+          "_Total",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Web.razzle",
+          ""
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "10% more instances should be added automatically.",
+      "customTitle": "[{Monitor.Dimension.__Role}] high CPU detected at [{Monitor.Dimension.RoleLocation}] (10% more instances should be added automatically if quota allows)",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This is the alert for high CPU on admin role. This automatically tries to increase the number of instances by 10%.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "SysPerfCounters",
+        "id": "\\Processor(*)\\% Processor Time",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:10:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_Web_High_CPU",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T12:31:58.3585433Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "recoveryRules": [
+        {
+          "actions": [
+            {
+              "actionDetails": {
+                "actionAuthSignature": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "ActionAuthSignature",
+                  "type": "string",
+                  "value": "EQKyTzaE+FSbNq6IJvN7IItOtf2SZG+y4sfdjHsYHZGjo1wRcfYYvu7DnQrjLqa366SW7RbkO/wyYlNCWA6t/pC/LTtzpIW3OKYzbZlpdgs75NW84rFKfkwYEi+JlLtVmOummhcH1ldXN3YDEXcjJNaySqtl/e9w5D8EdqBABdCtcRJuvE5WqgRns3kklGofd2mWlZ/Jn++OVmpZK19gq9aslCELTyesbWz36AVXIcU2NydHpCyUiLXCgjhHymNCgHly8GJWmroLMQV2PDJ6iER3QMNmZ6BYe+/UhAUCPuhS6V/yslpXbCSTJIxqIKnIBdnoByQsysqwnFJnvW1hSg=="
+                },
+                "endpoint": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Endpoint",
+                  "type": "string",
+                  "value": "Azure Resource Manager"
+                },
+                "environment": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Environment",
+                  "type": "string",
+                  "value": "Public"
+                },
+                "extension": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Extension",
+                  "type": "string",
+                  "value": "Azure Resource Manager"
+                },
+                "operation": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Operation",
+                  "type": "string",
+                  "value": "UpdateServiceInstancesWithCountingType"
+                },
+                "signatureExpiryUtc": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "SignatureExpiryUtc",
+                  "type": "string",
+                  "value": "11/09/2019 00:13:08"
+                }
+              },
+              "actionType": 2,
+              "autoExecute": true,
+              "completionTimeout": 600,
+              "description": null,
+              "executionDelay": "00:00:00",
+              "executionKind": 2,
+              "externalRecoveryLink": "",
+              "externalWorkflowName": "Increase instnace counts percentage",
+              "name": "Increase instnace counts percentage",
+              "parameters": [
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "armservice",
+                  "type": "string",
+                  "value": "Frontdoor"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": "Monitor.Dimension.RoleLocation",
+                  "name": "locationname",
+                  "type": "string",
+                  "value": null
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "slotname",
+                  "type": "string",
+                  "value": "Production"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "instancecountingtype",
+                  "type": "string",
+                  "value": "DeltaPercentage"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "serviceinstancecount",
+                  "type": "string",
+                  "value": "[{ \"Role\": \"Frontdoor.Web.razzle\", \"InstanceCount\": 10 }]"
+                }
+              ],
+              "preIncidentQueryTimeout": "00:00:50",
+              "retryCount": 0,
+              "stablizationTimeout": 0,
+              "title": "Increase instnace counts percentage",
+              "type": "Action"
+            }
+          ],
+          "condition": "",
+          "description": "",
+          "healthyAction": null,
+          "mode": 2,
+          "name": "Default Remediation Rule",
+          "priority": 0,
+          "shouldNotLockResource": false,
+          "successSeverity": 2
+        }
+      ],
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 5,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 60.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 3.0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "actionConfigurations": [
+        {
+          "actionDetails": {
+            "actionAuthSignature": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "ActionAuthSignature",
+              "type": "string",
+              "value": "hV5g+IyQOoiGeAz73iC75PHx0Y7kVav7GqCC0k3Jk9nJoYoaOt8w68/jNMSXe7DUdpKMeSJlMBSOQR03YXRsTL8RnzQdoHDwyy6wGOloW8aQ1kV0QIc0h/+k0cko87DD/wjVJAk6H2gaV/a3CpcfrEtnuP9qC/5q1oG02CED6R4UR6p763Cror0PNpAWS/A7fOqcmQ3WeFqMv9+pDNGRJkTcrfqBD2mSVki5g18mIObVCYZYgeqsYoJOEdTHmLSXsJO8rEwLWBestnTKd5W1m2juL4yxb2SEP0eQvIfEtE7tmVjl7gl8Mtbi+FWDAnHHSCw9tmQ2GV1/9Ipx7hXyqA=="
+            },
+            "endpoint": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Endpoint",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "environment": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Environment",
+              "type": "string",
+              "value": "Public"
+            },
+            "extension": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Extension",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "operation": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Operation",
+              "type": "string",
+              "value": "UpdateServiceInstancesWithCountingType"
+            },
+            "signatureExpiryUtc": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "SignatureExpiryUtc",
+              "type": "string",
+              "value": "11/08/2019 23:45:58"
+            }
+          },
+          "actionType": 2,
+          "autoExecute": true,
+          "completionTimeout": 600,
+          "description": null,
+          "executionDelay": "00:00:00",
+          "executionKind": 2,
+          "externalRecoveryLink": "",
+          "externalWorkflowName": "Increase instance counts",
+          "name": "Increase instance counts",
+          "parameters": [
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "armservice",
+              "type": "string",
+              "value": "Frontdoor"
+            },
+            {
+              "description": null,
+              "metadataProperty": "Monitor.Dimension.RoleLocation",
+              "name": "locationname",
+              "type": "string",
+              "value": null
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "slotname",
+              "type": "string",
+              "value": "Production"
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "instancecountingtype",
+              "type": "string",
+              "value": "DeltaNumber"
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "serviceinstancecount",
+              "type": "string",
+              "value": "[{ \"Role\": \"Frontdoor.Admin.razzle\", \"InstanceCount\": 2}]"
+            }
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "retryCount": 0,
+          "stablizationTimeout": 0,
+          "title": "Increase instance counts",
+          "type": "Action"
+        }
+      ],
+      "category": "Performance",
+      "conditions": [
+        [
+          "CounterInstance",
+          "_Total",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Admin.razzle",
+          ""
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "2 more instances should be added automatically.",
+      "customTitle": "[{Monitor.Dimension.__Role}] high CPU detected at [{Monitor.Dimension.RoleLocation}] (2 more instances should be added automatically if quota allows)",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This is the alert for high CPU on admin role. This automatically tries to increase the number of instances by 2.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "SysPerfCounters",
+        "id": "\\Processor(*)\\% Processor Time",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:10:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_Admin_High_CPU",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T12:31:48.3882974Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "recoveryRules": [
+        {
+          "actions": [
+            {
+              "actionDetails": {
+                "actionAuthSignature": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "ActionAuthSignature",
+                  "type": "string",
+                  "value": "hV5g+IyQOoiGeAz73iC75PHx0Y7kVav7GqCC0k3Jk9nJoYoaOt8w68/jNMSXe7DUdpKMeSJlMBSOQR03YXRsTL8RnzQdoHDwyy6wGOloW8aQ1kV0QIc0h/+k0cko87DD/wjVJAk6H2gaV/a3CpcfrEtnuP9qC/5q1oG02CED6R4UR6p763Cror0PNpAWS/A7fOqcmQ3WeFqMv9+pDNGRJkTcrfqBD2mSVki5g18mIObVCYZYgeqsYoJOEdTHmLSXsJO8rEwLWBestnTKd5W1m2juL4yxb2SEP0eQvIfEtE7tmVjl7gl8Mtbi+FWDAnHHSCw9tmQ2GV1/9Ipx7hXyqA=="
+                },
+                "endpoint": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Endpoint",
+                  "type": "string",
+                  "value": "Azure Resource Manager"
+                },
+                "environment": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Environment",
+                  "type": "string",
+                  "value": "Public"
+                },
+                "extension": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Extension",
+                  "type": "string",
+                  "value": "Azure Resource Manager"
+                },
+                "operation": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Operation",
+                  "type": "string",
+                  "value": "UpdateServiceInstancesWithCountingType"
+                },
+                "signatureExpiryUtc": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "SignatureExpiryUtc",
+                  "type": "string",
+                  "value": "11/08/2019 23:45:58"
+                }
+              },
+              "actionType": 2,
+              "autoExecute": true,
+              "completionTimeout": 600,
+              "description": null,
+              "executionDelay": "00:00:00",
+              "executionKind": 2,
+              "externalRecoveryLink": "",
+              "externalWorkflowName": "Increase instance counts",
+              "name": "Increase instance counts",
+              "parameters": [
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "armservice",
+                  "type": "string",
+                  "value": "Frontdoor"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": "Monitor.Dimension.RoleLocation",
+                  "name": "locationname",
+                  "type": "string",
+                  "value": null
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "slotname",
+                  "type": "string",
+                  "value": "Production"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "instancecountingtype",
+                  "type": "string",
+                  "value": "DeltaNumber"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "serviceinstancecount",
+                  "type": "string",
+                  "value": "[{ \"Role\": \"Frontdoor.Admin.razzle\", \"InstanceCount\": 2}]"
+                }
+              ],
+              "preIncidentQueryTimeout": "00:00:50",
+              "retryCount": 0,
+              "stablizationTimeout": 0,
+              "title": "Increase instance counts",
+              "type": "Action"
+            }
+          ],
+          "condition": "",
+          "description": "",
+          "healthyAction": null,
+          "mode": 2,
+          "name": "Default Remediation Rule",
+          "priority": 0,
+          "shouldNotLockResource": false,
+          "successSeverity": 2
+        }
+      ],
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 5,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 60.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 3.0
+        }
+      ],
+      "version": 3
+    },
+    {
+      "category": "Performance",
+      "conditions": [
+        [
+          "CounterInstance",
+          "_total",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          "Central US EUAP,East US 2 EUAP,USSec East,USSec West,UAE North,USNat East,USNat West,UK North,UK South 2,Central India,Brazil Southeast"
+        ],
+        [
+          "__Role",
+          "*",
+          "Providers.AppliancePublisher.razzle,Providers.Worker.razzle,StorageOperations.Operator.razzle,StorageOperations.Replicator.Partner.razzle,StorageOperations.Replicator.Platform.razzle,Providers.OutagesCollector.razzle,FrontdoorAdmin"
+        ],
+        [
+          "__Tenant",
+          "*",
+          "659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e,f37da967c81d470f9c625a073247f7d1,87b2c93cb8a546debfc66aa6b5204c40,555ada1b8694405d82dcc4561f408da1,b3c2ce463d2e444b956ec860360029d4,2dabd70b19bf46729179a91f8a9bbe0a,7a5f064175054a0fb7d82175466eabcc,540536f31d0b4c18b037a5575db76485,5dc3e4f097ef4a5ca94216d5225ae60d,394724d8589d48048785ade294b8ea76,f65f0f37215245b5b26ef16c4f56fbc4,ff6bb2f205614819b76d3390930446c2,9e289b5110684dcb934f19b87568087f,80b9506b70184fa6abf8f8807ba26491,320f0422924149a08aa3e2b10c32e6a8,773fc8e22ebc466ea2bc2ac36d12830b,e8ef4e974fe943daaa102a86691d6842,8b81439d166f47e293bfa00ce56546d4,602c4b6e741049f8b0db55f823777258,4acf3de8b6c14f398792d14b4f246355,20355e24777840bc894d48a1c3c55b55,355195b04fc549379340aad7e9a01fb5,9f1603eae8774e979fc94a8c719ad1c2,2260519.3705507 5.0.6.9983 (git_azureux_arm_bruce_brazilustest)"
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "Errors\n| where PreciseTimeStamp between (datetime({monitor.DataStartTime})..datetime({monitor.DataEndTime}))\n| where Role == \"{monitor.Dimension.__Role}\" and SourceNamespace == \"{monitor.Dimension.SourceNamespace}\"",
+          "title": "Errors",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "AzureCM",
+          "endpoint": " https://azurecm.kusto.windows.net/",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "TMMgmtTenantUpdatedEtwTable \n| where TIMESTAMP between (datetime({monitor.DataStartTime})..datetime({monitor.DataEndTime}))\n| where TenantName == \"<Insert Deployment from ARMProd Query>\"",
+          "title": "Fabric Health",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "This means we are not getting the MDM events from the instance and therefore can't monitor the service.  This could be caused by a few issues: 1. DR drill hasn't taken the region out 2. Issues with the instance.  Look at above Kusto Errors for that time/role/instance to see if there is an issue with starting the service. 3. Look at above Fabric Kusto query for this particular deployment to see if there are any issues with the cluster. 4. It could also be an issue with the MA agent not being able to connect - check MDM certificates, any failure in MDS config, or MDM outage.",
+      "customTitle": "[{Monitor.Dimension.__Role}] No MDM events detected at [{Monitor.Dimension.RoleLocation}]",
+      "dashboardName": "CPU",
+      "dashboardNamespace": "PerfCounters",
+      "description": "Vivek: Excluded BrazilSE and remove Norway regions from exclusion ist(6/07/2020)\nheh: Exclude 9f1603eae8774e979fc94a8c719ad1c2 (West Europe multiVIP deployment)\nantmarti: Exclude 355195b04fc549379340aad7e9a01fb5 (East US 2 multiVIP deployment)\nshubai: Exclude tenant \"4acf3de8b6c14f398792d14b4f246355\" for East US multivip deployment\nhamidt: Exclude 602c4b6e741049f8b0db55f823777258 for West US multivip\nezgambac: Exclude tenants e8ef4e974fe943daaa102a86691d6842,  8b81439d166f47e293bfa00ce56546d4 central us\nDanwa: Exclude tenant 320f0422924149a08aa3e2b10c32e6a8, FDW south central US\nStivanov: Excluded Central India, as there is some testing going on there.\nDRAMUY: Excluded the old tenant 80b9506b70184fa6abf8f8807ba26491 due to redeployment (delete) of FDW West US2\nDRAMUY: Excluded the old tenant 9e289b5110684dcb934f19b87568087f due to redeployment (delete) of FDW for North Europe.\nDanwa: Excluded old tenant (5dc3e4f097ef4a5ca94216d5225ae60d) due to redeployment (delete) of FDW cloud service in Japan West . We don't do this. Remove this later (after couple weeks). ARM Incident 152232341, Geneva Incident 152190652  (10/09/2019)\nEzgambac: Same as Danwa, excluded old tenant (394724d8589d48048785ade294b8ea76) from West Central Us due to redeployment (delete) of FDW cloud service. (10/11/2019)\nVivek: Excluded Norway West and Norway East and remove Germany and Switzerland regions from exclusion list (9/12/2019)\nYushus: excluded GermanyNorth and GermanyWestCentral role locations for New region buildout (07/22/2019)\nVivek: excluded SwitzerlandNorth and SwitzerlandWest role locations for New region buildout (07/14/2019)\nYushus: excluded RX tenants\n2020-02-18 (tiano): Removing \"UK North\" and \"UK South 2\" from the list of regions for this monitor as they are being decommissioned.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "SysPerfCounters",
+        "id": "\\Processor(*)\\% Processor Time",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 15,
+      "healthyDurationToMitigateIncident": "01:10:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Role_No_MDM_Events",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "vichauha",
+      "lastUpdateTime": "2020-06-08T00:23:39.6200554Z",
+      "lookbackDuration": "00:30:00",
+      "metadata": [],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "metric": "Count"
+      },
+      "templateType": 2,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 5.0
+        }
+      ],
+      "version": 92
+    },
+    {
+      "actionConfigurations": [
+        {
+          "actionDetails": {
+            "actionAuthSignature": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "ActionAuthSignature",
+              "type": "string",
+              "value": "LaOn991PucuQkbMVGdZXYOFiybqwrzc8Gg4tZFN7741taFffgLVU2UrsXa5aBtnQTsxiI/NzYZx6mUCGpKMFg/oJBUqHXrZkWPO5Z0MKy5hG1uq1Bynn/9Y9H745GRwpLNbeaRee2krHP+0VngbGoUL+9V+h8bdQmjaIwRyYU/T8K9/rHo3CqI7kzefeZB7IiBheY4vAAXs2xYn+lemL1Ol1d0MQBZvjsD37JKQN7+fL/rBilaKYSrQqAgGYZdZMF8Mzv0aZdOPE5MEvIUtPqnAwezBmel3j5OSJZ60WVdLSWCach/+tKxGKAYrSJTfE6QG1rj3RgDicM66aw4ewJQ=="
+            },
+            "endpoint": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Endpoint",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "environment": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Environment",
+              "type": "string",
+              "value": "Public"
+            },
+            "extension": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Extension",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "operation": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Operation",
+              "type": "string",
+              "value": "UpdateServiceInstancesWithCountingType"
+            },
+            "signatureExpiryUtc": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "SignatureExpiryUtc",
+              "type": "string",
+              "value": "11/09/2019 00:17:31"
+            }
+          },
+          "actionType": 2,
+          "autoExecute": true,
+          "completionTimeout": 600,
+          "description": null,
+          "executionDelay": "00:00:00",
+          "executionKind": 2,
+          "externalRecoveryLink": "",
+          "externalWorkflowName": "Increase instances percentage",
+          "name": "Increase instances percentage",
+          "parameters": [
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "armservice",
+              "type": "string",
+              "value": "FrontdoorWorker"
+            },
+            {
+              "description": null,
+              "metadataProperty": "Monitor.Dimension.RoleLocation",
+              "name": "locationname",
+              "type": "string",
+              "value": null
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "slotname",
+              "type": "string",
+              "value": "Production"
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "instancecountingtype",
+              "type": "string",
+              "value": "DeltaPercentage"
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "serviceinstancecount",
+              "type": "string",
+              "value": "[{ \"Role\": \"Frontdoor.Worker.razzle\", \"InstanceCount\": 10 }]"
+            }
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "retryCount": 0,
+          "stablizationTimeout": 0,
+          "title": "Increase instances percentage",
+          "type": "Action"
+        }
+      ],
+      "category": "Performance",
+      "conditions": [
+        [
+          "CounterInstance",
+          "_Total",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Worker.razzle",
+          ""
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "10% more instances should be added automatically.",
+      "customTitle": "[{Monitor.Dimension.__Role}] high CPU detected at [{Monitor.Dimension.RoleLocation}] (10% more instances should be added automatically if quota allows)",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This is the alert for high CPU on admin role. This automatically tries to increase the number of instances by 10%.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "SysPerfCounters",
+        "id": "\\Processor(*)\\% Processor Time",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:10:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_Worker_High_CPU",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T12:32:10.0493379Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "recoveryRules": [
+        {
+          "actions": [
+            {
+              "actionDetails": {
+                "actionAuthSignature": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "ActionAuthSignature",
+                  "type": "string",
+                  "value": "LaOn991PucuQkbMVGdZXYOFiybqwrzc8Gg4tZFN7741taFffgLVU2UrsXa5aBtnQTsxiI/NzYZx6mUCGpKMFg/oJBUqHXrZkWPO5Z0MKy5hG1uq1Bynn/9Y9H745GRwpLNbeaRee2krHP+0VngbGoUL+9V+h8bdQmjaIwRyYU/T8K9/rHo3CqI7kzefeZB7IiBheY4vAAXs2xYn+lemL1Ol1d0MQBZvjsD37JKQN7+fL/rBilaKYSrQqAgGYZdZMF8Mzv0aZdOPE5MEvIUtPqnAwezBmel3j5OSJZ60WVdLSWCach/+tKxGKAYrSJTfE6QG1rj3RgDicM66aw4ewJQ=="
+                },
+                "endpoint": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Endpoint",
+                  "type": "string",
+                  "value": "Azure Resource Manager"
+                },
+                "environment": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Environment",
+                  "type": "string",
+                  "value": "Public"
+                },
+                "extension": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Extension",
+                  "type": "string",
+                  "value": "Azure Resource Manager"
+                },
+                "operation": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Operation",
+                  "type": "string",
+                  "value": "UpdateServiceInstancesWithCountingType"
+                },
+                "signatureExpiryUtc": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "SignatureExpiryUtc",
+                  "type": "string",
+                  "value": "11/09/2019 00:17:31"
+                }
+              },
+              "actionType": 2,
+              "autoExecute": true,
+              "completionTimeout": 600,
+              "description": null,
+              "executionDelay": "00:00:00",
+              "executionKind": 2,
+              "externalRecoveryLink": "",
+              "externalWorkflowName": "Increase instances percentage",
+              "name": "Increase instances percentage",
+              "parameters": [
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "armservice",
+                  "type": "string",
+                  "value": "FrontdoorWorker"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": "Monitor.Dimension.RoleLocation",
+                  "name": "locationname",
+                  "type": "string",
+                  "value": null
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "slotname",
+                  "type": "string",
+                  "value": "Production"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "instancecountingtype",
+                  "type": "string",
+                  "value": "DeltaPercentage"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "serviceinstancecount",
+                  "type": "string",
+                  "value": "[{ \"Role\": \"Frontdoor.Worker.razzle\", \"InstanceCount\": 10 }]"
+                }
+              ],
+              "preIncidentQueryTimeout": "00:00:50",
+              "retryCount": 0,
+              "stablizationTimeout": 0,
+              "title": "Increase instances percentage",
+              "type": "Action"
+            }
+          ],
+          "condition": "",
+          "description": "",
+          "healthyAction": null,
+          "mode": 2,
+          "name": "Default Remediation Rule",
+          "priority": 0,
+          "shouldNotLockResource": false,
+          "successSeverity": 2
+        }
+      ],
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 5,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "\\Processor(*)\\% Processor Time",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "SysPerfCounters",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 60.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 3.0
+        }
+      ],
+      "version": 2
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

@@ -1,0 +1,351 @@
+{
+  "bv": 10,
+  "component": "Crashes",
+  "computedMetrics": [
+    {
+      "displayName": "Count",
+      "expression": "CrashOccurred.Count",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "Count",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "A composite metric which exposes the Azure Watson \"CrashOccurred\" metric in ARM's MDM namespace. Used to drive monitors based on crash rate.",
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "CrashOccurred",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "CrashOccurred": {
+      "metricName": "CrashOccurred",
+      "metricNamespace": "AzureWatsonCustomer",
+      "monitoringAccount": "AzureWatsonCustomer"
+    }
+  },
+  "metrics": null,
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 2,
+  "views": [
+    {
+      "dimensions": [
+        "AzureWatsonEndpoint"
+      ],
+      "displayName": "AzureWatsonEndpoint",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Cluster",
+        "CrashMode",
+        "Environment"
+      ],
+      "displayName": "ClusterCrashMode(HostOS Cluster)",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Cluster",
+        "Environment",
+        "MdsNamespace",
+        "Process"
+      ],
+      "displayName": "NamespaceProcessCluster",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Environment",
+        "MdsNamespace",
+        "Process",
+        "Tenant"
+      ],
+      "displayName": "MdsNamespaceTenantProcess",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Cluster",
+        "Environment"
+      ],
+      "displayName": "Cluster (HostOS Cluster)",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Cluster",
+        "Environment",
+        "Process"
+      ],
+      "displayName": "ClusterProcessName (HostOSCluster)",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "DataCenter",
+        "Environment",
+        "MdsNamespace",
+        "Role",
+        "RoleInstance",
+        "Tenant"
+      ],
+      "displayName": "TenantRoleDatacenter",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "ClusterName",
+        "Environment",
+        "MdsNamespace",
+        "Process"
+      ],
+      "displayName": "ClusterNameProcessName (Service Fabric ClusterName)",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Environment",
+        "MdsNamespace",
+        "Role",
+        "RoleInstance",
+        "Tenant"
+      ],
+      "displayName": "TenantRoleRoleInstance",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Environment",
+        "MdsNamespace",
+        "Process"
+      ],
+      "displayName": "MdsNamespaceProcess",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "ClusterName",
+        "Environment",
+        "MdsNamespace"
+      ],
+      "displayName": "ClusterName (Service Fabric)",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Environment",
+        "MdsNamespace",
+        "Role"
+      ],
+      "displayName": "MdsNamespaceRole",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Environment",
+        "MdsNamespace",
+        "Tenant"
+      ],
+      "displayName": "MdsNamespaceTenant",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Environment"
+      ],
+      "displayName": "Environment",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Cluster",
+        "DataCenter",
+        "Environment",
+        "MdsNamespace"
+      ],
+      "displayName": "DataCenterCluster (HostOSCluster)",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Cloud",
+        "Environment",
+        "MdsNamespace"
+      ],
+      "displayName": "MdsNamespace",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "AzureWatsonProtocolVersion",
+        "ClusterName",
+        "MachineName",
+        "MdsNamespace",
+        "Process"
+      ],
+      "displayName": "By-AzureWatsonProtocolVersion-MachineName-ClusterName-MdsNamespace-Process",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

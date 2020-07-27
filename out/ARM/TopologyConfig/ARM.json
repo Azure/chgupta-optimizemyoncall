@@ -1,0 +1,2495 @@
+{
+  "dmsConfiguration": {
+    "actionManagerClassName": null,
+    "tenantName": "ARM",
+    "topologyName": null,
+    "topologyRestServiceUrl": null,
+    "topologyWcfServiceUrl": null,
+    "version": 0,
+    "workItemWcfServiceUrl": null
+  },
+  "icmConfig": {
+    "connectorId": "cc7f469a-f737-4f70-ad9a-6e1d5132e764",
+    "tenantName": "ARM",
+    "url": "https://icm.ad.msft.net/Connector2/ConnectorIncidentManager.svc"
+  },
+  "resourceTypeConfigurations": [
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerName",
+        "SourceLocation"
+      ],
+      "incidentConfiguration": {
+        "diagnosticsLink": "https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralLogsTable,RunnerCentralQosFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=%5B%5B\"RunnerInstance\",\"contains\",\"-{SourceLocation}-\"%5D,%5B\"RunnerName\",\"contains\",\"{RunnerName}\"%5D%5D&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=%5B%5B\"\",\"\"%5D%5D",
+        "environment": "{Environment}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "RunnerNameWithSourceLocation",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "SourceLocation",
+        "parentResourceTypes": null
+      },
+      "version": 213,
+      "viewConfiguration": {
+        "name": "RunnerSourceLocation",
+        "nodeNames": [
+          "{SourceLocation}",
+          "{RunnerName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerName",
+        "TargetLocation"
+      ],
+      "incidentConfiguration": {
+        "diagnosticsLink": "https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralLogsTable,RunnerCentralQosFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=%5B%5B\"RunnerName\",\"contains\",\"{RunnerName}\"%5D,%5B\"RunnerInstance\",\"contains\",\"{TargetLocation}\"%5D%5D&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=%5B%5B\"\",\"\"%5D%5D",
+        "environment": "{Environment}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "RunnerNameWithTargetLocation",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "TargetLocation",
+        "parentResourceTypes": null
+      },
+      "version": 211,
+      "viewConfiguration": {
+        "name": "RunnerTargetLocation",
+        "nodeNames": [
+          "{TargetLocation}",
+          "{RunnerName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "SourceLocation"
+      ],
+      "incidentConfiguration": {
+        "diagnosticsLink": "https%3A%2F%2Fjarvis-west.dc.ad.msft.net%3Fpage%3Dlogs%26be%3DDGrep%26ep%3DDiagnostics+PROD%26ns%3DRunnerService%26en%3DRunnerCentralLogsTable%2CRunnerCentralQosFiveMinuteTable%2CRunnerCentralUnstructuredLogsTable%26conditions%3D%5B%5B%22RunnerInstance%22%2C%22contains%22%2C%22-%7BSourceLocation%7D-%22%5D%5D%26dateFrom%3D%7BStartTime%7D%26dateTo%3D%7BEndTime%7D%26scopingConditions%3D%5B%5B%22%22%2C%22%22%5D%5D",
+        "environment": "{Environment}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "SourceLocation",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 210,
+      "viewConfiguration": {
+        "name": "RunnerSourceLocation",
+        "nodeNames": [
+          "{SourceLocation}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "TargetLocation"
+      ],
+      "incidentConfiguration": {
+        "diagnosticsLink": "https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralLogsTable,RunnerCentralQosFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=%5B%5B\"RoleInstance\",\"contains\",\"-{TargetLocation}\"%5D%5D&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=%5B%5B\"\",\"\"%5D%5D",
+        "environment": "{Environment}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "TargetLocation",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 209,
+      "viewConfiguration": {
+        "name": "RunnerTargetLocation",
+        "nodeNames": [
+          "{TargetLocation}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerName"
+      ],
+      "incidentConfiguration": {
+        "diagnosticsLink": "https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralLogsTable,RunnerCentralQosFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=%5B%5B\"RunnerName\",\"contains\",\"{RunnerName}\"%5D%5D&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=%5B%5B\"\",\"\"%5D%5D",
+        "environment": "{Environment}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "RunnerName",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 208,
+      "viewConfiguration": {
+        "name": "RunnerInstance",
+        "nodeNames": [
+          "{RunnerName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerInstance",
+        "RunnerName",
+        "SourceLocation",
+        "TargetLocation"
+      ],
+      "incidentConfiguration": {
+        "diagnosticsLink": "https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralLogsTable,RunnerCentralQosFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=%5B%5B\"RunnerName\",\"contains\",\"{RunnerName}\"%5D,%5B\"RunnerInstance\",\"contains\",\"{RunnerInstance}\"%5D%5D&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=%5B%5B\"\",\"\"%5D%5D",
+        "environment": "{Environment}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "FullRunnerInstance",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "RunnerNameWithLocations",
+        "parentResourceTypes": null
+      },
+      "version": 202,
+      "viewConfiguration": {
+        "name": "RunnerInstance",
+        "nodeNames": [
+          "{RunnerName}",
+          "{SourceLocation}",
+          "{TargetLocation}",
+          "{RunnerInstance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerName",
+        "SourceLocation",
+        "TargetLocation"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "RunnerNameWithLocations",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 178,
+      "viewConfiguration": {
+        "name": "RunnerInstance",
+        "nodeNames": [
+          "{RunnerName}",
+          "{SourceLocation}",
+          "{TargetLocation}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "JobName",
+        "JobResult"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "FailedorCancelledCASJobs",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 173,
+      "viewConfiguration": {
+        "name": "FailedorCancelledCASJobs",
+        "nodeNames": [
+          "{JobName}",
+          "{JobResult}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "MetricsNamespace",
+        "KustoQueryName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{KustoQueryName}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "KustoToMetricsQos",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 159,
+      "viewConfiguration": {
+        "name": "KustoToMetricsQos",
+        "nodeNames": [
+          "{MetricsNamespace}",
+          "{KustoQueryName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Role",
+        "sourceNamespace",
+        "Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "NoKustoLogs",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 158,
+      "viewConfiguration": {
+        "name": "NoKustoLogs",
+        "nodeNames": [
+          "{Role}",
+          "{sourceNamespace}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ProviderNamespace"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T09:39:32-07:00",
+      "name": "ProviderNamespace",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 156,
+      "viewConfiguration": {
+        "name": "Resource Providers",
+        "nodeNames": [
+          "{ProviderNamespace}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component",
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "ARMADMRecon",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 155,
+      "viewConfiguration": {
+        "name": "ARMADMRecon",
+        "nodeNames": [
+          "{Monitor.Component}",
+          "{Monitor.Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "GlobalDatabaseAccountName",
+        "Region",
+        "StatusCode"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "lakshv",
+      "lastUpdateTime": "2018-03-11T17:55:30-07:00",
+      "name": "CosmosDBResourceType",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 153,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "GlobalDatabaseAccountName",
+        "Region"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "lakshv",
+      "lastUpdateTime": "2018-06-24T19:26:44-07:00",
+      "name": "CosmosDBLatency",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 152,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "__Role"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "huzeng",
+      "lastUpdateTime": "2018-04-06T15:41:01-07:00",
+      "name": "SOSDispatchingEntryPoint",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 151,
+      "viewConfiguration": {
+        "name": "SOSDispatchingEntryPoint",
+        "nodeNames": [
+          "{__Role}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "DatabaseAccount"
+      ],
+      "incidentConfiguration": {
+        "environment": "{DatabaseAccount}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "maphad",
+      "lastUpdateTime": "2018-08-17T13:57:40-07:00",
+      "name": "CosmosDB_RU",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 146,
+      "viewConfiguration": {
+        "name": "armglobaldataprod",
+        "nodeNames": []
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "SourceRole"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "wud",
+      "lastUpdateTime": "2018-07-25T18:12:15-07:00",
+      "name": "SourceRole",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 144,
+      "viewConfiguration": {
+        "name": "SourceRole",
+        "nodeNames": [
+          "{SourceRole}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "dispatcherName"
+      ],
+      "incidentConfiguration": {
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "guzha",
+      "lastUpdateTime": "2018-08-01T15:49:40-07:00",
+      "name": "dispatcherName",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 137,
+      "viewConfiguration": {
+        "name": "dispatcherName",
+        "nodeNames": [
+          "{dispatcherName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "WarmPathEnvironment",
+        "WarmPathAccount",
+        "WarmPathNamespace",
+        "AgentVersion",
+        "IdentityListMd5Hash"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "1411C91225216BA17DEF438736CA49908A32703E",
+      "lastUpdateTime": "2018-09-17T14:10:54-07:00",
+      "metadataProperties": [
+        "Deployment",
+        "Role",
+        "RoleInstance",
+        "IsAutoUpdateDisabled",
+        "ConfigVersion",
+        "BinaryVersion"
+      ],
+      "name": "genevamonitoringagents_ef1a19dd32314f45c033864cfe8b396e",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 130,
+      "viewConfiguration": {
+        "name": "GenevaMonitoringAgents-ef1a19dd32314f45c033864cfe8b396e",
+        "nodeNames": [
+          "{WarmPathEnvironment}",
+          "{WarmPathAccount}",
+          "{WarmPathNamespace}",
+          "{AgentVersion}",
+          "{Deployment}",
+          "{Role}",
+          "{RoleInstance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Region"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "wud",
+      "lastUpdateTime": "2018-09-20T15:26:54-07:00",
+      "name": "RunnerHealthCheckHeartbeat",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 130,
+      "viewConfiguration": {
+        "name": "RunnerHealthCheckHeartbeat",
+        "nodeNames": [
+          "{Region}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "DatabaseAccount",
+        "SourceRegion",
+        "TargetRegion"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "wayan",
+      "lastUpdateTime": "2018-11-26T17:08:49-08:00",
+      "name": "CosmosDBReplicationLatency",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 128,
+      "viewConfiguration": {
+        "name": "StorageRequests",
+        "nodeNames": [
+          "{DatabaseAccount}",
+          "{SourceRegion}",
+          "{TargetRegion}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "operationName"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "McioCasProdRoutingId"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "yushus",
+      "lastUpdateTime": "2018-11-27T11:57:57-08:00",
+      "name": "CasProdResourceType",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 126,
+      "viewConfiguration": {
+        "name": "CasProdResourceType",
+        "nodeNames": [
+          "{operationName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Level",
+        "OperationName",
+        "RoleLocation",
+        "__Role"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "McioCasProdRoutingId"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "pranar",
+      "lastUpdateTime": "2018-11-27T14:14:36-08:00",
+      "name": "McioCasProd",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 125,
+      "viewConfiguration": {
+        "name": "McioCasProd",
+        "nodeNames": [
+          "{OperationName}",
+          "{RoleLocation}",
+          "{__Role}",
+          "{Level}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Component",
+        "Region"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "MDM://SRE.Deployment"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "yushus",
+      "lastUpdateTime": "2018-11-28T16:23:28-08:00",
+      "name": "ARMComponentDeployments",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 121,
+      "viewConfiguration": {
+        "name": "ARMComponentDeployments",
+        "nodeNames": [
+          "{Component}",
+          "{Region}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ProviderName",
+        "StorageAccountName"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "yushus",
+      "lastUpdateTime": "2019-03-04T11:46:09-08:00",
+      "name": "HydrationStorageAccountsHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 115,
+      "viewConfiguration": {
+        "name": "HydrationStorageAccountsHealth",
+        "nodeNames": [
+          "{StorageAccountName}",
+          "{ProviderName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "RPNamespace"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "dabooher",
+      "lastUpdateTime": "2019-08-16T12:21:42-07:00",
+      "name": "RPsWithResponsesApproachingSizeLimit",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 112,
+      "viewConfiguration": {
+        "name": "RPsWithResponsesApproachingSizeLimit",
+        "nodeNames": [
+          "{RPNamespace}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerName",
+        "SourceLocation",
+        "TargetLocation"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "supescad",
+      "lastUpdateTime": "2019-10-15T07:29:31-07:00",
+      "name": "RunnerValidation",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 111,
+      "viewConfiguration": {
+        "name": "RunnerInstance",
+        "nodeNames": [
+          "{RunnerName}",
+          "{SourceLocation}",
+          "{TargetLocation}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "WarmPathEnvironment",
+        "WarmPathAccount",
+        "WarmPathNamespace",
+        "AgentVersion",
+        "IdentityListMd5Hash"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "",
+      "lastUpdateTime": "2020-01-22T17:35:47-08:00",
+      "metadataProperties": [
+        "Tenant",
+        "Role",
+        "RoleInstance",
+        "IsAutoUpdateDisabled",
+        "ConfigVersion",
+        "BinaryVersion"
+      ],
+      "name": "genevamonitoringagents_fa6315c04c8b3fca23ddefd0c8bc2b42",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 97,
+      "viewConfiguration": {
+        "name": "GenevaMonitoringAgents-fa6315c04c8b3fca23ddefd0c8bc2b42",
+        "nodeNames": [
+          "{WarmPathEnvironment}",
+          "{WarmPathAccount}",
+          "{WarmPathNamespace}",
+          "{AgentVersion}",
+          "{Tenant}",
+          "{Role}",
+          "{RoleInstance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "MdsNamespace",
+        "Role"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "nst",
+      "lastUpdateTime": "2020-02-19T04:06:44-08:00",
+      "name": "SourceNamespaceRole",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 97,
+      "viewConfiguration": {
+        "name": "By Source Namespace",
+        "nodeNames": [
+          "{MdsNamespace}",
+          "{Role}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "06:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Regional Health",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "14.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Region",
+            "Long-Term View"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Regional Health (Long Term)",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Storage",
+            "By Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Storage Health",
+          "type": "Dashboard"
+        }
+      ],
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "RoleLocation"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-11T09:07:29-07:00",
+      "name": "Region",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 70,
+      "viewConfiguration": {
+        "name": "Region (by RoleLocation)",
+        "nodeNames": [
+          "{RoleLocation}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation",
+            "__Role"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "06:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Regional Health",
+          "type": "Dashboard"
+        }
+      ],
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        },
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.UnhealthyChildrenHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "conditions": [
+            {
+              "annotation": "",
+              "createIncidentAtChild": false,
+              "forceSeverity": true,
+              "healthStatus": 0,
+              "incidentTitle": "",
+              "numberInsteadOfPercentage": false,
+              "percentageMax": 10,
+              "percentageMin": 0,
+              "severity": 4,
+              "suppressIncident": false,
+              "totalCountMax": 100000,
+              "totalCountMin": 10,
+              "unhealthyCountMax": 100,
+              "unhealthyCountMin": 0
+            },
+            {
+              "annotation": "",
+              "createIncidentAtChild": false,
+              "forceSeverity": true,
+              "healthStatus": 2,
+              "incidentTitle": "",
+              "numberInsteadOfPercentage": false,
+              "percentageMax": 30,
+              "percentageMin": 10,
+              "severity": 4,
+              "suppressIncident": false,
+              "totalCountMax": 0,
+              "totalCountMin": 0,
+              "unhealthyCountMax": 100,
+              "unhealthyCountMin": 0
+            },
+            {
+              "annotation": "",
+              "createIncidentAtChild": false,
+              "forceSeverity": true,
+              "healthStatus": 1,
+              "incidentTitle": "",
+              "numberInsteadOfPercentage": false,
+              "percentageMax": 100,
+              "percentageMin": 30,
+              "severity": 4,
+              "suppressIncident": false,
+              "totalCountMax": 0,
+              "totalCountMin": 0,
+              "unhealthyCountMax": 100,
+              "unhealthyCountMin": 0
+            }
+          ],
+          "suppressIncident": false,
+          "type": 1
+        }
+      ],
+      "identifierProperties": [
+        "RoleLocation",
+        "__Role"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-11T07:29:33-07:00",
+      "name": "Region-Role",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Region",
+        "parentResourceTypes": null
+      },
+      "version": 69,
+      "viewConfiguration": {
+        "name": "Region (by RoleLocation)",
+        "nodeNames": [
+          "{RoleLocation}",
+          "Roles",
+          "{__Role}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "armResourceLocationDimension": "RoleLocation",
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "RoleLocation",
+        "__Role",
+        "__RoleInstance"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{RoleLocation}",
+        "deviceGroup": "{__Role}",
+        "deviceName": "{__RoleInstance}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "Region-Role-Instance",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Region-Role",
+        "parentResourceTypes": null
+      },
+      "version": 67,
+      "viewConfiguration": {
+        "name": "Region (by RoleLocation)",
+        "nodeNames": [
+          "{RoleLocation}",
+          "Roles",
+          "{__Role}",
+          "Instances",
+          "{__RoleInstance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "armResourceLocationDimension": "RoleLocation",
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "ProviderNamespace"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Resource Providers",
+            "RP Health"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "RP Health",
+          "type": "Dashboard"
+        }
+      ],
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        },
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.UnhealthyChildrenHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "conditions": [
+            {
+              "annotation": "",
+              "createIncidentAtChild": false,
+              "forceSeverity": true,
+              "healthStatus": 0,
+              "incidentTitle": "",
+              "numberInsteadOfPercentage": false,
+              "percentageMax": 10,
+              "percentageMin": 0,
+              "severity": 4,
+              "suppressIncident": false,
+              "totalCountMax": 10000,
+              "totalCountMin": 10,
+              "unhealthyCountMax": 100,
+              "unhealthyCountMin": 0
+            },
+            {
+              "annotation": "",
+              "createIncidentAtChild": false,
+              "forceSeverity": true,
+              "healthStatus": 2,
+              "incidentTitle": "",
+              "numberInsteadOfPercentage": false,
+              "percentageMax": 30,
+              "percentageMin": 10,
+              "severity": 4,
+              "suppressIncident": false,
+              "totalCountMax": 0,
+              "totalCountMin": 0,
+              "unhealthyCountMax": 100,
+              "unhealthyCountMin": 0
+            },
+            {
+              "annotation": "",
+              "createIncidentAtChild": false,
+              "forceSeverity": true,
+              "healthStatus": 1,
+              "incidentTitle": "",
+              "numberInsteadOfPercentage": false,
+              "percentageMax": 100,
+              "percentageMin": 30,
+              "severity": 4,
+              "suppressIncident": false,
+              "totalCountMax": 0,
+              "totalCountMin": 0,
+              "unhealthyCountMax": 100,
+              "unhealthyCountMin": 0
+            }
+          ],
+          "suppressIncident": false,
+          "type": 1
+        }
+      ],
+      "identifierProperties": [
+        "RoleLocation",
+        "ProviderNamespace"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{RoleLocation}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-11T07:36:44-07:00",
+      "name": "Region-ResourceProvider",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Region",
+        "parentResourceTypes": null
+      },
+      "version": 64,
+      "viewConfiguration": {
+        "name": "Region (by RoleLocation)",
+        "nodeNames": [
+          "{RoleLocation}",
+          "Resource Providers",
+          "{ProviderNamespace}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "SourceNamespace"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{SourceNamespace}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "SourceNamespace",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 55,
+      "viewConfiguration": {
+        "name": "Region (by SourceNamespace)",
+        "nodeNames": [
+          "{SourceNamespace}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "SourceNamespace",
+        "__Role"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{SourceNamespace}",
+        "deviceGroup": "{__Role}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "SourceNamespace-Role",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "SourceNamespace",
+        "parentResourceTypes": null
+      },
+      "version": 54,
+      "viewConfiguration": {
+        "name": "Region (by SourceNamespace)",
+        "nodeNames": [
+          "{SourceNamespace}",
+          "Roles",
+          "{__Role}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "Global",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 49,
+      "viewConfiguration": {
+        "name": "Global",
+        "nodeNames": [
+          "{Monitor.Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant",
+        "__Role"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "Global",
+        "deviceGroup": "{__Role}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "Global-Role",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 48,
+      "viewConfiguration": {
+        "name": "Global",
+        "nodeNames": [
+          "{Monitor.Tenant}",
+          "Roles",
+          "{__Role}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "RoleLocation",
+        "Callback"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{RoleLocation}",
+        "deviceGroup": "Frontdoor.Worker.razzle",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "Region-Job",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Region",
+        "parentResourceTypes": null
+      },
+      "version": 45,
+      "viewConfiguration": {
+        "name": "Region (by RoleLocation)",
+        "nodeNames": [
+          "{RoleLocation}",
+          "Jobs",
+          "{Callback}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "armResourceIdDimension": "AccountName",
+      "armResourceIdDimensions": [
+        "AccountName"
+      ],
+      "armResourceLocationDimension": "RoleLocation",
+      "armResourceType": "Microsoft.Storage/storageAccount",
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "AccountName",
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Storage",
+            "Storage Account"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Storage Account",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Regional Health",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "30.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Region",
+            "Long-Term View"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Regional Health (Long Term)",
+          "type": "Dashboard"
+        }
+      ],
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "RoleLocation",
+        "AccountName"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{RoleLocation}",
+        "deviceName": "{AccountName}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-11T06:27:17-07:00",
+      "name": "Region-StorageAccount",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Region",
+        "parentResourceTypes": null
+      },
+      "version": 36,
+      "viewConfiguration": {
+        "name": "Region (by RoleLocation)",
+        "nodeNames": [
+          "{RoleLocation}",
+          "Storage Accounts",
+          "{AccountName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "ProbeType",
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing",
+            "By Probe Type"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Probe Results",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing",
+            "By Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:00",
+          "title": "Regional Probe Results",
+          "type": "Dashboard"
+        }
+      ],
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "RoleLocation",
+        "ProbeType"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{RoleLocation}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-11T07:08:11-07:00",
+      "name": "Region-BlackBoxProbe",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Region",
+        "parentResourceTypes": null
+      },
+      "version": 25,
+      "viewConfiguration": {
+        "name": "Region (by RoleLocation)",
+        "nodeNames": [
+          "{RoleLocation}",
+          "Black Box Monitoring",
+          "{ProbeType}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant",
+        "SourceRegion"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{SourceRegion}",
+        "deviceGroup": "Black Box Monitoring",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM"
+      },
+      "isSystemResource": false,
+      "name": "Global-BlackBoxSourceRegion",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Global",
+        "parentResourceTypes": null
+      },
+      "version": 22,
+      "viewConfiguration": {
+        "name": "Global",
+        "nodeNames": [
+          "{Monitor.Tenant}",
+          "Black Box Region",
+          "{SourceRegion}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": true,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "Geneva://ARM/Test"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-17T10:26:31-07:00",
+      "name": "Testing",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 8,
+      "viewConfiguration": {
+        "name": "Test Monitors",
+        "nodeNames": [
+          "{Monitor.Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": true,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant",
+        "RoleLocation",
+        "__Role"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{RoleLocation}",
+        "deviceGroup": "{__Role}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM/Test"
+      },
+      "isSystemResource": false,
+      "name": "Testing-Region-Role",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Testing-Region",
+        "parentResourceTypes": null
+      },
+      "version": 7,
+      "viewConfiguration": {
+        "name": "Testing Monitors",
+        "nodeNames": [
+          "{Monitor.Tenant}",
+          "Regions",
+          "{RoleLocation}",
+          "Roles",
+          "{__Role}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": true,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant",
+        "RoleLocation"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{RoleLocation}",
+        "environment": "PROD",
+        "routingId": "Geneva://ARM/Test"
+      },
+      "isSystemResource": false,
+      "name": "Testing-Region",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Testing",
+        "parentResourceTypes": null
+      },
+      "version": 7,
+      "viewConfiguration": {
+        "name": "Testing Monitors",
+        "nodeNames": [
+          "{Monitor.Tenant}",
+          "Regions",
+          "{RoleLocation}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": true,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "SourceRegion",
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "dataCenter": "{SourceRegion}",
+        "environment": "Int",
+        "routingId": "Geneva://ARM/Test"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-07-09T07:35:05-07:00",
+      "name": "Testing-BlackBoxSourceRegion",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "ARM",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "Testing",
+        "parentResourceTypes": null
+      },
+      "version": 4,
+      "viewConfiguration": {
+        "name": "Testing Monitors",
+        "nodeNames": [
+          "{Monitor.Tenant}",
+          "Black Box Region",
+          "{SourceRegion}"
+        ]
+      },
+      "watchdogConfigurations": []
+    }
+  ],
+  "serviceBusConfiguration": null,
+  "tenant": "ARM",
+  "tenantSettings": {
+    "environment": null,
+    "maximumResourcesCount": 200000,
+    "routingId": "adrocs://Recovery/ARM",
+    "staleArtifactDeletionTime": "3.23:00:00",
+    "tenantName": "ARM",
+    "viewModelPartitionCount": 1
+  },
+  "version": 0
+}

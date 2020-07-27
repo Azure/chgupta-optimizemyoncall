@@ -1,0 +1,1194 @@
+{
+  "bv": 10,
+  "component": "Blackbox",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "ProbeLatency",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "ProbeType",
+          "*",
+          ""
+        ],
+        [
+          "EnvironmentName",
+          "Prod",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "EnvironmentName"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Overview",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "EnvironmentName",
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing",
+            "By Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Region",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "EnvironmentName",
+            "ProbeType"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing",
+            "By Probe Type"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Probe Type",
+          "type": "Dashboard"
+        }
+      ],
+      "customMessage": "The {Monitor.Dimension.ProbeType} black box probe has failed for {Monitor.Dimension.RoleLocation}. You can find more information about what the {Monitor.Dimension.ProbeType} probe does in the Black Box Probing dashboard linked to this IcM.",
+      "customTitle": "High failure rate for Black Box Probe {Monitor.Dimension.ProbeType} in {Monitor.Dimension.RoleLocation}",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor alerts when the failure rate of a Black Box probe rises above the configured threshold. This threshold is >50% of the past 3 minutes worth of probes see congruent failures across both probe regions (i.e. more than 50% of probes fail each minute for 2 minutes in the past 3).\n\nFor more information on the different probe types, consult the [ARM/Global Health/Black Box Probing[ dashboard in Geneva.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Blackbox",
+        "id": "ProbeLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "00:27:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Probe_Failure_Rate",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-07-09T11:22:20.1740704Z",
+      "lookbackDuration": "00:03:00",
+      "metadata": [
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "Geneva://ARM"
+        },
+        {
+          "metadataKey": "Icm.CorrelationId",
+          "metadataValue": "ARMBlackBox/{Monitor.Dimension.RoleLocation}"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-BlackBoxProbe",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 1,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [
+                      [
+                        "ProbeType",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "EnvironmentName",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "RoleLocation",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "ProbeLatency",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Blackbox",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 100.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [
+                      [
+                        "ProbeType",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "Result",
+                        "*",
+                        "Success",
+                        "w"
+                      ],
+                      [
+                        "EnvironmentName",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "RoleLocation",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "ProbeLatency",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Blackbox",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 50.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 29
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "ProbeType",
+          "*",
+          ""
+        ],
+        [
+          "EnvironmentName",
+          "Int",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "EnvironmentName"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Overview",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "EnvironmentName",
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing",
+            "By Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Region",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "EnvironmentName",
+            "ProbeType"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing",
+            "By Probe Type"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Probe Type",
+          "type": "Dashboard"
+        }
+      ],
+      "customMessage": "The {Monitor.Dimension.ProbeType} black box probe has failed for {Monitor.Dimension.RoleLocation}. You can find more information about what the {Monitor.Dimension.ProbeType} probe does in the Black Box Probing dashboard linked to this IcM.",
+      "customTitle": "[DOGFOOD] High failure rate for Black Box Probe {Monitor.Dimension.ProbeType} in {Monitor.Dimension.RoleLocation}",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor alerts when the failure rate of a Black Box probe rises above the configured threshold. This threshold is >50% of the past 3 minutes worth of probes see congruent failures across both probe regions (i.e. more than 50% of probes fail each minute for 2 minutes in the past 3).\n\nFor more information on the different probe types, consult the [ARM/Global Health/Black Box Probing[ dashboard in Geneva.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Blackbox",
+        "id": "ProbeLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "00:27:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Probe_Failure_Rate_Dogfood",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-11T11:50:46.8908239Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "Geneva://ARM/Dogfood"
+        },
+        {
+          "metadataKey": "Icm.CorrelationId",
+          "metadataValue": "ARMBlackBox/{Monitor.Dimension.RoleLocation}"
+        },
+        {
+          "metadataKey": "Icm.OwningTeamId",
+          "metadataValue": "68266"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-BlackBoxProbe",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": ">",
+          "bucketDurationInMinutes": 5,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [
+                      [
+                        "ProbeType",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "EnvironmentName",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "RoleLocation",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "ProbeLatency",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Blackbox",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 100.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [
+                      [
+                        "Result",
+                        "*",
+                        "Success",
+                        "w"
+                      ],
+                      [
+                        "EnvironmentName",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "RoleLocation",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "ProbeType",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "ProbeLatency",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Blackbox",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 50.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 29
+    },
+    {
+      "category": "Meta-Monitoring",
+      "conditions": [
+        [
+          "Result",
+          "Success",
+          ""
+        ],
+        [
+          "EnvironmentName",
+          "Int",
+          ""
+        ],
+        [
+          "SourceRegion",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "EnvironmentName"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing",
+            "Black Box Service Health"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Black Box Dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "select env_time, traceLevel, message, tagId",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "IfxTraceEvent",
+              "namespaceRegex": "ARMMsAzGsProd",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Tenant": [
+              ""
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-30&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ARMMsAzGsProd&en=IfxTraceEvent&serverQuery=where%20traceLevel%20<%203&scopingConditions=[[\"Tenant\",\"\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=false&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]&UTC=false&clientQuery=select%20env_time,%20traceLevel,%20message,%20tagId",
+          "lookback": "00:30:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "where traceLevel < 3",
+          "serverQuerySimpleConditions": null,
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Black Box Probe Errors",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": false
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  ""
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "The {Monitor.Dimension.SourceRegion} Black Box probing region has not reported any probe results in the previous 5 minutes. This may indicate an issue with the Geneva Synthetics runtime, the Black Box prober itself or the probe jobs enqueued in Azure Queue Storage. Please consult the associated logs for more information.",
+      "customTitle": "ARM Black Box Probing has ceased from [{Monitor.Dimension.SourceRegion}] in Dogfood for over 5 minutes",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor is used to perform meta-monitoring of the ARM Black Box service, ensuring that it continues to submit probes. In situations where a Black Box monitoring region is not submitting probe results, this monitor will fire to alert us about the potential blind-spot caused by this failure.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Blackbox",
+        "id": "ProbeLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:06:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Probe_Not_Running_Dogfood",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-07-09T13:53:29.0583577Z",
+      "lookbackDuration": "00:05:00",
+      "metadata": [
+        {
+          "metadataKey": "UsedForDeploymentValidation",
+          "metadataValue": "true"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Testing-BlackBoxSourceRegion",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "metric": "Count"
+      },
+      "templateType": 2,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "==",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 0.0
+        }
+      ],
+      "version": 14
+    },
+    {
+      "category": "Meta-Monitoring",
+      "conditions": [
+        [
+          "Result",
+          "Success",
+          ""
+        ],
+        [
+          "EnvironmentName",
+          "Prod",
+          ""
+        ],
+        [
+          "SourceRegion",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "EnvironmentName"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Blackbox Probing",
+            "Black Box Service Health"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Black Box Dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "select env_time, traceLevel, message, tagId",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "IfxTraceEvent",
+              "namespaceRegex": "ARMMsAzGsProd",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Tenant": [
+              ""
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-30&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ARMMsAzGsProd&en=IfxTraceEvent&serverQuery=where%20traceLevel%20<%203&scopingConditions=[[\"Tenant\",\"\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=false&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]&UTC=false&clientQuery=select%20env_time,%20traceLevel,%20message,%20tagId",
+          "lookback": "00:30:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "where traceLevel < 3",
+          "serverQuerySimpleConditions": null,
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Black Box Probe Errors",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": false
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  ""
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "The {Monitor.Dimensions.SourceRegion} Black Box probing region has not reported any probe results in the previous 5 minutes. This may indicate an issue with the Geneva Synthetics runtime, the Black Box prober itself or the probe jobs enqueued in Azure Queue Storage. Please consult the associated logs for more information.",
+      "customTitle": "ARM Black Box Probing has ceased from [{Monitor.Dimension.SourceRegion}] for over 5 minutes",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor is used to perform meta-monitoring of the ARM Black Box service, ensuring that it continues to submit probes. In situations where a Black Box monitoring region is not submitting probe results, this monitor will fire to alert us about the potential blind-spot caused by this failure.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Blackbox",
+        "id": "ProbeLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:06:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Probe_Not_Running",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-07-09T12:06:19.1327231Z",
+      "lookbackDuration": "00:05:00",
+      "metadata": [
+        {
+          "metadataKey": "UsedForDeploymentValidation",
+          "metadataValue": "true"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Global-BlackBoxSourceRegion",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "metric": "Count"
+      },
+      "templateType": 2,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "==",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 0.0
+        }
+      ],
+      "version": 12
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

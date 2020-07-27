@@ -1,0 +1,148 @@
+{
+  "bv": 10,
+  "component": "Replication",
+  "computedMetrics": [
+    {
+      "displayName": "P10",
+      "expression": "CosmosDBReplicationLatency.P10",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "P10",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "P25",
+      "expression": "CosmosDBReplicationLatency.P25",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "P25",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "P50",
+      "expression": "CosmosDBReplicationLatency.P50",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "P50",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "P75",
+      "expression": "CosmosDBReplicationLatency.P75",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "P75",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "P90",
+      "expression": "CosmosDBReplicationLatency.P90",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "P90",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "P95",
+      "expression": "CosmosDBReplicationLatency.P95",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "P95",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "P99",
+      "expression": "CosmosDBReplicationLatency.P99",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "P99",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "dimensions": [],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "CosmosDBReplicationLatency",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "CosmosDBReplicationLatency": {
+      "metricName": "ReplicationLatency",
+      "metricNamespace": "Customer",
+      "monitoringAccount": "DocumentDBPartner"
+    }
+  },
+  "metrics": [],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": [
+    {
+      "dimensions": [
+        "DatabaseAccount",
+        "SourceRegion",
+        "SubscriptionId",
+        "TargetRegion"
+      ],
+      "displayName": "PortalMetric",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

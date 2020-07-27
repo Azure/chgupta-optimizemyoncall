@@ -1,0 +1,299 @@
+{
+  "bv": 10,
+  "component": "Errors",
+  "computedMetrics": [
+    {
+      "displayName": "Average",
+      "expression": "raw.Sum / (raw.Count || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "Average",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "NullableAverage",
+      "expression": "raw.Count ? (raw.Sum / raw.Count) : null",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "NullableAverage",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Rate",
+      "expression": "raw.Sum / 60",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "Rate",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "dimensions": [
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "Exception"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "Level"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "OperationName"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "RoleLocation"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "Source"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "__Role"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "__RoleInstance"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "__Tenant"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "JarvisEndpoint"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "ProviderNamespace"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "SourceNamespace"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "ResourceType"
+    }
+  ],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "Errors",
+  "ingestionOptions": 0,
+  "isFromNewPipeline": true,
+  "isQosMetric": false,
+  "metrics": [
+    {
+      "displayName": "Count",
+      "expression": null,
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Count",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Sum",
+      "expression": null,
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Sum",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 9,
+  "views": [
+    {
+      "dimensions": [
+        "JarvisEndpoint",
+        "Level",
+        "OperationName",
+        "__Role",
+        "__Tenant"
+      ],
+      "displayName": "JarvisEndpoint.Tenant.Role.Operation.Level",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "JarvisEndpoint",
+        "Level",
+        "OperationName",
+        "ProviderNamespace",
+        "ResourceType",
+        "RoleLocation",
+        "SourceNamespace",
+        "__Role",
+        "__Tenant"
+      ],
+      "displayName": "JarvisEndpoint.Location.SourceNamespace.Tenant.Role.Operation.Provider.Type.Level",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "JarvisEndpoint",
+        "Level",
+        "OperationName",
+        "ProviderNamespace",
+        "RoleLocation",
+        "SourceNamespace",
+        "__Role",
+        "__Tenant"
+      ],
+      "displayName": "JarvisEndpoint.Location.SourceNamespace.Tenant.Role.Operation.Provider.Level",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "JarvisEndpoint",
+        "Level",
+        "OperationName",
+        "RoleLocation",
+        "SourceNamespace",
+        "__Role",
+        "__Tenant"
+      ],
+      "displayName": "JarvisEndpoint.Location.SourceNamespace.Tenant.Role.Operation.Level",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Exception",
+        "Level",
+        "RoleLocation",
+        "Source",
+        "__Role"
+      ],
+      "displayName": "Location.Role.Source.Level.Exception",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Level",
+        "RoleLocation",
+        "Source",
+        "__Role"
+      ],
+      "displayName": "Location.Role.Source.Level",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "OperationName",
+        "RoleLocation",
+        "__Role"
+      ],
+      "displayName": "Location.Role.Operation",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}
