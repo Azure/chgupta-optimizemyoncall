@@ -1,0 +1,1886 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "StorageServerFailureLatency",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "AccountName",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "StorageArtifactsHelper.CreateTableIfNotExist,StorageArtifactsHelper.CreateQueueIfNotExist",
+          ""
+        ],
+        [
+          "ResourceType",
+          "*",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Providers*",
+          "",
+          "w"
+        ],
+        [
+          "__Tenant",
+          "*",
+          "f37da967c81d470f9c625a073247f7d1,7a5f064175054a0fb7d82175466eabcc"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 10,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "StorageRequests \n| where PreciseTimeStamp between (datetime({monitor.DataStartTime})..datetime({monitor.DataEndTime}))\n| where operationName == \"StorageArtifactsHelper.CreateTableIfNotExist\"\nor operationName == \"StorageArtifactsHelper.CreateQueueIfNotExist\"\n| where Role contains \"Providers\"\n| where EventId == \"41\"",
+          "title": "StorageRequests",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": null,
+      "customTitle": "ARMProviders Alert: High server failure rate for create storage requests in [{monitor.Dimension.RoleLocation}] in 60M, Account [{monitor.Dimension.AccountName}], resource type: [{monitor.Dimension.ResourceType}]",
+      "description": "Used to monitor storage creations for region build out",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "StorageServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "02:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "ARMProviders_StorageServer_CreateFailure_60M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-21T11:02:30.1142966Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "ARMProviders-StorageRequestsServerFailureRate60M:{monitor.Dimension.AccountName}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-StorageAccount",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.99
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 29
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "AccountName",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "StorageArtifactsHelper.CreateTableIfNotExist,StorageArtifactsHelper.CreateQueueIfNotExist",
+          ""
+        ],
+        [
+          "ResourceType",
+          "*",
+          "queue"
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Worker.razzle,Frontdoor.Web.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": null,
+      "customTitle": "ARM calls to {monitor.Dimension.ResourceType} storage [{monitor.Dimension.AccountName}] in [{monitor.Dimension.RoleLocation}] are experiencing a high number of 5xx errors for [{monitor.Dimension.OperationName}] calls.",
+      "description": "Yushus: excluded RX tenant",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "StorageServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "02:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_StorageServer_CreateFailure_60M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-25T15:46:10.1655606Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "ARM://StorageAccount/{monitor.Dimension.AccountName}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-StorageAccount",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.99
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 28
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "AccountName",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "*",
+          "StorageArtifactsHelper.CreateTableIfNotExist,StorageArtifactsHelper.CreateQueueIfNotExist"
+        ],
+        [
+          "ResourceType",
+          "*",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Providers*",
+          "",
+          "w"
+        ],
+        [
+          "__Tenant",
+          "*",
+          "f37da967c81d470f9c625a073247f7d1"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": null,
+      "customTitle": "ARM Providers calls to {monitor.Dimension.ResourceType} storage [{monitor.Dimension.AccountName}] in [{monitor.Dimension.RoleLocation}] are experiencing a high number of 5xx errors when performing [{monitor.Dimension.OperationName}].",
+      "description": "Yushus: excluded RX tenant\nAdded kusto link",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "StorageServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "02:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "ARMProviders_StorageServer_Failure_60M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-25T15:45:24.641202Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "ARM://StorageAccount/{monitor.Dimension.AccountName}"
+        },
+        {
+          "metadataKey": "kusto",
+          "metadataValue": "{https://armprod.kusto.windows.net:443/ARMProd?query=StorageRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+resourceType+%3d%3d+%22{monitor.Dimension.ResourceType}%22+and+accountName+%3d%3d+%22{monitor.Dimension.AccountName}%22}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-StorageAccount",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.9
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 37
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "AccountName",
+          "*",
+          "groupscache.documents.azure.com"
+        ],
+        [
+          "OperationName",
+          "*",
+          "StorageArtifactsHelper.CreateTableIfNotExist,StorageArtifactsHelper.CreateQueueIfNotExist"
+        ],
+        [
+          "ResourceType",
+          "*",
+          "queue,collection"
+        ],
+        [
+          "RoleLocation",
+          "*",
+          "South Africa North,South Africa West,UAE Central,UAE North,USSec West,USSec East"
+        ],
+        [
+          "__Role",
+          "Frontdoor.Web.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "AccountName",
+            "RoleLocation"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Storage",
+            "Storage Account"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Storage Account Health",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation",
+            "__Role"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Regional Health",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "StorageRequests\n| where PreciseTimeStamp between (datetime({monitor.DataStartTime})..datetime({monitor.DataEndTime}))\n| where TaskName != \"StorageRequestEndWithSuccess\" and TaskName != \"StorageRequestStart\"\n| where Role == \"{monitor.Dimension.__Role}\" and accountName == \"{monitor.Dimension.AccountName}\" and resourceType == \"{monitor.Dimension.ResourceType}\"\n",
+          "title": "StorageRequest Errors",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": null,
+      "customTitle": "ARM calls to {monitor.Dimension.ResourceType} storage [{monitor.Dimension.AccountName}] in [{monitor.Dimension.RoleLocation}] are experiencing a high number of 5xx errors/timeouts when performing [{monitor.Dimension.OperationName}].",
+      "description": "Yushus: exclude RX tenant\nStivanov (05/18/2020): turning off auto mitigation due to Central India outage which is generating noise.\nbpannell (2020-06-12): disabled this monitor for CosmosDB (we have specific coverage for that already)",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "StorageServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "02:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_StorageServer_Failure_60M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-07-17T10:50:35.9882932Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "ARM://StorageAccount/{monitor.Dimension.AccountName}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-StorageAccount",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [
+                          [
+                            "AccountName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "OperationName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "ResourceType",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "RoleLocation",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Role",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Tenant",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ]
+                        ],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [
+                          [
+                            "AccountName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "OperationName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "ResourceType",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "RoleLocation",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Role",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Tenant",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ]
+                        ],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [
+                          [
+                            "AccountName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "OperationName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "ResourceType",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "RoleLocation",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Role",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Tenant",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ]
+                        ],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.9
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 53
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "AccountName",
+          "rpf*,aad*",
+          ""
+        ],
+        [
+          "OperationName",
+          "StorageArtifactsHelper.CreateTableIfNotExist,StorageArtifactsHelper.CreateQueueIfNotExist",
+          ""
+        ],
+        [
+          "ResourceType",
+          "*",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "StorageOperations*",
+          "",
+          "w"
+        ],
+        [
+          "__Tenant",
+          "*",
+          "87b2c93cb8a546debfc66aa6b5204c40,555ada1b8694405d82dcc4561f408da1,540536f31d0b4c18b037a5575db76485,e8da485443cb413cbaa539452eff9480"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net:443",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "JobHistory\n| where (TIMESTAMP >= datetime({monitor.DataStartTime}) and TIMESTAMP < datetime({monitor.DataEndTime}))\n| where (SourceNamespace == \"{monitor.Dimension.SourceNamespace}\")\n| where executionStatus == \"Failed\"\n| where executionMessage contains \"{monitor.Dimension.AccountName}\"\n| project TIMESTAMP, RoleInstance , executionMessage",
+          "title": "Show Failing Requests for account {monitor.Dimension.AccountName}",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net:443",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "StorageRequests\n| where TIMESTAMP > datetime({monitor.DataStartTime}) and TIMESTAMP <  datetime({monitor.DataEndTime})\n| where httpStatusCode == 0\n| where Role contains \"operator\"\n| where SourceNamespace contains \"{monitor.Dimension.SourceRegion}\"\n| where accountName == \"{monitor.Dimension.AccountName}\"\n| project TIMESTAMP, operationName , resourceName , exceptionMessage\n",
+          "title": "Job Traces for account {monitor.Dimension.AccountName} in {monitor.Dimension.SourceRegion}",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": null,
+      "customTitle": "StorageOperations Alert: High server failure rate for create storage requests in [{monitor.Dimension.RoleLocation}] in 60M, Account [{monitor.Dimension.AccountName}], resource type: [{monitor.Dimension.ResourceType}]",
+      "description": "Yushus: excluded RX tenant\nThis is a StorageOperations Alert: High server failure rate for create storage requests in [{monitor.Dimension.RoleLocation}] in the last 60 minutes, for account [{monitor.Dimension.AccountName}], resource type: [{monitor.Dimension.ResourceType}]",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "StorageServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "02:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "StorageOperations_StorageServer_CreateFailure_60M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-21T11:03:00.9869146Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "StorageOperations-StorageRequestsServerFailureRate60M:{monitor.Dimension.AccountName}"
+        },
+        {
+          "metadataKey": "KustoErrorTables",
+          "metadataValue": "The Following Kusto Error Tables may be of use investigating this incident. These were queried against: {newline} - OperationName : {monitor.Dimension.OperationName} {newline} - Location : {monitor.Dimension.RoleLocation}  {newline}{newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=Errors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=JobErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Job Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=JobDispatchingErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Job Dispatching Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=ProviderErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Provider Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=DispatcherErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Dispatcher Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=MarketplaceErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Marketplace Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=CapacityErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Capacity Errors}"
+        },
+        {
+          "metadataKey": "JarvisLinks",
+          "metadataValue": "Jarvis Links: {newline}{newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=Errors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|Errors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=JobErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|JobErrors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=JobDispatchingErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|JobDispatchingErrors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=ProviderErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|ProviderErrors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=MarketplaceErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|MarketplaceErrors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=CapacityErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|CapacityErrors}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-StorageAccount",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.99
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 30
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "AccountName",
+          "rpf*,aad*",
+          ""
+        ],
+        [
+          "OperationName",
+          "*",
+          "StorageArtifactsHelper.CreateTableIfNotExist,StorageArtifactsHelper.CreateQueueIfNotExist"
+        ],
+        [
+          "ResourceType",
+          "*",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "StorageOperations*",
+          "",
+          "w"
+        ],
+        [
+          "__Tenant",
+          "*",
+          "87b2c93cb8a546debfc66aa6b5204c40,555ada1b8694405d82dcc4561f408da1,540536f31d0b4c18b037a5575db76485,e8da485443cb413cbaa539452eff9480"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net:443",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "JobHistory\n| where (TIMESTAMP >= datetime({monitor.DataStartTime}) and TIMESTAMP < datetime({monitor.DataEndTime}))\n| where (SourceNamespace == \"{monitor.Dimension.SourceNamespace}\")\n| where executionStatus == \"Failed\"\n| where executionMessage contains \"{monitor.Dimension.AccountName}\"\n| project TIMESTAMP, RoleInstance , executionMessage",
+          "title": "Show Failing Requests for account {monitor.Dimension.AccountName}",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net:443",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "StorageRequests\n| where TIMESTAMP > datetime({monitor.DataStartTime}) and TIMESTAMP <  datetime({monitor.DataEndTime})\n| where httpStatusCode == 0\n| where Role contains \"operator\"\n| where SourceNamespace contains \"{monitor.Dimension.SourceRegion}\"\n| where accountName == \"{monitor.Dimension.AccountName}\"\n| project TIMESTAMP, operationName , resourceName , exceptionMessage\n",
+          "title": "Job Traces for account {monitor.Dimension.AccountName} in {monitor.Dimension.SourceRegion}",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": null,
+      "customTitle": "StorageOperations Alert: High server failure rate for storage requests in [{monitor.Dimension.RoleLocation}] in 60M, Account [{monitor.Dimension.AccountName}], resource type [{monitor.Dimension.ResourceType}]",
+      "description": "Yushus: excluded RX tenant\nStorageOperations Alert: High server failure rate for storage requests in [{monitor.Dimension.RoleLocation}] in the last 60 minutes, Account [{monitor.Dimension.AccountName}], resource type [{monitor.Dimension.ResourceType}]",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "StorageServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "02:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "StorageOperations_StorageServer_Failure_60M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-21T11:03:12.0121961Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "StorageOperations-StorageRequestsServerFailureRate60M:{monitor.Dimension.AccountName}"
+        },
+        {
+          "metadataKey": "KustoErrorTables",
+          "metadataValue": "The Following Kusto Error Tables may be of use investigating this incident. These were queried against: {newline} - OperationName : {monitor.Dimension.OperationName} {newline} - Location : {monitor.Dimension.RoleLocation}  {newline}{newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=Errors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=JobErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Job Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=JobDispatchingErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Job Dispatching Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=ProviderErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Provider Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=DispatcherErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Dispatcher Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=MarketplaceErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Marketplace Errors} {newline}  * link{https://armprod.kusto.windows.net:443/ARMProd?query=CapacityErrors%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22|Capacity Errors}"
+        },
+        {
+          "metadataKey": "JarvisLinks",
+          "metadataValue": "Jarvis Links: {newline}{newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=Errors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|Errors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=JobErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|JobErrors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=JobDispatchingErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|JobDispatchingErrors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=ProviderErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|ProviderErrors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=MarketplaceErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|MarketplaceErrors}  {newline}  * link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-15&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=CapacityErrors&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|CapacityErrors}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-StorageAccount",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "StorageServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.9
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 40
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

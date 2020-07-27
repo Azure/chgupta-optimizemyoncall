@@ -1,0 +1,376 @@
+{
+  "allSeriesThrottleLimit": 14400000,
+  "apPkiAcls": [],
+  "authorizedAadServicePrincipals": [
+    {
+      "applicationId": "d55f521b-b04a-4262-9067-543aaee4184c",
+      "description": "ARM Black Box Dogfood Ev2 Deployments",
+      "name": "ARM Black Box Dogfood Deployments",
+      "objectId": "84d47dad-b1db-4620-b0bd-a4b1a8c1b4f6",
+      "role": "MonitorEditor"
+    },
+    {
+      "applicationId": "f26851d5-be18-4ab4-94d0-eb810e94a494",
+      "description": "ARM Black Box Dogfood Ev2 Deployments (Managed Service Identity)",
+      "name": "ARM Black Box Dogfood Deployments (MSI)",
+      "objectId": "d1fc7ecf-e427-4610-b061-46ccb09c4081",
+      "role": "MonitorEditor"
+    },
+    {
+      "applicationId": "eeabbc59-dcc6-408c-9d77-d7cbfb954bc5",
+      "description": "ARM Black Box Prod Ev2 Deployments",
+      "name": "ARM Black Box Prod Deployments",
+      "objectId": "cb362372-1dd5-4ef1-a535-512342be1b2b",
+      "role": "MonitorEditor"
+    }
+  ],
+  "autoPreAggWarmPathMappings": [],
+  "certificates": [
+    {
+      "description": "Chirag Gupta - Importing ARM monitors into Kusto",
+      "role": "ReadOnly",
+      "thumbprint": "650C83849E473A9947B9534AF8DC4B76B9918CC1"
+    },
+    {
+      "description": "Sangam certificate thumbprint change",
+      "role": "MetricPublisher",
+      "thumbprint": "A56E42610F36E78CE565D01C7FDD18ADA873677A"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "9171EFF7F2C5C5CAFDB674C59C0165F2E1FCB83F"
+    },
+    {
+      "description": "",
+      "role": "ReadOnly",
+      "thumbprint": "48C4681E9DCA707134E85EBA0D037ADB63BFBABE"
+    },
+    {
+      "description": "Monitoring Suppression Test - contact bpannell",
+      "role": "ReadOnly",
+      "thumbprint": "1D71CF4484FB4F0052CF78829ABE0C332A6BDD81"
+    },
+    {
+      "description": "",
+      "role": "Administrator",
+      "thumbprint": "EAD07939F1DAD53429781C195FF53556B99D6834"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "8B17A97FD5882AF9E80F1BD4DCCC2B6A9FDBF5ED"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "782F31260AED073C4D9E0D406F7E987D0A469175"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "28E7581EA4EFFA72E63870DFD3F8073E882139AD"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "91E24AFA4F38BC0A77285C581D4D34CDB74BE176"
+    },
+    {
+      "description": "",
+      "role": "ReadOnly",
+      "thumbprint": "A9934C3B43A7FFD91D9F5EB143DF59AB02BDF96D"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "8C3AC048C6689E72E4661EDF6AB66CF38C5FDA8C"
+    },
+    {
+      "description": "",
+      "role": "ReadOnly",
+      "thumbprint": "CE09CD67581C6300BE9CA39456893FD4F8D97A73"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "A529F040D9773E77A212D1FD4FC750234330EA42"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "EC727EEE8DA3EB668BB73C5BAD59FB153D95E10B"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "0676E8A43E58FEB7B2186AC8368B0417AA5EE9DB"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "EF2AFB5615E54D4F73E1151B4D94E152B44BDDE2"
+    },
+    {
+      "description": "",
+      "role": "MetricPublisher",
+      "thumbprint": "5B83DECCCA59EB2478E2F97B378487C9AC32E33B"
+    }
+  ],
+  "clientMetricCountPerMinuteLimit": 60000000,
+  "cloudReplicationType": "Public",
+  "contributors": [
+    {
+      "alias": "raaldalk",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "ifokunor",
+      "role": "ConfigurationEditor"
+    },
+    {
+      "alias": "ansachs",
+      "role": "Administrator"
+    },
+    {
+      "alias": "bpannell",
+      "role": "Administrator"
+    },
+    {
+      "alias": "dabooher",
+      "role": "Administrator"
+    },
+    {
+      "alias": "supescad",
+      "role": "Administrator"
+    },
+    {
+      "alias": "iahickey",
+      "role": "Administrator"
+    },
+    {
+      "alias": "vichauha",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "chmill",
+      "role": "MonitorEditor"
+    },
+    {
+      "alias": "dramuy",
+      "role": "Administrator"
+    },
+    {
+      "alias": "antmarti",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "pranar",
+      "role": "MonitorEditor"
+    },
+    {
+      "alias": "iahickey",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "yushus",
+      "role": "Administrator"
+    },
+    {
+      "alias": "wayan",
+      "role": "Administrator"
+    },
+    {
+      "alias": "sameert",
+      "role": "Administrator"
+    },
+    {
+      "alias": "guzha",
+      "role": "Administrator"
+    },
+    {
+      "alias": "maphad",
+      "role": "Administrator"
+    },
+    {
+      "alias": "lidwang",
+      "role": "Administrator"
+    },
+    {
+      "alias": "yushus",
+      "role": "MonitorEditor"
+    },
+    {
+      "alias": "vikashj",
+      "role": "Administrator"
+    },
+    {
+      "alias": "cheggert",
+      "role": "MonitorEditor"
+    },
+    {
+      "alias": "jizen",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "tiano",
+      "role": "Administrator"
+    },
+    {
+      "alias": "mansikka",
+      "role": "Administrator"
+    },
+    {
+      "alias": "manoharp",
+      "role": "Administrator"
+    },
+    {
+      "alias": "wud",
+      "role": "Administrator"
+    },
+    {
+      "alias": "ilahat",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "alias": "lakshv",
+      "role": "Administrator"
+    },
+    {
+      "alias": "psaraiya",
+      "role": "Administrator"
+    },
+    {
+      "alias": "huzeng",
+      "role": "Administrator"
+    },
+    {
+      "alias": "heyan",
+      "role": "DashboardEditor"
+    },
+    {
+      "alias": "bburns",
+      "role": "Administrator"
+    },
+    {
+      "alias": "racces",
+      "role": "Administrator"
+    },
+    {
+      "alias": "nirajg",
+      "role": "Administrator"
+    },
+    {
+      "alias": "yangl",
+      "role": "ReadOnly"
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "displayName": "",
+  "dsmsAcls": [
+    {
+      "acl": "352bb07bd6fddba3e2f3b39e6c54917d.metricsclient.geneva.core.microsoft.scloud",
+      "description": "/genevacustomers/monitoring/hotpath/ussec/arm_rx/certificates/chained/mdmclientcert.pfx",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "8abc9d157d618c35e08e6ebe1448618e.metricsclient.geneva.core.windows.net",
+      "description": "/genevacustomers/monitoring/hotpath/public/arm/certificates/chained/mdmgitcert.pfx.pfx",
+      "role": "MetricAndMonitorEditor"
+    },
+    {
+      "acl": "f9cf5e8e2bbce39339bd351b35fc88b6.metricsclient.geneva.core.windows.net",
+      "description": "/genevacustomers/monitoring/hotpath/public/arm/certificates/chained/mdmclientcert.pfx",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "d898d63e87b5436eb7dc941a34bd834f.metricsclient.geneva.core.windows.net",
+      "description": "/genevacustomers/monitoring/hotpath/public/runnerservice/certificates/chained/runnersvcprodhealthcert.pfx",
+      "role": "MetricPublisher"
+    }
+  ],
+  "endpointForAlternateQuery": null,
+  "endpointForClientForking": "",
+  "endpointsForClientForking": [],
+  "globalSamplesThrottlingLimitThousandsPerMinute": null,
+  "globalSamplesWithHistogramThrottlingLimitThousandsPerMinute": null,
+  "homeStampGslbHostname": "az-compute.metrics.nsatc.net",
+  "isReadsBlocked": false,
+  "isThirdPartyAccount": false,
+  "isWritesBlocked": false,
+  "keyVaultAcls": [
+    {
+      "acl": "dogfood.ev2.blackbox.geneva.keyvault.arm.internal",
+      "description": "ARM Black Box Ev2 Deployment - Dogfood",
+      "role": "Administrator"
+    },
+    {
+      "acl": "prod.ev2.blackbox.geneva.keyvault.arm.internal",
+      "description": "DO NOT DELETE - Synthetics Prod Ev2 deployment cert",
+      "role": "MonitorEditor"
+    },
+    {
+      "acl": "macert.armmsazgsprod.geneva.keyvault.prd.prod.synthetics.gbl",
+      "description": "DO NOT DELETE - Synthetics Prod MA certificate",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "macert.armmsazgsint.geneva.keyvault.int.test.synthetics.gbl",
+      "description": "DO NOT DELETE - Synthetics Int MA certificate",
+      "role": "MetricPublisher"
+    }
+  ],
+  "lastUpdatedBy": "bpannell",
+  "lastUpdateTime": "2020-07-27T15:28:13.2032341Z",
+  "maxMetricAge": "00:00:00",
+  "metricsStoreMigrationTimeUtcExceptPercentileDistinctCount": "2018-10-25T10:00:00-07:00",
+  "metricsStoreTimeSeriesThrottlingLimit": 100000000,
+  "mirrorMonitoringAccountList": [],
+  "nameToIdMapForSecurityGroups": {
+    "redmonD\\admetricsadm": "d9333179-bb27-4285-828d-e73376daa8a6",
+    "redmond\\arm-sre-sg": "534ea057-67af-47eb-a442-616e2e5813a5",
+    "redmonD\\RRD-AUXSPARTAD-19432": "1b513bbd-8a1b-46b7-9fd2-86a16e9f8a8f",
+    "redmond\\RRD-AUXSPARTRO-19436": "5644a83d-9b62-49ec-8193-d0ad45e48e84"
+  },
+  "newSeriesThrottleLimit": 12000000,
+  "operationToGlobalThresholdWithFallback": {
+    "entries": {},
+    "fallbackValue": 0
+  },
+  "operationToLocalThresholdWithFallback": {
+    "entries": {},
+    "fallbackValue": 0
+  },
+  "preaggregateMergingEnabled": false,
+  "preferNewPreaggregateOnMetricsStore": true,
+  "replicationState": 0,
+  "securityGroups": {
+    "amE\\AD-ARM": "Administrator",
+    "amE\\TM-ARM": "MetricAndMonitorEditor",
+    "redmond\\arm-sre-sg": "ConfigurationEditor",
+    "redmonD\\RRD-AUXSPARTAD-19432": "Administrator",
+    "redmond\\RRD-AUXSPARTRO-19436": "MetricAndMonitorEditor"
+  },
+  "tenant": "ARM",
+  "useClientSideReplication": true,
+  "version": 164,
+  "workflow": {
+    "automationEnabled": false,
+    "directPushEnabled": false,
+    "enabled": false,
+    "latestCommit": null,
+    "mirrorOnMerge": false,
+    "namespaceFoldersEnabled": false,
+    "notificationAddresses": [
+      "nirajg@microsoft.com",
+      "vikashj@microsoft.com"
+    ],
+    "repoId": "d355fd1e-9874-41f1-ad59-6632290aa9a3",
+    "repoName": "AzureUX-ARM-Geneva",
+    "repoPath": "",
+    "repoSecretPrimary": null,
+    "repoSecretSecondary": null,
+    "repoUri": "https://msazure.visualstudio.com/One"
+  }
+}

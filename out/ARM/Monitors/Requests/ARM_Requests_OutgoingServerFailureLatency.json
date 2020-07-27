@@ -1,0 +1,3147 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "OutgoingServerFailureLatency",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "*",
+          ""
+        ],
+        [
+          "ProviderNamespace",
+          "*",
+          ""
+        ],
+        [
+          "RoutingName",
+          "*",
+          "MICROSOFT.STORAGESYNCDEV,MICROSOFT.STORAGESYNCINT,MICROSOFT.CLASSICSTORAGE,MICROSOFT.CLASSICNETWORK,MICROSOFT.CLASSICCOMPUTE,PROVIDERS.TEST,MICROSOFT.NETWORK,MICROSOFT.DYNAMICSLCS,RAVENHQ.DB,MICROSOFT.APIMANAGEMENT,LOMBIQ.DOTNEST"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "ProviderNamespace"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Resource Providers",
+            "RP Health"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "RP Health",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:10:00",
+          "maxResultRowCount": 10,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where TIMESTAMP > ago(1h)\n| where targetResourceProvider =~ \"{monitor.Dimension.ProviderNamespace}\"\n| where TaskName contains \"ServerFailure\"\n| project TIMESTAMP, targetResourceProvider, targetResourceType, operationName, httpStatusCode, exceptionMessage\n| summarize HitCount = count() by targetResourceProvider, targetResourceType, operationName, httpStatusCode, exceptionMessage\n| top 20 by HitCount",
+          "title": "Most Frequent Failures",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "ARM requests from [{monitor.Dimension.__Role}] in [{monitor.Dimension.RoleLocation}] to the resource provider [{monitor.Dimension.ProviderNamespace}] are failing",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "00:20:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_Provider_Availability_15M_Test",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-18T12:49:19.3985775Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [
+        {
+          "metadataKey": "Icm.CorrelationId",
+          "metadataValue": "ARM://Region-ResourceProvider/{monitor.Dimension.RoleLocation}/{monitor.Dimension.ProviderNamespace}/Availability"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "AIMS://AZUREUX\\AUXARM\\{monitor.Dimension.RoutingName}"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-ResourceProvider",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [
+                          [
+                            "RoleLocation",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "ProviderNamespace",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "RoutingName",
+                            "*",
+                            "MICROSOFT.STORAGESYNCINT,MICROSOFT.CLASSICCOMPUTE,MICROSOFT.CLASSICSTORAGE,MICROSOFT.CLASSICNETWORK,CITRIX.CLOUD,RUXIT,NUUBIT.NEXTGENCDN,ASPERA.TRANSFERS,DYNATRACE.DYNATRACESAAS,DYNATRACE.RUXIT,MICROSOFT.STORAGESYNCDEV,LOMBIQ.DOTNEST,NEWRELIC.APM,RAVENHQ.DB,SUCCESSBRICKS.CLEARDB,MICROSOFT.DYNAMICSLCS,MICROSOFT.APIMANAGEMENT,MICROSOFT.NETWORK,PROVIDERS.TEST",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "ResourceType",
+                            "*",
+                            "",
+                            "w"
+                          ],
+                          [
+                            "__Role",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ]
+                        ],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 4,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [
+                          [
+                            "RoleLocation",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "ProviderNamespace",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "RoutingName",
+                            "*",
+                            "MICROSOFT.STORAGESYNCDEV,MICROSOFT.STORAGESYNCINT,MICROSOFT.CLASSICCOMPUTE,MICROSOFT.CLASSICNETWORK,MICROSOFT.CLASSICSTORAGE,CITRIX.CLOUD,RUXIT,NUUBIT.NEXTGENCDN,ASPERA.TRANSFERS,DYNATRACE.DYNATRACESAAS,DYNATRACE.RUXIT,LOMBIQ.DOTNEST,NEWRELIC.APM,RAVENHQ.DB,SUCCESSBRICKS.CLEARDB,MICROSOFT.DYNAMICSLCS,MICROSOFT.APIMANAGEMENT,MICROSOFT.NETWORK,PROVIDERS.TEST",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Role",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "ResourceType",
+                            "*",
+                            "",
+                            "w"
+                          ]
+                        ],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [
+                          [
+                            "RoleLocation",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "ProviderNamespace",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "RoutingName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Role",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ]
+                        ],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "OutgoingServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.2
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 15
+    },
+    {
+      "category": "AzureLightHouse",
+      "conditions": [
+        [
+          "HttpMethod",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "PUT/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONASSIGNMENTS/,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONDEFINITIONS/,PUT/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONDEFINITIONS/,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONASSIGNMENTS/,DELETE/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONDEFINITIONS/,DELETE/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONASSIGNMENTS/,GET/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONDEFINITIONS,GET/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONASSIGNMENTS,DELETE/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONASSIGNMENTS/,GET/PROVIDERS/MICROSOFT.MANAGEDSERVICES/MARKETPLACEREGISTRATIONDEFINITIONS/,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONASSIGNMENTS,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONDEFINITIONS,GET/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/OPERATIONSTATUSES/,GET/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONASSIGNMENTS/,PUT/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/REGISTRATIONASSIGNMENTS/",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Admin.razzle,Frontdoor.Web.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          ""
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ],
+        [
+          "RoutingName",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({Monitor.DataStartTime}) and TIMESTAMP < datetime({Monitor.DataEndTime})) \n| where operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName == \"HttpOutgoingRequestEndWithServerFailure\" and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" \n| where httpStatusCode <> 0 or durationInMilliseconds >= 12000 or exceptionMessage !contains \"TaskCanceledException\"",
+          "title": "Outgoing Errors",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "Based on the operationName provided in the title, you can go to code for a deeper investigation.  There is some additional troubleshooting information available here:  https://aka.ms/ArmProvidersTsgGuide. For help on investigating this incident; please reachout to towboatdevs@microsoft.com.",
+      "customTitle": "Frontdoor Alert: High server failure rate for outgoing http requests in [{monitor.Dimension.RoleLocation}] in 15M,  Http method [{monitor.Dimension.HttpMethod}], operation [{monitor.Dimension.OperationName}]",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Alert for ManagedServices provider",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_MSP_Availability_15M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-20T12:14:57.2606665Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "Frontdoor-ManagedServicesProvider-InOutRequestsServerFailureRate15M:{monitor.Dimension.OperationName}"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+TaskName+%3d%3d+%22HttpOutgoingRequestEndWithServerFailure%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22+%0d%0a%7c+where+httpStatusCode+%3C%3E+0+or+durationInMilliseconds+%3E%3D+12000+or+exceptionMessage+!contains+%22TaskCanceledException%22}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"],[\"TaskName\",\"%3D%3D\",\"HttpOutgoingRequestEndWithServerFailure\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20}"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "MDM://ARM/MSPRP"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 20.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "OutgoingServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.2
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 57
+    },
+    {
+      "category": "AzureLightHouse",
+      "conditions": [
+        [
+          "HttpMethod",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/OPERATIONSTATUSES/,POST/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.MANAGEDSERVICES/NOTIFY",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Admin.razzle,Frontdoor.Web.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          ""
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ],
+        [
+          "RoutingName",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({Monitor.DataStartTime}) and TIMESTAMP < datetime({Monitor.DataEndTime})) \n| where operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName == \"HttpOutgoingRequestEndWithServerFailure\" and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" \n| where httpStatusCode <> 0 or durationInMilliseconds >= 12000 or exceptionMessage !contains \"TaskCanceledException\"",
+          "title": "Outgoing Errors",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "Based on the operationName provided in the title, you can go to code for a deeper investigation.  There is some additional troubleshooting information available here:  https://aka.ms/ArmProvidersTsgGuide",
+      "customTitle": "Frontdoor Alert: High server failure rate for outgoing http requests in [{monitor.Dimension.RoleLocation}] in 15M,  Http method [{monitor.Dimension.HttpMethod}], operation [{monitor.Dimension.OperationName}]",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Alert for ManagedServices provider operation statuses and notify operations",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_MSP_Availability2_15M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "sakayani",
+      "lastUpdateTime": "2020-07-21T20:16:58.5792442Z",
+      "lookbackDuration": "02:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "Frontdoor-ManagedServicesProvider-InOutRequestsServerFailureRate15M:{monitor.Dimension.OperationName}"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+TaskName+%3d%3d+%22HttpOutgoingRequestEndWithServerFailure%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22+%0d%0a%7c+where+httpStatusCode+%3C%3E+0+or+durationInMilliseconds+%3E%3D+12000+or+exceptionMessage+!contains+%22TaskCanceledException%22}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"],[\"TaskName\",\"%3D%3D\",\"HttpOutgoingRequestEndWithServerFailure\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20}"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "AIMS://AzureLighthouse"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "OutgoingServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.4
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 2.0
+        }
+      ],
+      "version": 54
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "HttpMethod",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "*",
+          "PUT/AZURE/SUBSCRIPTIONS/,GET/PROVIDERS/RDFE/GETCLOUDSERVICE,GET/PROVIDERS/RDFE/GETCLOUDSERVICEWITHDETAILS,GET/PROVIDERS/RDFE/GETSTORAGEKEYS,GET/METRICS/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.CLASSICSTORAGE/STORAGEACCOUNTS/SERVICES/METRICS,GET/METRICS/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.CLASSICCOMPUTE/VIRTUALMACHINES/METRICS,GET/METRICS/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.CLASSICCOMPUTE/DOMAINNAMES/SLOTS/ROLES/METRICS,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.AUTHORIZATION/CLASSICADMINISTRATORS,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.AUTHORIZATION/CLASSICADMINISTRATORS/,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.AUTHORIZATION/CLASSICADMINISTRATORS/OPERATIONSTATUSES/,POST/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.AUTHORIZATION/VALIDATEPOLICYDEPLOYMENT,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.NETWORK/LOCATIONS/OPERATIONRESULTS/,POST/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.CONTAINERINSTANCE/CONTAINERGROUPS/PROVIDERS/MICROSOFT.AUTHORIZATION/POLICYDATACLEANUP,PUT/AZURESTORE/SUBSCRIPTIONS/"
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Admin.razzle,Frontdoor.Web.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "b3c2ce463d2e444b956ec860360029d4,2dabd70b19bf46729179a91f8a9bbe0a,659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e"
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "ProviderNamespace",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ],
+        [
+          "RoutingName",
+          "*",
+          "MICROSOFT.STORAGESYNCDEV,MICROSOFT.STORAGESYNCINT,MICROSOFT.CLASSICCOMPUTE,MICROSOFT.CLASSICSTORAGE,MICROSOFT.CLASSICNETWORK,CITRIX.CLOUD,RUXIT,NUUBIT.NEXTGENCDN,ASPERA.TRANSFERS,DYNATRACE.DYNATRACESAAS,DYNATRACE.RUXIT,LOMBIQ.DOTNEST,NEWRELIC.APM,RAVENHQ.DB,SUCCESSBRICKS.CLEARDB,MICROSOFT.DYNAMICSLCS,MICROSOFT.APIMANAGEMENT,MICROSOFT.NETWORK"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "OperationName",
+            "RoleLocation",
+            "ProviderNamespace"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Resource Providers",
+            "RP Availability"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "RP Availability Dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({Monitor.DataStartTime}) and TIMESTAMP < datetime({Monitor.DataEndTime})) \n| where operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName == \"HttpOutgoingRequestEndWithServerFailure\" and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" \n| where httpStatusCode <> 0 or durationInMilliseconds >= 12000 or exceptionMessage !contains \"TaskCanceledException\"",
+          "title": "Outgoing Errors",
+          "type": "Kusto"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 3,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({Monitor.DataStartTime}) and TIMESTAMP < datetime({Monitor.DataEndTime})) \n| where operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName == \"HttpOutgoingRequestEndWithServerFailure\" and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" \n| where httpStatusCode <> 0 or durationInMilliseconds >= 12000 or exceptionMessage !contains \"TaskCanceledException\"\n| extend baseTargetUri = extract(\"https://(.*?)/(.*)\", 1, targetUri)\n| distinct baseTargetUri",
+          "title": "Base url of endpoints failing ARM's requests",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "For more information, check the RP Availability dashboard linked in this incident, please note that the region listed in the ticket title is the ARM region handling the requests: Check the \"Base url of endpoints failing ARM's requests\" query to check what endpoints are impacted in your service. Additionally, based on the operationName provided in the title, you can go to code for a deeper investigation.  There is some additional troubleshooting information available here:  https://aka.ms/ArmProvidersTsgGuide",
+      "customTitle": "Frontdoor Alert: High server failure rate for outgoing http requests in [{monitor.Dimension.RoleLocation}] in 15M,  Http method [{monitor.Dimension.HttpMethod}], operation [{monitor.Dimension.OperationName}]",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Tian (06/19/2020): removed \"Providers.Test\" from exclusion list.\nTian (06/02/2020): Added \"Providers.Test\" to the RoutingName exclusion list. \n\nThis monitor tracks server failure ratios: It will count the percentage of outgoing requests that fails under ServerFailure, and alert whenever this value goes beyond a certain threshold.\nCheck the ServerFailure Ratio timechart, in the links below, to see the data being evaluated\n\nHuzeng: Logic is not correct, correct the monitor logic\nYushus: excluded RX tenants\nmaphad: Add failing buckets\niahickey: split Microsoft.Network into its own monitor",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 2,
+      "healthyDurationToMitigateIncident": "00:15:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_Provider_Availability_15M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "tiano",
+      "lastUpdateTime": "2020-06-19T18:54:48.0115408Z",
+      "lookbackDuration": "02:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "Frontdoor-Providers-InOutRequestsServerFailureRate15M:{monitor.Dimension.OperationName}"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+TaskName+%3d%3d+%22HttpOutgoingRequestEndWithServerFailure%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22+%0d%0a%7c+where+httpStatusCode+%3C%3E+0+or+durationInMilliseconds+%3E%3D+12000+or+exceptionMessage+!contains+%22TaskCanceledException%22|Kusto}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"],[\"TaskName\",\"%3D%3D\",\"HttpOutgoingRequestEndWithServerFailure\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|Jarvis}"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "AIMS://AZUREUX\\AUXARM\\{monitor.Dimension.RoutingName}"
+        },
+        {
+          "metadataKey": "ServerFailure Ratio Timechart",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=let%20startTime%20%3D%20datetime({Monitor.DataStartTime});let%20endTime%20%3D%20datetime({Monitor.DataEndTime});HttpOutgoingRequests%7C%20where%20%28TIMESTAMP%20%3E%3D%20startTime%20and%20TIMESTAMP%20%3C%20endTime%29%7C%20where%20operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName contains%20%22HttpOutgoingRequestEnd%22%20and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" %7C%20 make-series%20%20Total%20%3D%20count%28%29%20default%3D1%2C%20ServerFailures%20%3D%20countif%28TaskName%20contains%20%22ServerFailure%22%29%20default%20%3D%200%20%20%20on%20TIMESTAMP%20%20%20%20from%20startTime%20%20%20%20to%20endTime%20%20%20%20step%201m%7C%20mv-expand%20TIMESTAMP%20to%20typeof%28datetime%29%2C%20Total%20to%20typeof%28double%29%2C%20ServerFailures%20to%20typeof%28double%29%7C%20extend%20FailureRatio%20%3D%20ServerFailures%2FTotal%7C%20extend%20Threshold%20%3D%200.4%7C%20project%20TIMESTAMP%2C%20FailureRatio%2C%20Threshold%7C%20render%20timechart%0A%0A%0A%0A| Service Failure Ratio TimeChart}"
+        },
+        {
+          "metadataKey": "RP Availability Dashboard",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/dashboard/ARM/Resource%2520Providers/RP%2520Availability?overrides=[{\"query\":\"//*[id='OperationName']\",\"key\":\"value\",\"replacement\":\"{monitor.dimension.operationname}\"},{\"query\":\"//*[id='RoleLocation']\",\"key\":\"value\",\"replacement\":\"{monitor.dimension.rolelocation}\"},{\"query\":\"//*[id='ProviderNamespace']\",\"key\":\"value\",\"replacement\":\"{monitor.dimension.providernamespace}\"}]&globalStartTime=-86400000&globalEndTime=-1&pinGlobalTimeRange=true|RP Availability Dashboard}"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-ResourceProvider",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedFailingBucketTemplate": {
+          "alertRules": [
+            {
+              "bucketsAnalyzed": 4,
+              "failingBuckets": 3,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 3,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "Event1",
+                  "thresholdValue": 100.0
+                },
+                {
+                  "comparator": ">=",
+                  "label": "Event2",
+                  "thresholdValue": 0.4
+                }
+              ]
+            }
+          ],
+          "bucketSizeInMinutes": 30,
+          "expressions": [
+            {
+              "label": "Event1",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            },
+            {
+              "label": "Event2",
+              "percentageTemplate": {
+                "denominator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "OutgoingServerFailureLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 11,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 11,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 57
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "HttpMethod",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "*/PROVIDERS/*/NOTIFY",
+          "",
+          "w"
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Admin.razzle,Frontdoor.Web.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "b3c2ce463d2e444b956ec860360029d4,2dabd70b19bf46729179a91f8a9bbe0a,659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e"
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "ProviderNamespace",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ],
+        [
+          "RoutingName",
+          "*",
+          "MICROSOFT.STORAGESYNCDEV,MICROSOFT.STORAGESYNCINT,MICROSOFT.CLASSICCOMPUTE,MICROSOFT.CLASSICSTORAGE,MICROSOFT.CLASSICNETWORK,CITRIX.CLOUD,RUXIT,NUUBIT.NEXTGENCDN,ASPERA.TRANSFERS,DYNATRACE.DYNATRACESAAS,DYNATRACE.RUXIT,LOMBIQ.DOTNEST,NEWRELIC.APM,RAVENHQ.DB,SUCCESSBRICKS.CLEARDB,MICROSOFT.DYNAMICSLCS,MICROSOFT.APIMANAGEMENT,MICROSOFT.NETWORK"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "OperationName",
+            "RoleLocation",
+            "ProviderNamespace"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Resource Providers",
+            "RP Availability"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "RP Availability Dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({Monitor.DataStartTime}) and TIMESTAMP < datetime({Monitor.DataEndTime})) \n| where operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName == \"HttpOutgoingRequestEndWithServerFailure\" and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" \n| where httpStatusCode <> 0 or durationInMilliseconds >= 12000 or exceptionMessage !contains \"TaskCanceledException\"",
+          "title": "Outgoing Errors",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "LinkedNotifications are a crucial step for sucessful completion of some ARM operations (such as resource moves or deletions). Please, make sure your RP is properly processing those requests. For more information, check the RP Availability dashboard linked in this incident. There is some additional troubleshooting information available here:  https://aka.ms/ArmProvidersTsgGuide",
+      "customTitle": "LinkedNotification: High server failure rate for linked notifications in [{monitor.Dimension.RoleLocation}] in 120M, operation [{monitor.Dimension.OperationName}]",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor tracks linked notification server failure ratios: It will count the percentage of outgoing requests that fails under ServerFailure, and alert whenever this value goes beyond a certain threshold.\nCheck the ServerFailure Ratio timechart, in the links below, to see the data being evaluated\n\nHuzeng: Logic is not correct, correct the monitor logic\nYushus: excluded RX tenants\nmaphad: Add failing buckets\niahickey: split Microsoft.Network into its own monitor",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 8,
+      "healthyDurationToMitigateIncident": "01:45:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "LinkedNotification_Provider_Availability",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-05-21T13:23:18.0231186Z",
+      "lookbackDuration": "02:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "Frontdoor-Providers-InOutRequestsServerFailureRate15M:{monitor.Dimension.OperationName}"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+TaskName+%3d%3d+%22HttpOutgoingRequestEndWithServerFailure%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22+%0d%0a%7c+where+httpStatusCode+%3C%3E+0+or+durationInMilliseconds+%3E%3D+12000+or+exceptionMessage+!contains+%22TaskCanceledException%22|Kusto}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"],[\"TaskName\",\"%3D%3D\",\"HttpOutgoingRequestEndWithServerFailure\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20|Jarvis}"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "SRE://Test"
+        },
+        {
+          "metadataKey": "ServerFailure Ratio Timechart",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=let%20startTime%20%3D%20datetime({Monitor.DataStartTime});let%20endTime%20%3D%20datetime({Monitor.DataEndTime});HttpOutgoingRequests%7C%20where%20%28TIMESTAMP%20%3E%3D%20startTime%20and%20TIMESTAMP%20%3C%20endTime%29%7C%20where%20operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName contains%20%22HttpOutgoingRequestEnd%22%20and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" %7C%20 make-series%20%20Total%20%3D%20count%28%29%20default%3D1%2C%20ServerFailures%20%3D%20countif%28TaskName%20contains%20%22ServerFailure%22%29%20default%20%3D%200%20%20%20on%20TIMESTAMP%20%20%20%20from%20startTime%20%20%20%20to%20endTime%20%20%20%20step%201m%7C%20mv-expand%20TIMESTAMP%20to%20typeof%28datetime%29%2C%20Total%20to%20typeof%28double%29%2C%20ServerFailures%20to%20typeof%28double%29%7C%20extend%20FailureRatio%20%3D%20ServerFailures%2FTotal%7C%20extend%20Threshold%20%3D%200.4%7C%20project%20TIMESTAMP%2C%20FailureRatio%2C%20Threshold%7C%20render%20timechart%0A%0A%0A%0A| Service Failure Ratio TimeChart}"
+        },
+        {
+          "metadataKey": "RP Availability Dashboard",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/dashboard/ARM/Resource%2520Providers/RP%2520Availability?overrides=[{\"query\":\"//*[id='OperationName']\",\"key\":\"value\",\"replacement\":\"{monitor.dimension.operationname}\"},{\"query\":\"//*[id='RoleLocation']\",\"key\":\"value\",\"replacement\":\"{monitor.dimension.rolelocation}\"},{\"query\":\"//*[id='ProviderNamespace']\",\"key\":\"value\",\"replacement\":\"{monitor.dimension.providernamespace}\"}]&globalStartTime=-86400000&globalEndTime=-1&pinGlobalTimeRange=true|RP Availability Dashboard}"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-ResourceProvider",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedFailingBucketTemplate": {
+          "alertRules": [
+            {
+              "bucketsAnalyzed": 8,
+              "failingBuckets": 7,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 4,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "Event1",
+                  "thresholdValue": 100.0
+                },
+                {
+                  "comparator": ">=",
+                  "label": "Event2",
+                  "thresholdValue": 0.5
+                }
+              ]
+            }
+          ],
+          "bucketSizeInMinutes": 15,
+          "expressions": [
+            {
+              "label": "Event1",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            },
+            {
+              "label": "Event2",
+              "percentageTemplate": {
+                "denominator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "OutgoingServerFailureLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 11,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 11,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 60
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "HttpMethod",
+          "*",
+          ""
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "*",
+          ""
+        ],
+        [
+          "ProviderNamespace",
+          "*",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Providers*",
+          "",
+          "w"
+        ],
+        [
+          "__Tenant",
+          "*",
+          "87b2c93cb8a546debfc66aa6b5204c40,7a5f064175054a0fb7d82175466eabcc"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": null,
+      "customTitle": "ARMProviders Alert: High server failure rate for outgoing http requests in [{monitor.Dimension.RoleLocation}] in 15M,  Http method [{monitor.Dimension.HttpMethod}], operation [{monitor.Dimension.OperationName}], Provider [{monitor.Dimension.ProviderNamespace}]",
+      "description": "Yushus: excluded RX tenant",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "ARMProviders_Provider_Availability_30M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-15T10:05:50.8311479Z",
+      "lookbackDuration": "00:30:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "ARMProviders-Providers-InOutRequestsServerFailureRate30M:{monitor.Dimension.OperationName}"
+        },
+        {
+          "metadataKey": "kustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+httpMethod+%3d%3d+%22{monitor.Dimension.HttpMethod}%22+and+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+TaskName+%3d%3d+%22HttpOutgoingRequestEndWithServerFailure%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22+%0d%0a%7c+where+httpStatusCode+%3C%3E+0+or+durationInMilliseconds+%3E%3D+12000+or+exceptionMessage+!contains+%22TaskCanceledException%22}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"],[\"TaskName\",\"%3D%3D\",\"HttpOutgoingRequestEndWithServerFailure\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-ResourceProvider",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "OutgoingServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.8
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 39
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "HttpMethod",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "LocalHealthMonitor.CheckHealth",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Web.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "b3c2ce463d2e444b956ec860360029d4,2dabd70b19bf46729179a91f8a9bbe0a,659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e"
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ],
+        [
+          "RoutingName",
+          "*",
+          "MICROSOFT.STORAGESYNCDEV,MICROSOFT.STORAGESYNCINT,MICROSOFT.CLASSICCOMPUTE,MICROSOFT.CLASSICSTORAGE,MICROSOFT.CLASSICNETWORK,CITRIX.CLOUD,RUXIT,NUUBIT.NEXTGENCDN,ASPERA.TRANSFERS,DYNATRACE.DYNATRACESAAS,DYNATRACE.RUXIT,LOMBIQ.DOTNEST,NEWRELIC.APM,RAVENHQ.DB,SUCCESSBRICKS.CLEARDB,MICROSOFT.DYNAMICSLCS,MICROSOFT.APIMANAGEMENT"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({Monitor.DataStartTime}) and TIMESTAMP < datetime({Monitor.DataEndTime})) \n| where operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName == \"HttpOutgoingRequestEndWithServerFailure\" and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" \n| where httpStatusCode <> 0 or durationInMilliseconds >= 12000 or exceptionMessage !contains \"TaskCanceledException\"",
+          "title": "Outgoing Errors",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "Based on the operationName provided in the title, you can go to code for a deeper investigation.  There is some additional troubleshooting information available here:  https://aka.ms/ArmProvidersTsgGuide",
+      "customTitle": "Frontdoor Alert: High server failure rate for outgoing http requests in [{monitor.Dimension.RoleLocation}] in 15M,  Http method [{monitor.Dimension.HttpMethod}], operation [{monitor.Dimension.OperationName}]",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Yushus: excluded RX tenants",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_HealthCheck_Availability_15M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-15T10:05:04.5654426Z",
+      "lookbackDuration": "00:30:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "Frontdoor-Providers-InOutRequestsServerFailureRate15M:{monitor.Dimension.OperationName}"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+TaskName+%3d%3d+%22HttpOutgoingRequestEndWithServerFailure%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22+%0d%0a%7c+where+httpStatusCode+%3C%3E+0+or+durationInMilliseconds+%3E%3D+12000+or+exceptionMessage+!contains+%22TaskCanceledException%22}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"],[\"TaskName\",\"%3D%3D\",\"HttpOutgoingRequestEndWithServerFailure\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20}"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "AIMS://AZUREUX\\AUXARM\\{monitor.Dimension.RoutingName}"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedEventsTemplate": {
+          "events": [
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [
+                          [
+                            "HttpMethod",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "OperationName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "RoleLocation",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Role",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "__Tenant",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "JarvisEndpoint",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "SourceNamespace",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ],
+                          [
+                            "RoutingName",
+                            "*",
+                            "",
+                            "w",
+                            "i"
+                          ]
+                        ],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 100.0
+            },
+            {
+              "comparator": ">=",
+              "template": {
+                "percentageTemplate": {
+                  "denominator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "HttpOutgoingRequestsLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ],
+                  "evaluatePureFraction": true,
+                  "multiplier": 1.0,
+                  "numerator": [
+                    {
+                      "dataSourceType": 0,
+                      "fetchMetrics": {
+                        "aggregateType": 0,
+                        "conditions": [],
+                        "dataSourceType": 0,
+                        "endTimeShift": "00:00:00",
+                        "isNegative": false,
+                        "lookbackDuration": "00:00:00",
+                        "metric": "OutgoingServerFailureLatency",
+                        "metricsSourceAggregateType": 0,
+                        "monitoringAccount": "ARM",
+                        "namespace": "Requests",
+                        "samplingType": "Count",
+                        "useTotalAggregate": false
+                      }
+                    }
+                  ]
+                },
+                "templateType": 6,
+                "valueOnDivideByZero": 0,
+                "valueOnNull": 0
+              },
+              "threshold": 0.4
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 8,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 8,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 41
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Admin.razzle,Frontdoor.Web.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "ProviderNamespace",
+          "*",
+          ""
+        ],
+        [
+          "ResourceType",
+          "*",
+          ""
+        ],
+        [
+          "RoutingName",
+          "MICROSOFT.NETWORK",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "ProviderNamespace"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Resource Providers",
+            "RP Health"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "RP Health",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({Monitor.DataStartTime}) and TIMESTAMP < datetime({Monitor.DataEndTime})) \n| where operationName contains \"{Monitor.Dimension.ProviderNamespace}/{Monitor.Dimension.ResourceType}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName == \"HttpOutgoingRequestEndWithServerFailure\" and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" \n| where httpStatusCode <> 0 or durationInMilliseconds >= 12000 or exceptionMessage !contains \"TaskCanceledException\"",
+          "title": "Outgoing Errors",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "Based on the operationName provided in the title, you can go to code for a deeper investigation.  There is some additional troubleshooting information available here:  https://aka.ms/ArmProvidersTsgGuide",
+      "customTitle": "ARM requests to [{monitor.Dimension.ProviderNamespace}] for [{monitor.Dimension.ProviderNamespace}/{monitor.Dimension.ResourceType}] resources are failing in [{monitor.Dimension.RoleLocation}]",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor tracks server failure ratios for Microsoft.Network\n\nIt will count the percentage of outgoing requests that fails under ServerFailure, and alert whenever this value goes beyond a certain threshold.\nCheck the ServerFailure Ratio timechart, in the links below, to see the data being evaluated\n\nHuzeng: Logic is not correct, correct the monitor logic\nYushus: excluded RX tenants\nmaphad: Add failing buckets",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "02:15:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "NetworkRP_Availability",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-18T12:27:16.961242Z",
+      "lookbackDuration": "02:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "ARM://ResourceProvider-ResourceType/{monitor.Dimension.ProviderNamespace}/{monitor.Dimension.ResourceType}/Availability"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+contains+%22{Monitor.Dimension.ProviderNamespace}%2F{Monitor.Dimension.ResourceType}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+TaskName+%3d%3d+%22HttpOutgoingRequestEndWithServerFailure%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22+%0d%0a%7c+where+httpStatusCode+%3C%3E+0+or+durationInMilliseconds+%3E%3D+12000+or+exceptionMessage+!contains+%22TaskCanceledException%22}"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "AIMS://AZUREUX\\AUXARM\\{monitor.Dimension.RoutingName}.{monitor.Dimension.ResourceType}"
+        },
+        {
+          "metadataKey": "ServerFailure Ratio Timechart",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=let%20startTime%20%3D%20datetime({Monitor.DataStartTime});let%20endTime%20%3D%20datetime({Monitor.DataEndTime});HttpOutgoingRequests%7C%20where%20%28TIMESTAMP%20%3E%3D%20startTime%20and%20TIMESTAMP%20%3C%20endTime%29%7C%20where%20operationName contains \"{Monitor.Dimension.ProviderNamespace}%2F{Monitor.Dimension.ResourceType}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName contains%20%22HttpOutgoingRequestEnd%22%20and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" %7C%20 make-series%20%20Total%20%3D%20count%28%29%20default%3D1%2C%20ServerFailures%20%3D%20countif%28TaskName%20contains%20%22ServerFailure%22%29%20default%20%3D%200%20%20%20on%20TIMESTAMP%20%20%20%20from%20startTime%20%20%20%20to%20endTime%20%20%20%20step%201m%7C%20mv-expand%20TIMESTAMP%20to%20typeof%28datetime%29%2C%20Total%20to%20typeof%28double%29%2C%20ServerFailures%20to%20typeof%28double%29%7C%20extend%20FailureRatio%20%3D%20ServerFailures%2FTotal%7C%20extend%20Threshold%20%3D%200.4%7C%20project%20TIMESTAMP%2C%20FailureRatio%2C%20Threshold%7C%20render%20timechart%0A%0A%0A%0A| Service Failure Ratio TimeChart}"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-ResourceProvider",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedFailingBucketTemplate": {
+          "alertRules": [
+            {
+              "bucketsAnalyzed": 4,
+              "failingBuckets": 3,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 3,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "TotalRequests",
+                  "thresholdValue": 100.0
+                },
+                {
+                  "comparator": ">=",
+                  "label": "FailureRatio",
+                  "thresholdValue": 0.4
+                }
+              ]
+            }
+          ],
+          "bucketSizeInMinutes": 30,
+          "expressions": [
+            {
+              "label": "TotalRequests",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "ProviderNamespace",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "ResourceType",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "RoutingName",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            },
+            {
+              "label": "FailureRatio",
+              "percentageTemplate": {
+                "denominator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "ProviderNamespace",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "ResourceType",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "RoutingName",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "ProviderNamespace",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "ResourceType",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "RoutingName",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "OutgoingServerFailureLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 11,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 11,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 51
+    },
+    {
+      "category": "Resource Providers",
+      "conditions": [
+        [
+          "HttpMethod",
+          "*",
+          ""
+        ],
+        [
+          "OperationName",
+          "*",
+          "PUT/AZURE/SUBSCRIPTIONS/,GET/PROVIDERS/RDFE/GETCLOUDSERVICE,GET/PROVIDERS/RDFE/GETCLOUDSERVICEWITHDETAILS,GET/PROVIDERS/RDFE/GETSTORAGEKEYS,GET/METRICS/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.CLASSICSTORAGE/STORAGEACCOUNTS/SERVICES/METRICS,GET/METRICS/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.CLASSICCOMPUTE/VIRTUALMACHINES/METRICS,GET/METRICS/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.CLASSICCOMPUTE/DOMAINNAMES/SLOTS/ROLES/METRICS,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.AUTHORIZATION/CLASSICADMINISTRATORS,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.AUTHORIZATION/CLASSICADMINISTRATORS/,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.AUTHORIZATION/CLASSICADMINISTRATORS/OPERATIONSTATUSES/,POST/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.AUTHORIZATION/VALIDATEPOLICYDEPLOYMENT,GET/SUBSCRIPTIONS/PROVIDERS/MICROSOFT.NETWORK/LOCATIONS/OPERATIONRESULTS/,POST/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.CONTAINERINSTANCE/CONTAINERGROUPS/PROVIDERS/MICROSOFT.AUTHORIZATION/POLICYDATACLEANUP"
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Admin.razzle,Frontdoor.Web.razzle,Frontdoor.Worker.razzle",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          "b3c2ce463d2e444b956ec860360029d4,2dabd70b19bf46729179a91f8a9bbe0a,659d2277916844f891d35e2d164d9b94,df9f9c09479143439e70c5ae4311189e"
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ],
+        [
+          "ResourceType",
+          "*",
+          ""
+        ],
+        [
+          "RoutingName",
+          "MICROSOFT.NETWORK",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": true,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where (TIMESTAMP >= datetime({Monitor.DataStartTime}) and TIMESTAMP < datetime({Monitor.DataEndTime})) \n| where operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName == \"HttpOutgoingRequestEndWithServerFailure\" and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" \n| where httpStatusCode <> 0 or durationInMilliseconds >= 12000 or exceptionMessage !contains \"TaskCanceledException\"",
+          "title": "Outgoing Errors",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "Based on the operationName provided in the title, you can go to code for a deeper investigation.  There is some additional troubleshooting information available here:  https://aka.ms/ArmProvidersTsgGuide",
+      "customTitle": "Frontdoor Alert: High server failure rate for outgoing http requests in [{monitor.Dimension.RoleLocation}] in 15M,  Http method [{monitor.Dimension.HttpMethod}], operation [{monitor.Dimension.OperationName}], resourceType [{monitor.Dimension.ResourceType}]",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor tracks server failure ratios for Microsoft.Network\n\nbpannell (2020-06-18): Disabled in favour of NetworkRP_Availability monitor\n\nIt will count the percentage of outgoing requests that fails under ServerFailure, and alert whenever this value goes beyond a certain threshold.\nCheck the ServerFailure Ratio timechart, in the links below, to see the data being evaluated\n\nHuzeng: Logic is not correct, correct the monitor logic\nYushus: excluded RX tenants\nmaphad: Add failing buckets",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "OutgoingServerFailureLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 2,
+      "healthyDurationToMitigateIncident": "00:15:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_Provider_Availability_ResourceType_15M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-18T12:46:29.5362513Z",
+      "lookbackDuration": "02:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "Frontdoor-Providers-InOutRequestsServerFailureRate15M:{monitor.Dimension.OperationName}"
+        },
+        {
+          "metadataKey": "KustoURL",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=HttpOutgoingRequests%0d%0a%7c+where+(TIMESTAMP+%3e%3d+datetime({monitor.DataStartTime})+and+TIMESTAMP+%3c+datetime({monitor.DataEndTime}))+%0d%0a%7c+where+operationName+%3d%3d+%22{monitor.Dimension.OperationName}%22+and+Deployment+%3d%3d+%22{monitor.Dimension.__Tenant}%22+and+Role+%3d%3d+%22{monitor.Dimension.__Role}%22+and+TaskName+%3d%3d+%22HttpOutgoingRequestEndWithServerFailure%22+and+SourceNamespace+%3d%3d+%22{monitor.Dimension.SourceNamespace}%22+%0d%0a%7c+where+httpStatusCode+%3C%3E+0+or+durationInMilliseconds+%3E%3D+12000+or+exceptionMessage+!contains+%22TaskCanceledException%22}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrep&time={monitor.DataEndTime} Z&offset=-30&offsetUnit=Minutes&UTC=true&ep={monitor.Dimension.JarvisEndpoint}&ns={monitor.Dimension.SourceNamespace}&en=HttpOutgoingRequests&scopingConditions=[[\"Deployment\",\"{monitor.Dimension.__Tenant}\"],[\"Role\",\"{monitor.Dimension.__Role}\"]]&conditions=[[\"httpMethod\",\"%3D%3D\",\"{monitor.Dimension.HttpMethod}\"],[\"operationName\",\"%3D%3D\",\"{monitor.Dimension.OperationName}\"],[\"TaskName\",\"%3D%3D\",\"HttpOutgoingRequestEndWithServerFailure\"]]&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]%20}"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "AIMS://AZUREUX\\AUXARM\\{monitor.Dimension.RoutingName}.{monitor.Dimension.ResourceType}"
+        },
+        {
+          "metadataKey": "ServerFailure Ratio Timechart",
+          "metadataValue": "link{https://armprod.kusto.windows.net:443/ARMProd?query=let%20startTime%20%3D%20datetime({Monitor.DataStartTime});let%20endTime%20%3D%20datetime({Monitor.DataEndTime});HttpOutgoingRequests%7C%20where%20%28TIMESTAMP%20%3E%3D%20startTime%20and%20TIMESTAMP%20%3C%20endTime%29%7C%20where%20operationName == \"{Monitor.Dimension.OperationName}\" and Role == \"{Monitor.Dimension.__Role}\" and TaskName contains%20%22HttpOutgoingRequestEnd%22%20and SourceNamespace == \"{Monitor.Dimension.SourceNamespace}\" %7C%20 make-series%20%20Total%20%3D%20count%28%29%20default%3D1%2C%20ServerFailures%20%3D%20countif%28TaskName%20contains%20%22ServerFailure%22%29%20default%20%3D%200%20%20%20on%20TIMESTAMP%20%20%20%20from%20startTime%20%20%20%20to%20endTime%20%20%20%20step%201m%7C%20mv-expand%20TIMESTAMP%20to%20typeof%28datetime%29%2C%20Total%20to%20typeof%28double%29%2C%20ServerFailures%20to%20typeof%28double%29%7C%20extend%20FailureRatio%20%3D%20ServerFailures%2FTotal%7C%20extend%20Threshold%20%3D%200.4%7C%20project%20TIMESTAMP%2C%20FailureRatio%2C%20Threshold%7C%20render%20timechart%0A%0A%0A%0A| Service Failure Ratio TimeChart}"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Testing-Region",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedFailingBucketTemplate": {
+          "alertRules": [
+            {
+              "bucketsAnalyzed": 4,
+              "failingBuckets": 3,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 3,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "Event1",
+                  "thresholdValue": 100.0
+                },
+                {
+                  "comparator": ">=",
+                  "label": "Event2",
+                  "thresholdValue": 0.4
+                }
+              ]
+            }
+          ],
+          "bucketSizeInMinutes": 30,
+          "expressions": [
+            {
+              "label": "Event1",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            },
+            {
+              "label": "Event2",
+              "percentageTemplate": {
+                "denominator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "OutgoingServerFailureLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 11,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 11,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">=",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 2.0
+        }
+      ],
+      "version": 50
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

@@ -1,0 +1,139 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheValidator",
+  "computedMetrics": [
+    {
+      "displayName": "FailsCount",
+      "expression": "onlyInARM.Sum + onlyInART.Sum",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "FailsCount",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "FailsRate",
+      "expression": "(onlyInARM.Sum + onlyInART.Sum)  / ((onlyInARM.Sum + onlyInART.Sum + inBoth.Sum ) || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "FailsRate",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Count",
+      "expression": "onlyInARM.Sum + onlyInART.Sum + inBoth.Sum",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "Count",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "dimensions": [],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "ValidationListsComparisonFailsCount",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "inBoth": {
+      "metricName": "ValidationListsComparisonInBothCount",
+      "metricNamespace": "ResourcesCacheValidator",
+      "monitoringAccount": "AzureResourcesTopology"
+    },
+    "onlyInARM": {
+      "metricName": "ValidationListsComparisonOnlyInArmCount",
+      "metricNamespace": "ResourcesCacheValidator",
+      "monitoringAccount": "AzureResourcesTopology"
+    },
+    "onlyInART": {
+      "metricName": "ValidationListsComparisonOnlyInArtCount",
+      "metricNamespace": "ResourcesCacheValidator",
+      "monitoringAccount": "AzureResourcesTopology"
+    }
+  },
+  "metrics": [],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 6,
+  "views": [
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "Tenant"
+      ],
+      "displayName": "By-Environment-Tenant-NodeType-NodeNumber",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment"
+      ],
+      "displayName": "By-Environment",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "Environment",
+        "Service"
+      ],
+      "displayName": "By-Environment-Service",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

@@ -1,0 +1,600 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "IncomingRequestAvailability",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Web.razzle",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation",
+            "__Role"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Region Health ",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation",
+            "__Role"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "SLOs",
+            "Portal User Experience"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Frontdoor API User Experience ",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.GenericCustomLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "executionDelay": "00:00:00",
+          "link": "https://portal.microsofticm.com/imp/v3/oncall/current?teamIds=10498",
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Azure Communications Manager IcM link",
+          "type": "Custom"
+        }
+      ],
+      "customMessage": "Please use the resources in this incident to check availability for ARM in the mentioned region and confirm customer impact. If customer impacting, please engage CXP in the IcM team provided in the links for communications.",
+      "customTitle": "Customers making requests to ARM in [{Monitor.Dimension.RoleLocation}] are experiencing a large number of request failures and/or timeouts.",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor calculates availability based on all successful requests logged in ARM divided by all incoming requests. It is designed to help us identify situations in which ARM's availability drops below our internal SLOs (99.99%). There is a progressive set of thresholds designed to rapidly (low latency) detect significant availability impact while still providing detection for less significant impact which continues over a longer period of time.\n\nThese thresholds are set for three tiers of region (LOW = 10k..50k RPM, MID = 50k..500k RPM and HIGH = >500k RPM). Higher request rate regions have higher SLO requirements than smaller regions.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "IncomingRequestAvailability",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "00:45:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor Availability",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-19T11:32:51.4923247Z",
+      "lookbackDuration": "04:00:00",
+      "metadata": [
+        {
+          "metadataKey": "Icm.CorrelationId",
+          "metadataValue": "ARM://Region-Role/{monitor.Dimension.RoleLocation}/{monitor.Dimension.__Role}/Availability"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedFailingBucketTemplate": {
+          "alertRules": [
+            {
+              "bucketsAnalyzed": 2,
+              "failingBuckets": 2,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": ">",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 50000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 90.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 500000.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 5,
+              "failingBuckets": 5,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": ">",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 50000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 95.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 500000.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 10,
+              "failingBuckets": 5,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": ">",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 50000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 95.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 500000.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 48,
+              "failingBuckets": 12,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 3,
+              "thresholds": [
+                {
+                  "comparator": ">",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 50000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 95.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 500000.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 2,
+              "failingBuckets": 2,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": "<=",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 50000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 50.0
+                },
+                {
+                  "comparator": ">",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 10000.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 5,
+              "failingBuckets": 5,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": "<=",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 50000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 80.0
+                },
+                {
+                  "comparator": ">",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 10000.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 10,
+              "failingBuckets": 5,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": "<=",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 50000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 80.0
+                },
+                {
+                  "comparator": ">",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 10000.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 48,
+              "failingBuckets": 12,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 3,
+              "thresholds": [
+                {
+                  "comparator": "<=",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 50000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 90.0
+                },
+                {
+                  "comparator": ">",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 10000.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 2,
+              "failingBuckets": 2,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 500000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 95.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 5,
+              "failingBuckets": 5,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 500000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 98.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 10,
+              "failingBuckets": 5,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 500000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 98.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 48,
+              "failingBuckets": 12,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 3,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "RequestsPerMinute",
+                  "thresholdValue": 500000.0
+                },
+                {
+                  "comparator": "<",
+                  "label": "Availability",
+                  "thresholdValue": 99.0
+                }
+              ]
+            }
+          ],
+          "bucketSizeInMinutes": 5,
+          "expressions": [
+            {
+              "label": "RequestsPerMinute",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 4,
+                      "conditions": [
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "IncomingRequestAvailability",
+                      "metricsSourceAggregateType": 4,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "IncomingCount",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            },
+            {
+              "label": "Availability",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 4,
+                      "conditions": [
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "IncomingRequestAvailability",
+                      "metricsSourceAggregateType": 4,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "PlatformAvailability",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 11,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 11,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 0.0
+        }
+      ],
+      "version": 28
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

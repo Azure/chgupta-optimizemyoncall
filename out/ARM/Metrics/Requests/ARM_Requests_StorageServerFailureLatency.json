@@ -1,0 +1,230 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": [
+    {
+      "displayName": "Average",
+      "expression": "raw.Sum / (raw.Count || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "Average",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "NullableAverage",
+      "expression": "raw.Count ? (raw.Sum / raw.Count) : null",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "NullableAverage",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Rate",
+      "expression": "raw.Sum / 60",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "Rate",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "dimensions": [
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "AccountName"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "HttpStatusCode"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "JarvisEndpoint"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "OperationName"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "ResourceType"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "RoleLocation"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "SourceNamespace"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "__Role"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "__RoleInstance"
+    },
+    {
+      "dimensionValuesToIgnore": [],
+      "id": "__Tenant"
+    },
+    {
+      "id": "ResourceName"
+    }
+  ],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "StorageServerFailureLatency",
+  "isFromNewPipeline": true,
+  "isQosMetric": false,
+  "metrics": [
+    {
+      "displayName": "Count",
+      "expression": null,
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Count",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Sum",
+      "expression": null,
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Sum",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 6,
+  "views": [
+    {
+      "dimensions": [
+        "AccountName",
+        "OperationName",
+        "ResourceType",
+        "RoleLocation",
+        "__Role",
+        "__Tenant"
+      ],
+      "displayName": "Location.Role.Tenant.Account.Type.Operation",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "AccountName",
+        "HttpStatusCode",
+        "OperationName",
+        "ResourceType",
+        "RoleLocation",
+        "__Role",
+        "__Tenant"
+      ],
+      "displayName": "Location.Role.Tenant.Account.Type.Operation.StatusCode",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "AccountName",
+        "HttpStatusCode",
+        "OperationName",
+        "ResourceType",
+        "RoleLocation",
+        "__Role",
+        "__RoleInstance",
+        "__Tenant"
+      ],
+      "displayName": "Location.Role.Instance.Tenant.Account.Type.Operation.StatusCode",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "AccountName",
+        "RoleLocation"
+      ],
+      "displayName": "Location.Account",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

@@ -1,0 +1,633 @@
+{
+  "allSeriesThrottleLimit": 480000,
+  "apPkiAcls": [],
+  "autoPreAggWarmPathMappings": [],
+  "certificates": [
+    {
+      "description": "Sangam Thumbprint Engine",
+      "role": "MetricPublisher",
+      "thumbprint": "A56E42610F36E78CE565D01C7FDD18ADA873677A"
+    },
+    {
+      "description": "Chirag Test",
+      "role": "Administrator",
+      "thumbprint": "650C83849E473A9947B9534AF8DC4B76B9918CC1"
+    },
+    {
+      "description": "EUS GCS Exp 8/10/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "6BB8D7B4A81C95C812D74B6AE663096D1DD3A89B"
+    },
+    {
+      "description": "WUS2-One-Asc Sailfish GCS Cert",
+      "role": "MetricPublisher",
+      "thumbprint": "65F1CF5A90F3F6A34B0980E4814845014ABA284A"
+    },
+    {
+      "description": "WEU-One-Asc Sailfish GCS Cert",
+      "role": "MetricPublisher",
+      "thumbprint": "982DA66C8EA74296053B545C211200768767F600"
+    },
+    {
+      "description": "EUS-One-Asc Sailfish GCS Cert",
+      "role": "MetricPublisher",
+      "thumbprint": "1B649EB8413382078451DCD361BC68B3D4A88EF3"
+    },
+    {
+      "description": "WUS2-One-Backup Sailfish GCS Cert",
+      "role": "MetricPublisher",
+      "thumbprint": "471089890F6F73A50B220FA4A4058CD44B64DDB0"
+    },
+    {
+      "description": "WEU-One-Backup Sailfish GCS Cert",
+      "role": "MetricPublisher",
+      "thumbprint": "F19052C4F21F82BBB03EB21DA1025AFF87806233"
+    },
+    {
+      "description": "EUS-One-Backup Sailfish GCS Cert",
+      "role": "MetricPublisher",
+      "thumbprint": "EFEE097E1D596D40804C1E97B905345F04FC4565"
+    },
+    {
+      "description": "Chirag PC cert to sync Geneva Monitors",
+      "role": "Administrator",
+      "thumbprint": "7AD320B84F43E89FCFD04AD4CE296C69795D23F3"
+    },
+    {
+      "description": "WEU-One-Alerts Sailfish GCS Cert",
+      "role": "MetricPublisher",
+      "thumbprint": "B96C8A37EAD22619FD396D9AF950FDB7515C98C6"
+    },
+    {
+      "description": "WUS2-One-Alerts Sailfish GCS Cert",
+      "role": "MetricPublisher",
+      "thumbprint": "93728A18BAB42BDFD3F6F33B2CEBEF09CCA157DB"
+    },
+    {
+      "description": "Cosmos Events",
+      "role": "MetricPublisher",
+      "thumbprint": "EC727EEE8DA3EB668BB73C5BAD59FB153D95E10B"
+    },
+    {
+      "description": "Sangam Thumbprint Engine Old",
+      "role": "MetricPublisher",
+      "thumbprint": "8B17A97FD5882AF9E80F1BD4DCCC2B6A9FDBF5ED"
+    },
+    {
+      "description": "Sangam Thumbprint Auditor",
+      "role": "MetricPublisher",
+      "thumbprint": "DF4D30DCD1F02D0A17A7E8B4160E114D4980FBB7"
+    },
+    {
+      "description": "WUS2-Three Sailfish GCS Cert Thumbprint  Expiry 4/7/21",
+      "role": "MetricPublisher",
+      "thumbprint": "CB5CECFE06FACC5AE2395941E6FDB768A10621BE"
+    },
+    {
+      "description": "WUS2-Two Sailfish GCS Cert Thumbprint  Expiry 4/7/21",
+      "role": "MetricPublisher",
+      "thumbprint": "025302E9C4E45009B85FD8C41124EB1F2FA2C904"
+    },
+    {
+      "description": "WUS2-One Sailfish GCS Cert Thumbprint  Expiry 4/7/21",
+      "role": "MetricPublisher",
+      "thumbprint": "BF8414E4A2F25A4820BDE88B4CF6C0A4FD23FA27"
+    },
+    {
+      "description": "NEU-Two Sailfish GCS Cert Thumbprint  Expiry 4/6/21",
+      "role": "MetricPublisher",
+      "thumbprint": "9DDB340417C1245044B8E27879989D03ED819E7B"
+    },
+    {
+      "description": "NEU-One Sailfish GCS Cert Thumbprint  Expiry 4/6/21",
+      "role": "MetricPublisher",
+      "thumbprint": "51CB0EA951111C855B21CA51889DC5F7B7843BD5"
+    },
+    {
+      "description": "WEU-Three Sailfish GCS Cert Thumbprint Expiry 4/5/21",
+      "role": "MetricPublisher",
+      "thumbprint": "8941F90C24CBF18E21911686093BA4A7E032D025"
+    },
+    {
+      "description": "EUS-Four Sailfish GCS Certificate Thumbprint 4/5/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "48E05C255BB4E72E0B27763F8D5B703865011D48"
+    },
+    {
+      "description": "EUS-Two Sailfish GCS Certificate thumbprint 3/1/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "5EDE192B84542C84856FB0C318225F2490184650"
+    },
+    {
+      "description": "EUS-Policy-One Sailfish GCS Certificate thumbprint 2/17/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "21E325E892CE495073CD4F5A0AFA83866D329C38"
+    },
+    {
+      "description": "EUS-Alerts-One Sailfish GCS Certificate thumbprint 2/17/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "FA7CE914ECCDF9045BDDC1DFA50CFBE4B639B601"
+    },
+    {
+      "description": "EUS-One Sailfish GCS Certificate thumbprint 2/15/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "9A2882E6746466C1116B99FF57C45BCB51FFDD25"
+    },
+    {
+      "description": "Test certificate to get Geneva configs.",
+      "role": "ReadOnly",
+      "thumbprint": "D4690B7F658741C65192CB805EB192DFEFB9B456"
+    },
+    {
+      "description": "Weu-Two Sailfish GCS Certificate thumbprint 1/26/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "B1D9A44D2CE6A106173106149443B11DC10FA4E0"
+    },
+    {
+      "description": "Sea-Two Sailfish GCS Certificate thumbprint 1/26/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "01513B6C9184D9D0FD2537BD1DD23EF2087779A7"
+    },
+    {
+      "description": "Eus-Three Sailfish GCS Certificate thumbprint 1/26/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "ABA3A9BD704982E055D53FB3B7B1EEC789146695"
+    },
+    {
+      "description": "EUS2EUAP-One Sailfish GCS Certificate thumbprint 1/26/2021",
+      "role": "MetricPublisher",
+      "thumbprint": "E590C57A2C94FA80D34422ABFB3461289A9A4969"
+    },
+    {
+      "description": "SEA-One Sailfish GCS Certificate thumbprint",
+      "role": "MetricPublisher",
+      "thumbprint": "66A9841CBB3D113A0FA0B83CFA6CD635EB4807F3"
+    },
+    {
+      "description": "WEU-One Sailfish GCS Certificate thumbprint",
+      "role": "MetricPublisher",
+      "thumbprint": "76EBA6E86493BBE481E51703079C507AEA9DF56D"
+    },
+    {
+      "description": "EUS2SUAP GCS Certificate thumbprint",
+      "role": "MetricPublisher",
+      "thumbprint": "5581418390507D9F817DE6E7BBACD5795FBB5EBE"
+    },
+    {
+      "description": "WEU GCS Certificate thumbprint",
+      "role": "MetricPublisher",
+      "thumbprint": "EAC349BEFF6D275261CB2F6F0F3D3EF48D57C441"
+    },
+    {
+      "description": "SEA GCS Certificate thumbprint",
+      "role": "MetricPublisher",
+      "thumbprint": "2D57F5304C7989C81EEDEF58144C7202421ACC44"
+    },
+    {
+      "description": "Runners Health",
+      "role": "MetricPublisher",
+      "thumbprint": "F8C29F793DCD9126E0A5B6CD8CC6CC946C405726"
+    },
+    {
+      "description": "Runners Publisher",
+      "role": "MetricPublisher",
+      "thumbprint": "CF7D7E13B0629CB1D04849043565953DCBA26EE4"
+    },
+    {
+      "description": "Runners Publisher",
+      "role": "MetricPublisher",
+      "thumbprint": "28E7581EA4EFFA72E63870DFD3F8073E882139AD"
+    },
+    {
+      "description": "EUS GCS Certificate thumbprint",
+      "role": "MetricPublisher",
+      "thumbprint": "9CEC3072DFBB533F5857E7B0A5ABA81FC51DC6A8"
+    }
+  ],
+  "clientMetricCountPerMinuteLimit": 1000000,
+  "cloudReplicationType": "PublicAndLX",
+  "contributors": [
+    {
+      "alias": "mahpate",
+      "role": "Administrator"
+    },
+    {
+      "alias": "utsriva",
+      "role": "Administrator"
+    },
+    {
+      "alias": "v-edzepe",
+      "role": "Administrator"
+    },
+    {
+      "alias": "anatolib",
+      "role": "ConfigurationEditor"
+    },
+    {
+      "alias": "soagarwa",
+      "role": "Administrator"
+    },
+    {
+      "alias": "sughosh",
+      "role": "Administrator"
+    },
+    {
+      "alias": "venul",
+      "role": "Administrator"
+    },
+    {
+      "alias": "paposkro",
+      "role": "Administrator"
+    },
+    {
+      "alias": "makharch",
+      "role": "Administrator"
+    },
+    {
+      "alias": "guayang",
+      "role": "Administrator"
+    },
+    {
+      "alias": "yoshen",
+      "role": "Administrator"
+    },
+    {
+      "alias": "rchapas",
+      "role": "Administrator"
+    },
+    {
+      "alias": "oltkache",
+      "role": "Administrator"
+    },
+    {
+      "alias": "amdua",
+      "role": "Administrator"
+    },
+    {
+      "alias": "ambakhti",
+      "role": "Administrator"
+    },
+    {
+      "alias": "scary",
+      "role": "Administrator"
+    },
+    {
+      "alias": "momihail",
+      "role": "Administrator"
+    },
+    {
+      "alias": "ilidemi",
+      "role": "Administrator"
+    },
+    {
+      "alias": "johncall",
+      "role": "Administrator"
+    },
+    {
+      "alias": "chgupta",
+      "role": "Administrator"
+    },
+    {
+      "alias": "gkapila",
+      "role": "Administrator"
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "displayName": "",
+  "dsmsAcls": [
+    {
+      "acl": "d898d63e87b5436eb7dc941a34bd834f.metricsclient.geneva.core.windows.net",
+      "description": "/genevacustomers/monitoring/hotpath/public/runnerservice/certificates/chained/runnersvcprodhealthcert.pfx",
+      "role": "MetricPublisher"
+    }
+  ],
+  "endpointForAlternateQuery": null,
+  "endpointForClientForking": "",
+  "endpointsForClientForking": [],
+  "globalSamplesThrottlingLimitThousandsPerMinute": null,
+  "globalSamplesWithHistogramThrottlingLimitThousandsPerMinute": null,
+  "homeStampGslbHostname": "prod3.metrics.nsatc.net",
+  "isReadsBlocked": false,
+  "isThirdPartyAccount": false,
+  "isWritesBlocked": false,
+  "keyVaultAcls": [
+    {
+      "acl": "weuhealthtwo.Geneva.KeyVault.weu.gov-rp-art",
+      "description": "Health Weu Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "eushealthtwo.Geneva.KeyVault.eus.gov-rp-art",
+      "description": "Health Eus Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "wus2asctwo.Geneva.KeyVault.wus2.gov-rp-art",
+      "description": "ASC Wus2 Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "weuasctwo.Geneva.KeyVault.weu.gov-rp-art",
+      "description": "ASC Weu Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "wus2policyone.Geneva.KeyVault.wus2.gov-rp-art",
+      "description": "Policy Wus2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "weupolicyone.Geneva.KeyVault.weu.gov-rp-art",
+      "description": "Policy Weu One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "wus2gconfigone.Geneva.KeyVault.wus2.gov-rp-art",
+      "description": "Gconfig Wus2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "weugconfigone.Geneva.KeyVault.weu.gov-rp-art",
+      "description": "Gconfig Weu One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "eusgconfigone.Geneva.KeyVault.eus.gov-rp-art",
+      "description": "Gconfig Eus One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "weuhealthone.Geneva.KeyVault.weu.gov-rp-art",
+      "description": "Health Weu One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "eusasctwo.Geneva.KeyVault.eus.gov-rp-art",
+      "description": "ASC Eus Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "wus2healthone.Geneva.KeyVault.wus2.gov-rp-art",
+      "description": "Health Wus2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "eussix.Geneva.KeyVault.eus.gov-rp-art",
+      "description": "Eus Six managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "eushealthone.Geneva.KeyVault.eus.gov-rp-art",
+      "description": "Health Eus One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "wus2four.Geneva.KeyVault.wus2.gov-rp-art",
+      "description": "Wus2 Four managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "weufour.Geneva.KeyVault.weu.gov-rp-art",
+      "description": "Weu Four managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "wus2advisorone.Geneva.KeyVault.wus2.gov-rp-art",
+      "description": "Advisor WUS2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "wus2maintenanceone.Geneva.KeyVault.wus2.gov-rp-art",
+      "description": "Maintenance WUS2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "weumaintenanceone.Geneva.KeyVault.weu.gov-rp-art",
+      "description": "Maintenance WEU One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "eusmaintenanceone.Geneva.KeyVault.eus.gov-rp-art",
+      "description": "Maintenance EUS One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "eusfive.Geneva.KeyVault.eus.gov-rp-art",
+      "description": "EUS Five managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "weuadvisorone.Geneva.KeyVault.weu.gov-rp-art",
+      "description": "Advisor WEU One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "eusadvisorone.Geneva.KeyVault.eus.gov-rp-art",
+      "description": "Advisor EUS One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "EUSALERTSONE.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "Alerts Eus One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "EUSASCONE.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "ASC Eus One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "EUSBACKUPONE.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "Backup Eus One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "EUSFOUR.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "Eus Four managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "EUSONE.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "Eus One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "EUSPOLICYONE.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "Policy Eus One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "EUSTHREE.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "Eus Three managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "EUSTWO.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "Eus Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "COMMUNICATION.GENEVA.KEYVAULT.EUS2EUAP.GOV-RP-ART",
+      "description": "Eus2EUAP managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "COMMUNICATION.GENEVA.KEYVAULT.EUS.GOV-RP-ART",
+      "description": "Eus managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "COMMUNICATION.GENEVA.KEYVAULT.SEA.GOV-RP-ART",
+      "description": "Sea managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "COMMUNICATION.GENEVA.KEYVAULT.WEU.GOV-RP-ART",
+      "description": "Weu managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "NEUONE.GENEVA.KEYVAULT.NEU.GOV-RP-ART",
+      "description": "Neu One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "NEUTWO.GENEVA.KEYVAULT.NEU.GOV-RP-ART",
+      "description": "Neu Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "SEAONE.GENEVA.KEYVAULT.SEA.GOV-RP-ART",
+      "description": "Sea One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "SEATWO.GENEVA.KEYVAULT.SEA.GOV-RP-ART",
+      "description": "Sea Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WEUALERTSONE.GENEVA.KEYVAULT.WEU.GOV-RP-ART",
+      "description": "Alerts Weu One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WEUASCONE.GENEVA.KEYVAULT.WEU.GOV-RP-ART",
+      "description": "ASC Weu One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WEUBACKUPONE.GENEVA.KEYVAULT.WEU.GOV-RP-ART",
+      "description": "Backup Weu One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WEUONE.GENEVA.KEYVAULT.WEU.GOV-RP-ART",
+      "description": "Weu One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WEUTHREE.GENEVA.KEYVAULT.WEU.GOV-RP-ART",
+      "description": "Weu Three managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WEUTWO.GENEVA.KEYVAULT.WEU.GOV-RP-ART",
+      "description": "Weu Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WUS2ALERTSONE.GENEVA.KEYVAULT.WUS2.GOV-RP-ART",
+      "description": "Alerts Wus2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WUS2ASCONE.GENEVA.KEYVAULT.WUS2.GOV-RP-ART",
+      "description": "ASC Wus2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WUS2BACKUPONE.GENEVA.KEYVAULT.WUS2.GOV-RP-ART",
+      "description": "Backup Wus2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WUS2ONE.GENEVA.KEYVAULT.WUS2.GOV-RP-ART",
+      "description": "Wus2 One managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WUS2THREE.GENEVA.KEYVAULT.WUS2.GOV-RP-ART",
+      "description": "Wus2 Three managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "WUS2TWO.GENEVA.KEYVAULT.WUS2.GOV-RP-ART",
+      "description": "Wus2 Two managed cert",
+      "role": "MetricPublisher"
+    },
+    {
+      "acl": "AzureResourcesTopology.Health-1.automation.geneva.keyvault.com",
+      "description": "New Geneva Automation Connector",
+      "role": "ConfigurationEditor"
+    },
+    {
+      "acl": "AzureResourcesTopology.GenevaActions.automation.geneva.keyvault.com",
+      "description": "Geneva Automation Connector",
+      "role": "ConfigurationEditor"
+    },
+    {
+      "acl": "monitoring.geneva.keyvault.datastudio.msftcloudes.com",
+      "description": "Geneva Analytics Auditor MDM Metrics",
+      "role": "MetricPublisher"
+    }
+  ],
+  "lastUpdatedBy": "chgupta",
+  "lastUpdateTime": "2020-07-26T20:02:42.6309006Z",
+  "maxMetricAge": "00:00:00",
+  "metricsStoreMigrationTimeUtcExceptPercentileDistinctCount": "2018-07-31T10:00:00-07:00",
+  "metricsStoreTimeSeriesThrottlingLimit": 2400000,
+  "mirrorMonitoringAccountList": [
+    "AzureResourcesTopologyFF",
+    "AzureResourcesTopologyMC"
+  ],
+  "nameToIdMapForSecurityGroups": {
+    "redmonD\\admetricsadm": "d9333179-bb27-4285-828d-e73376daa8a6",
+    "redmond\\earc": "f01ad1af-94fc-4515-9fe7-de46e45bd2c1"
+  },
+  "newSeriesThrottleLimit": 400000,
+  "operationToGlobalThresholdWithFallback": {
+    "entries": {},
+    "fallbackValue": 0
+  },
+  "operationToLocalThresholdWithFallback": {
+    "entries": {},
+    "fallbackValue": 0
+  },
+  "preaggregateMergingEnabled": false,
+  "replicationState": 0,
+  "securityGroups": {
+    "redmond\\earc": "Administrator"
+  },
+  "tenant": "AzureResourcesTopology",
+  "useClientSideReplication": true,
+  "version": 96,
+  "workflow": {
+    "automationEnabled": false,
+    "directPushEnabled": false,
+    "enabled": true,
+    "latestCommit": null,
+    "mirrorOnMerge": false,
+    "namespaceFoldersEnabled": false,
+    "notificationAddresses": [
+      "earc@microsoft.com"
+    ],
+    "repoId": "e90f76a0-2c5b-4bc1-a14f-9330faa4a96b",
+    "repoName": "Mgmt-Governance-ARGGeneva",
+    "repoPath": "",
+    "repoSecretPrimary": "EncryptedSecret:3fbf1825cf3a340946e34dc6454aa473cea43183:al9tO6ZEKDteQgmoNvNiooXO7rhAzt1y39kvEoOCY5w/2lBOXFRs474cThQlMZ/9o2fBVg3ZT/UwcIP781FgqNiQa44enFwsO+9VgszxBp5Ms+i/GxxicqrUCYIQW1T7L5qNWqyro72+8qpH6npT8f9CPAKboLMnks5lzkVcz1GwdIP+8PN3v8Y8+9/cgMBmCdjU/bCssN5O4U5nYh2pgEX7sy+oy8K9XgpuMualk0UDywXuvO/pW2NfyL6f+LlTT+DDSPRB5EoGz3TPDSQWJ7ogTn5+gHMm8p1uFJHxgwmLBPp6v7zejwm7Mb6RDMlOcWekzaZYoBQ5T4zpgRHnaw==",
+    "repoSecretSecondary": "EncryptedSecret:3fbf1825cf3a340946e34dc6454aa473cea43183:lCK1KcrKHcdV0X2AAdR5sqtfHaJxUnWAHcgLHUUj3/uALGIsylwa9BiyNScSM4ByWHX6qOa56hgYJWyBZLJqCw4GI3p03EWirVIsxCT95Bf+V+Ypak8MxEnRRapkzbTW54m15Rbz2WXlf6RBUoG51JBTBNAYId+0MXvCIi+ciixe0MVAhCCZ5Z8vf6lojyy00Rl+xfs6/mCFufM1nu+7vMhsT+6Cdcq+lvL8K9PdCm8lgsVoaiqE0wz84KkDgN19jVQcmlwSfVygTeSztfHsptRR9KfY2DPjwrwHZFZ516vighWnwHL01oBaZsgPk8N0p33Wp5/G7zDrVAx8tqM//g==",
+    "repoUri": "https://msazure.visualstudio.com/One"
+  }
+}

@@ -1,0 +1,2578 @@
+{
+  "bv": 10,
+  "component": "Runners",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "Status",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "FranceCentral,FranceSouth,CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQosFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerInstance\",\"contains\",\"-{SourceLocation}-\"]]&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=[[\"\",\"\"]]",
+      "customTitle": "[RunnerAlert] {StartTime} - {EndTime}: Runners with the source location {Monitor.Dimension.SourceLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 2 hours",
+      "description": "",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "02:15:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "SourceLocationMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:54:57.989874Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "SourceLocationMonitor:{Monitor.Dimension.SourceLocation}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQosFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"-{SourceLocation}-\"]]&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=[[\"\",\"\"]]}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "SourceLocation",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": false,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": false,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 50.0
+        }
+      ],
+      "version": 108
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "FrontdoorGoClientTest",
+          ""
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "Visit https://jarvis-west.dc.ad.msft.net/#/health in the ARM account, you can see under Monitor Executions for failures details, this means http2 is enabled in some instances",
+      "customTitle": "[RunnerAlert]{StartTime} - {EndTime}: {Monitor.Dimension.RunnerName} with source location {Monitor.Dimension.SourceLocation} and target location  {Monitor.Dimension.TargetLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 30 mins",
+      "description": "enabled this once we move runner subs back.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "00:45:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerNameWithLocations - GoClient",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:49:41.5804182Z",
+      "lookbackDuration": "00:30:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "RunnerNameWithLocations-GoClientRunner:{Monitor.Dimension.TargetLocation}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "UnhealthyEvents:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"Status\",\"contains\",\"Unhealthy\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "RunnerNameWithLocations",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": true,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": false,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 50.0
+        }
+      ],
+      "version": 123
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*VerifyResourceGroupEvents*,*ReplicateApplicationDefinition*",
+          "",
+          "w"
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "EastUS2EUAP,westus,westus2,westeurope,EastUS2,FranceCentral,FranceSouth,CentralUSEUAP-B"
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "EastUS2EUAP,FranceCentral,FranceSouth,CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "Visit https://jarvis-west.dc.ad.msft.net/#/health in the ARM account, you can see under Monitor Executions for failures details",
+      "customTitle": "[RunnerValidationAlert]{StartTime} - {EndTime}: {Monitor.Dimension.RunnerName} with source location {Monitor.Dimension.SourceLocation} and target location  {Monitor.Dimension.TargetLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 2 hours",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "IMPORTANT: If you need to Silence this monitor, please reach out to supescad, as it's been used for testing and validation of runners. \n\nIt only creates Sev4 tickets, see info below:\n\nThis monitor mimics the \"live\" monitor (RunnerNameWithLocations) and it is intended to be used as a Runner validation step.\n\nIt will create Sev4 tickets, which should be manually validated by the developer, with the intent of validating the runner logic. Once it successfully passes this validation step, the Runner can then be moved into a \"live\" monitor.\n\nSteps:\n- Add the monitor name into the inclusion values\n- Make sure to exclude the monitor name in the \"live\" monitor\n- Once validated, remove the runner name from the Include values and Disable this monitor, in case no other Runner is being tested.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerValidation",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "supescad",
+      "lastUpdateTime": "2020-01-27T10:56:15.010691Z",
+      "lookbackDuration": "03:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "RunnerNameWithLocations:{Monitor.Dimension.TargetLocation}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "RunnerValidation",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": "<",
+          "bucketDurationInMinutes": 5,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "Status",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Runners",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 100.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "Status",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Runners",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 5.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 30.0
+        }
+      ],
+      "version": 10
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*",
+          "*healthcheck*,*validatefrontdoorbuildversions*,*powershell*",
+          "w"
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}",
+      "customTitle": "{StartTime} - {EndTime}: {Monitor.Dimension.RunnerName} with source location {Monitor.Dimension.SourceLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 2 hours",
+      "description": "",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 2,
+      "healthyDurationToMitigateIncident": "00:15:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerNameWithTargetLocationMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:54:18.1026674Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"-{SourceLocation}-\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "RunnerNameWithTargetLocation",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": false,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": false,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 50.0
+        }
+      ],
+      "version": 106
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*",
+          "*healthcheck*,*validatefrontdoorbuildversions*,*powershell*",
+          "w"
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}",
+      "customTitle": "{StartTime} - {EndTime}: {Monitor.Dimension.RunnerName} with source location {Monitor.Dimension.SourceLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 2 hours",
+      "description": "",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 2,
+      "healthyDurationToMitigateIncident": "00:15:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerNameWithSourceLocationMonitor ",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:53:46.8227057Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"-{SourceLocation}-\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "RunnerNameWithSourceLocation",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": false,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": false,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 50.0
+        }
+      ],
+      "version": 107
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*",
+          "*healthcheck*,*powershell*,*validatefrontdoorbuildversions*,ClassicStorageAccountHydration,*classicstorageaccounthydration*,*ClassicStorageAccountHydration*,*SingleVMAppliance,*Appliance*,*PolicyAssignmentsPutResource*,*PolicyAssignmentsPreflightDeploymentStorageAccount*,*ManagedService*,*ServiceCatalogManagedApplication*,*AzureResourceManager_StatefulNestedResourcesTemplate_centraluseuap_centraluseuap*,*MoveStatefulNestedResources*,*VerifyResourceGroupEvents*,*ReplicateApplicationDefinition*",
+          "w"
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "EastUS2EUAP,westus,westus2,westeurope,EastUS2,FranceCentral,FranceSouth,CentralUSEUAP-B"
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "EastUS2EUAP,FranceCentral,FranceSouth,CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "Visit https://jarvis-west.dc.ad.msft.net/#/health in the ARM account, you can see under Monitor Executions for failures details",
+      "customTitle": "[RunnerAlert]{StartTime} - {EndTime}: {Monitor.Dimension.RunnerName} with source location {Monitor.Dimension.SourceLocation} and target location  {Monitor.Dimension.TargetLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 2 hours",
+      "description": "enabled this once we move runner subs back.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerNameWithLocations",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lakshv",
+      "lastUpdateTime": "2019-11-08T00:46:08.5396013Z",
+      "lookbackDuration": "03:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "RunnerNameWithLocations:{Monitor.Dimension.TargetLocation}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "RunnerNameWithLocations",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": "<",
+          "bucketDurationInMinutes": 5,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "Status",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Runners",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 100.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "Status",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Runners",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 5.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 30.0
+        }
+      ],
+      "version": 132
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerInstance",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*",
+          "*healthcheck*,*validatefrontdoorbuildversions*,*powershell*",
+          "w"
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}",
+      "customTitle": "{StartTime} - {EndTime}: {Monitor.Dimension.RunnerName} has a passing rate of {Monitor.EvaluatedValue} in the last 30 minutes",
+      "description": "",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 8,
+      "healthyDurationToMitigateIncident": "01:45:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerInstanceMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:46:42.3670205Z",
+      "lookbackDuration": "02:00:00",
+      "metadata": [
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:link{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "FullRunnerInstance",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": false,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": true,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 10.0
+        }
+      ],
+      "version": 104
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*healthcheck*",
+          "",
+          "w"
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "FranceCentral,FranceSouth,CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}",
+      "customTitle": "{StartTime} - {EndTime}: {Monitor.Dimension.RunnerName} in region {Monitor.Dimension.TargetLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 30 minutes",
+      "description": "enabled this once we move runner subs back.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "02:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerNameWithTargetLocationHealthcheckMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:54:04.0565095Z",
+      "lookbackDuration": "03:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "RunnerNameWithTargetLocationHealthcheckMonitor:{Monitor.Dimension.TargetLocation} "
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"-{TargetLocation}\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "RunnerNameWithTargetLocation",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": false,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": true,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 20.0
+        }
+      ],
+      "version": 115
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*healthcheck*",
+          "",
+          "w"
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "FranceCentral,FranceSouth,CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "Visit https://jarvis-west.dc.ad.msft.net/#/health in the ARM account, you can see under Monitor Executions for failures details",
+      "customTitle": "{StartTime} - {EndTime}: {Monitor.Dimension.RunnerName} in region {Monitor.Dimension.SourceLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 30 minutes",
+      "description": "enabled this once we move runner subs back.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 5,
+      "healthyDurationToMitigateIncident": "02:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerNameWithSourceLocationHealthcheckMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:50:19.6858021Z",
+      "lookbackDuration": "03:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "RunnerNameWithSourceLocationHealthcheckMonitor:{Monitor.Dimension.SourceLocation}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"-{SourceLocation}-\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "RunnerNameWithSourceLocation",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": false,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": true,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 20.0
+        }
+      ],
+      "version": 118
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerInstance",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*computehealthcheck*,*storagehealthcheck*",
+          "",
+          "w"
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}",
+      "customTitle": "[RunnerAlert]{StartTime} - {EndTime}: {Monitor.Dimension.RunnerInstance} has a passing rate of {Monitor.EvaluatedValue} in the last 30 minutes",
+      "description": "enabled this once we move runner subs back.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerInstanceHealthcheckMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:46:02.3388143Z",
+      "lookbackDuration": "03:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "RunnerInstanceHealthcheckMonitor:{Monitor.Dimension.TargetLocation}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "FullRunnerInstance",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": "<",
+          "bucketDurationInMinutes": 5,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "Status",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Runners",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 100.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "Status",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "ARM",
+                    "namespace": "Runners",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 5.0
+        },
+        "skipOnNoData": true,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 33.0
+        }
+      ],
+      "version": 117
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "FranceCentral,FranceSouth,CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"\"-{TargetLocation}\"]\"]]&dateFrom={StartTime}&dateTo={EndTime}",
+      "customTitle": "[RunnerAlert] {StartTime} - {EndTime}: Runners with the source location {Monitor.Dimension.SourceLocation} and target location  {Monitor.Dimension.TargetLocation} has a passing rate of {Monitor.EvaluatedValue} in the last 2 hours",
+      "description": "",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "02:15:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "TargetLocationMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "lapav",
+      "lastUpdateTime": "2019-11-07T23:55:30.497245Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "TargetLocationMonitor:{Monitor.Dimension.TargetLocation}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"\"-{TargetLocation}\"]\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "TargetLocation",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": false,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": false,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 50.0
+        }
+      ],
+      "version": 104
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "RunnerInstance",
+          "*",
+          ""
+        ],
+        [
+          "RunnerName",
+          "*cosmosdbhealthcheck*",
+          "",
+          "w"
+        ],
+        [
+          "SourceLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ],
+        [
+          "TargetLocation",
+          "*",
+          "CentralUSEUAP-B"
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}",
+      "customTitle": "[RunnerAlert]{StartTime} - {EndTime}: {Monitor.Dimension.RunnerInstance} has a passing rate of {Monitor.EvaluatedValue} in the last 30 minutes",
+      "description": "enabled this once we move runner subs back.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Runners",
+        "id": "Status",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RunnerInstanceCosmosDBHealthcheckMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "joraki",
+      "lastUpdateTime": "2020-06-24T18:09:58.9549438Z",
+      "lookbackDuration": "03:00:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": "RunnerInstanceHealthcheckMonitor:{Monitor.Dimension.TargetLocation}"
+        },
+        {
+          "metadataKey": "JarvisURL",
+          "metadataValue": "Logs:{https://jarvis-west.dc.ad.msft.net/?page=logs&be=DGrepV2&ep=Diagnostics%20PROD&ns=RunnerService&en=RunnerCentralEventTable,RunnerCentralLogsTable,RunnerCentralQoSFiveMinuteTable,RunnerCentralUnstructuredLogsTable&conditions=[[\"RunnerName\",\"contains\",\"{Monitor.Dimension.RunnerName}\"],[\"RunnerInstance\",\"contains\",\"{Monitor.Dimension.RunnerInstance}\"]]&dateFrom={StartTime}&dateTo={EndTime}}"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "FullRunnerInstance",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": true,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": false,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "Status",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "Runners",
+                "samplingType": "Sum",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": true,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 1,
+          "severity": 4,
+          "value": 5.0
+        }
+      ],
+      "version": 118
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

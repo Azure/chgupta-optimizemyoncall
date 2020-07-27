@@ -1,0 +1,1541 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheProvider",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "FreeJobPercentage",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "Deployment",
+      "conditions": [
+        [
+          "ActivityName",
+          "PartialSyncIngestionRetryJobManager.AssignAndStartJobsAsync",
+          ""
+        ],
+        [
+          "Environment",
+          "EUS2EUAP",
+          ""
+        ],
+        [
+          "Service",
+          "PartialSyncIngestionService",
+          ""
+        ],
+        [
+          "Tenant",
+          "*",
+          ""
+        ],
+        [
+          "ScaleUnit",
+          "ARG",
+          ""
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Tracks retry job pool free percentage. During deployment we shouldn't expect this to go down to low values",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "FreeJobPercentage",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:05:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:10:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Deployment_JobPercent",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2020-05-15T03:01:53.971273Z",
+      "lookbackDuration": "00:12:00",
+      "metadata": [
+        {
+          "metadataKey": "UsedForDeploymentValidation",
+          "metadataValue": "true"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Free Job Percentage",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "alertOnDivideByZeroError": "false",
+        "denominator": "Count",
+        "numerator": "Sum"
+      },
+      "templateType": 3,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 2,
+          "severity": 4,
+          "value": 10.0
+        }
+      ],
+      "version": 8
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "ActivityName",
+          "TenantPasSyncJobManager.AssignAndStartJobsAsync",
+          ""
+        ],
+        [
+          "Environment",
+          "*",
+          "EUS2EUAP"
+        ],
+        [
+          "Service",
+          "IngestionWorkerService",
+          ""
+        ],
+        [
+          "Tenant",
+          "*",
+          "gov-art-sea-rp-b"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": false,
+          "dimensionsToOverride": [],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "RbacV3",
+            "Ingestion"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Ingestion",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "select PreciseTimeStamp, durationMilliseconds",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Role": [
+              "nt0art"
+            ],
+            "Tenant": [
+              "{Monitor.Dimension.Tenant}"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-90&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted&conditions=[[\"activityName\",\"contains\",\"{Monitor.Dimension.ActivityName}\"]]&scopingConditions=[[\"Role\",\"nt0art\"],[\"Tenant\",\"{Monitor.Dimension.Tenant}\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=true&chartEditorVisible=true&chartType=Column&chartLayers=[[\"Average%20Activity%20duration%20\",\"groupby%20PreciseTimeStamp.roundDown(\\\"PT10M\\\")%20as%20X\\nlet%20durationMilliseconds%20=%20Average(durationMilliseconds)\"]]&UTC=false&clientQuery=select%20PreciseTimeStamp,%20durationMilliseconds",
+          "lookback": "01:30:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "activityName.ContainsI(\"{Monitor.Dimension.ActivityName}\")",
+          "serverQuerySimpleConditions": [
+            {
+              "comparand": "activityName",
+              "operator": "contains",
+              "values": "{Monitor.Dimension.ActivityName}"
+            }
+          ],
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Chart average activity duration",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": true
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Column"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "Average Activity duration ",
+                  "groupby PreciseTimeStamp.roundDown(\"PT10M\") as X\nlet durationMilliseconds = Average(durationMilliseconds)"
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "It is monitor similar to JobMonitor, but with sev2.\nIt is sev2 because of onboarding (SLO: new subs is ASAP; tenant move 4h)\n\nIt will trigger when there is no free Jobs for hours.\nMost probably, something is bad and investigation/rollback/traffic redistribution required.\n\n\n",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "FreeJobPercentage",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:30:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RbacJobMonitorSev2",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2020-07-23T23:19:09.314572Z",
+      "lookbackDuration": "02:00:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Free Job Percentage",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "metric": "Sum"
+      },
+      "templateType": 2,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 2,
+          "severity": 2,
+          "value": 15.0
+        }
+      ],
+      "version": 19
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "ActivityName",
+          "DefaultResourcesNormalizerJobManager.AssignAndStartJobsAsync,DefaultResourcesSegmentedFullSyncJobManager.AssignAndStartJobsAsync,TenantDiscoveryJobManager.AssignAndStartJobsAsync,TenantSyncJobManager.AssignAndStartJobsAsync,TenantResourcesNormalizerJobManager.AssignAndStartJobsAsync,TenantResourcesSegmentedFullSyncJobManager.AssignAndStartJobsAsync",
+          ""
+        ],
+        [
+          "Environment",
+          "*",
+          "EUS2EUAP"
+        ],
+        [
+          "Service",
+          "IngestionWorkerService",
+          ""
+        ],
+        [
+          "Tenant",
+          "*",
+          "gov-art-sea-rp-b"
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": false,
+          "dimensionsToOverride": [],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "ARG Write Path",
+            "Ingestion"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Ingestion",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "select PreciseTimeStamp, durationMilliseconds",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Role": [
+              "nt0art"
+            ],
+            "Tenant": [
+              "{Monitor.Dimension.Tenant}"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-90&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted&conditions=[[\"activityName\",\"contains\",\"{Monitor.Dimension.ActivityName}\"]]&scopingConditions=[[\"Role\",\"nt0art\"],[\"Tenant\",\"{Monitor.Dimension.Tenant}\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=true&chartEditorVisible=true&chartType=Column&chartLayers=[[\"Average%20Activity%20duration%20\",\"groupby%20PreciseTimeStamp.roundDown(\\\"PT10M\\\")%20as%20X\\nlet%20durationMilliseconds%20=%20Average(durationMilliseconds)\"]]&UTC=false&clientQuery=select%20PreciseTimeStamp,%20durationMilliseconds",
+          "lookback": "01:30:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "activityName.ContainsI(\"{Monitor.Dimension.ActivityName}\")",
+          "serverQuerySimpleConditions": [
+            {
+              "comparand": "activityName",
+              "operator": "contains",
+              "values": "{Monitor.Dimension.ActivityName}"
+            }
+          ],
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Chart average activity duration",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": true
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Column"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "Average Activity duration ",
+                  "groupby PreciseTimeStamp.roundDown(\"PT10M\") as X\nlet durationMilliseconds = Average(durationMilliseconds)"
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "It is monitor similar to JobMonitor, but with sev2.\nIt is sev2 because of onboarding (SLO: new subs is ASAP; tenant move 4h)\n\nIt will trigger when there is no free Jobs for hours.\nMost probably, something is bad and investigation/rollback/traffic redistribution required.\n\n\n",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "FreeJobPercentage",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:30:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "JobMonitorSev2",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2020-07-23T01:10:28.3140771Z",
+      "lookbackDuration": "02:00:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Free Job Percentage",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "metric": "Sum"
+      },
+      "templateType": 2,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 2,
+          "severity": 2,
+          "value": 15.0
+        }
+      ],
+      "version": 19
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "ActivityName",
+          "TenantPasSyncJobManager.AssignAndStartJobsAsync",
+          ""
+        ],
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "Service",
+          "IngestionWorkerService",
+          ""
+        ],
+        [
+          "Tenant",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": false,
+          "dimensionsToOverride": [],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "ARG Write Path",
+            "Ingestion"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Ingestion",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "select PreciseTimeStamp, durationMilliseconds",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Role": [
+              "nt0art"
+            ],
+            "Tenant": [
+              "{Monitor.Dimension.Tenant}"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-90&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted&conditions=[[\"activityName\",\"contains\",\"{Monitor.Dimension.ActivityName}\"]]&scopingConditions=[[\"Tenant\",\"{Monitor.Dimension.Tenant}\"],[\"Role\",\"nt0art\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=true&chartEditorVisible=true&chartType=Column&chartLayers=[[\"Average%20Activity%20duration%20\",\"groupby%20PreciseTimeStamp.roundDown(\\\"PT10M\\\")%20as%20X\\nlet%20durationMilliseconds%20=%20Average(durationMilliseconds)\"]]&UTC=false&clientQuery=select%20PreciseTimeStamp,%20durationMilliseconds",
+          "lookback": "01:30:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "activityName.ContainsI(\"{Monitor.Dimension.ActivityName}\")",
+          "serverQuerySimpleConditions": [
+            {
+              "comparand": "activityName",
+              "operator": "contains",
+              "values": "{Monitor.Dimension.ActivityName}"
+            }
+          ],
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Chart average activity duration",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": true
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Column"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "Average Activity duration ",
+                  "groupby PreciseTimeStamp.roundDown(\"PT10M\") as X\nlet durationMilliseconds = Average(durationMilliseconds)"
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor is looking for free job percentage for RBAC TenantPasSyncJobManager in Full Sync.\n__________________________________________________________________\nThe monitor can fire when:\n\n1. Scheduler scheduled extra scopeIds\nIn that case the load increased and we don't have enough jobs to process that.\nActions:\n1.1. Check that it is a case. For that look here for corresponding queue length: https://jarvis-west.dc.ad.msft.net/dashboard/share/A861DCC7.\n1.2. If the queue length starts to grow, it is an issues.\n1.3. Look to Scheduler TSG for future instruction \n\n2. One of the activities takes more than expected inside Job Manager process\nActions:\n2.1. Check that it is a case. For this look for attached DGrep query for average activity duration of JobManager.DoWorkAsync\n2.2. Find the activity which takes too long and investigate why\n2.3. If it is a dependency issue (ARM timeouts and so on) apply mitigation: \"Increase number of jobs for corresponding Job Manager via hot config\" TenantPasSyncJobManagerThreadPoolThreadLimit\nNOTE: NOT APPLY IF NOT SURE: the mitigation can make situation to be worse (for example, if it is because of Memory leak)\n2.4. If it is our bug, perform action according to the situation.\n___________________________________________________________________\nStatistics:\n50% - because of Scheduler\n30% - because of some activity which takes too long because of external dependencies\n20% - because of memory leaks",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "FreeJobPercentage",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:30:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "RbacJobMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "makharch",
+      "lastUpdateTime": "2020-05-13T22:49:01.1292766Z",
+      "lookbackDuration": "00:45:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Free Job Percentage",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": "<=",
+          "bucketDurationInMinutes": 1,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "FreeJobPercentage",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "AzureResourcesTopology",
+                    "namespace": "ResourcesCacheProvider",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "FreeJobPercentage",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "AzureResourcesTopology",
+                    "namespace": "ResourcesCacheProvider",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 30.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 2,
+          "severity": 3,
+          "value": 15.0
+        }
+      ],
+      "version": 19
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "ActivityName",
+          "*",
+          "TenantPasSyncJobManager.AssignAndStartJobsAsync"
+        ],
+        [
+          "Environment",
+          "*",
+          ""
+        ],
+        [
+          "Service",
+          "IngestionWorkerService",
+          ""
+        ],
+        [
+          "Tenant",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": false,
+          "dimensionsToOverride": [],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "ARG Write Path",
+            "Ingestion"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Ingestion",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "select PreciseTimeStamp, durationMilliseconds",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Role": [
+              "nt0art"
+            ],
+            "Tenant": [
+              "{Monitor.Dimension.Tenant}"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-90&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted&conditions=[[\"activityName\",\"contains\",\"{Monitor.Dimension.ActivityName}\"]]&scopingConditions=[[\"Tenant\",\"{Monitor.Dimension.Tenant}\"],[\"Role\",\"nt0art\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=true&chartEditorVisible=true&chartType=Column&chartLayers=[[\"Average%20Activity%20duration%20\",\"groupby%20PreciseTimeStamp.roundDown(\\\"PT10M\\\")%20as%20X\\nlet%20durationMilliseconds%20=%20Average(durationMilliseconds)\"]]&UTC=false&clientQuery=select%20PreciseTimeStamp,%20durationMilliseconds",
+          "lookback": "01:30:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "activityName.ContainsI(\"{Monitor.Dimension.ActivityName}\")",
+          "serverQuerySimpleConditions": [
+            {
+              "comparand": "activityName",
+              "operator": "contains",
+              "values": "{Monitor.Dimension.ActivityName}"
+            }
+          ],
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Chart average activity duration",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": true
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Column"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "Average Activity duration ",
+                  "groupby PreciseTimeStamp.roundDown(\"PT10M\") as X\nlet durationMilliseconds = Average(durationMilliseconds)"
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor is looking for free job percentage for JobManagers in Full Sync.\n__________________________________________________________________\nThe monitor can fire when:\n\n1. Scheduler scheduled extra scopeIds\nIn that case the load increased and we don't have enough jobs to process that.\nActions:\n1.1. Check that it is a case. For that look here for corresponding queue length: https://jarvis-west.dc.ad.msft.net/dashboard/share/A861DCC7.\n1.2. If the queue length starts to grow, it is an issues.\n1.3. Look to Scheduler TSG for future instruction \n\n2. One of the activities takes more than expected inside Job Manager process\nActions:\n2.1. Check that it is a case. For this look for attached DGrep query for average activity duration of JobManager.DoWorkAsync\n2.2. Find the activity which takes too long and investigate why\n2.3. If it is a dependency issue (ARM timeouts and so on) apply mitigation: \"Increase number of jobs for corresponding Job Manager via hot config\"\nSome Hot Configs names: DefaultSegmentedFullSyncJobManagerThreadPoolThreadLimit, ProxySegmentedFullSyncJobManagerThreadPoolThreadLimit, NormalizerJobManagerDefaultThreadPoolThreadLimit, \nNormalizerJobManagerProxyThreadPoolThreadLimit, TenantSyncJobManagerThreadPoolThreadLimit, TenantDiscoveryJobManagerThreadPoolThreadLimit (DOUBLE CHECK NAMES BEFORE APPLYING!)\nNOTE: NOT APPLY IF NOT SURE: the mitigation can make situation to be worse (for example, if it is because of Memory leak)\n2.4. If it is our bug, perform action according to the situation.\n___________________________________________________________________\nStatistics:\n50% - because of Scheduler\n30% - because of some activity which takes too long because of external dependencies\n20% - because of memory leaks\n\n\nLIVESITE: Removing TenantPasSync as this is not good now 3/26/2019",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "FreeJobPercentage",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:30:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "JobMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "oltkache",
+      "lastUpdateTime": "2020-02-03T20:32:07.3030083Z",
+      "lookbackDuration": "00:45:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Free Job Percentage",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": "<=",
+          "bucketDurationInMinutes": 1,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "FreeJobPercentage",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "AzureResourcesTopology",
+                    "namespace": "ResourcesCacheProvider",
+                    "samplingType": "Count",
+                    "useTotalAggregate": false
+                  }
+                }
+              ],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "FreeJobPercentage",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "AzureResourcesTopology",
+                    "namespace": "ResourcesCacheProvider",
+                    "samplingType": "Sum",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 30.0
+        },
+        "skipOnNoData": false,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 2,
+          "severity": 3,
+          "value": 15.0
+        }
+      ],
+      "version": 18
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "ActivityName",
+          "PartialSyncIngestionRetryJobManager.AssignAndStartJobsAsync",
+          ""
+        ],
+        [
+          "Environment",
+          "*",
+          "EUS2EUAP"
+        ],
+        [
+          "Service",
+          "PartialSyncIngestionService",
+          ""
+        ],
+        [
+          "Tenant",
+          "*",
+          ""
+        ],
+        [
+          "ScaleUnit",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": true,
+          "dimensionsToOverride": [
+            "Environment",
+            "Service",
+            "Tenant"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Kusto Store Ingestion Health"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Pending Kusto Ingestion Retry Contexts in the System",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": true,
+          "dimensionsToOverride": [
+            "Environment",
+            "Service",
+            "Tenant"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "ARG Write Path",
+            "Notifications"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "ArmFailuresByReason and Arm Failures by Resource Type, and RA retry queue",
+          "type": "Dashboard"
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Free Job Percentage is low for partial sync. Job Queue may be high. \n1. Sanity check that failure rate may be high.\n2. Check if: arm call failures have increased, role assignment job failures have increased, or kusto failures have increased.\n3. Arm calls -> look at ArmFailuresByReason and Arm Failures by Resource Type from dashboard, if it has increased, it may be the culprit\n4. RA -> look at retry queue for RA (retry priority 1) \n5. kusto -> look at Pending Kusto Ingestion Retry Contexts in the System dashboard (enriched)",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "FreeJobPercentage",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:10:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:20:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "NotificationsJobMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-07-01T23:53:25.3372825Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Scale Unit Notifications Activity Health",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "alertOnDivideByZeroError": "false",
+        "denominator": "Count",
+        "numerator": "Sum"
+      },
+      "templateType": 3,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<=",
+          "healthStatus": 2,
+          "severity": 3,
+          "value": 30.0
+        }
+      ],
+      "version": 19
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

@@ -1,0 +1,3110 @@
+{
+  "dmsConfiguration": {
+    "actionManagerClassName": null,
+    "tenantName": "AzureComputeDcmx",
+    "topologyName": null,
+    "topologyRestServiceUrl": null,
+    "topologyWcfServiceUrl": null,
+    "version": 0,
+    "workItemWcfServiceUrl": null
+  },
+  "icmConfig": {
+    "connectorId": "df91dd1b-614b-4fa1-8759-37d3b3457b14",
+    "tenantName": "AzureComputeDcmx",
+    "url": "https://icm.ad.msft.net/Connector2/ConnectorIncidentManager.svc"
+  },
+  "resourceTypeConfigurations": [
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "RoleInstance",
+        "Tenant",
+        "Monitor.Component"
+      ],
+      "incidentConfiguration": {
+        "deviceGroup": "{RoleInstance}",
+        "deviceName": "{Tenant}",
+        "diagnosticsLink": "https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=Dcmx&en=WorkerCoreExecutionErrorEtwTable&conditions=%5B%5B\"AnyField\",\"contains\",\"\"%5D%5D&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=%5B%5B\"Tenant\",\"{Tenant}\"%5D,%5B\"RoleInstance\",\"{RoleInstance}\"%5D%5D",
+        "environment": "{Tenant}",
+        "metricsViewComponent": "Dcmx",
+        "metricsViewName": "DcmxTenantHealth",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "212B7243B6786581BD0121B2D60FD7B6B171026B",
+      "lastUpdateTime": "2018-05-31T12:05:42-07:00",
+      "metadataProperties": [
+        "Tenant",
+        "Role",
+        "RoleInstance",
+        "IsAutoUpdateDisabled",
+        "ConfigVersion",
+        "BinaryVersion"
+      ],
+      "name": "DcmxRoleInstance",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 170,
+      "viewConfiguration": {
+        "name": "DcmxTenantHealth",
+        "nodeNames": [
+          "{Monitor.Component}",
+          "{Tenant}",
+          "{RoleInstance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ActivityName",
+        "ResultType"
+      ],
+      "incidentConfiguration": {
+        "environment": "{ResultType}",
+        "metricsViewComponent": "Dcmx",
+        "metricsViewName": "AY: Activity Drilldown",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "DcmxActivityResult",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 168,
+      "viewConfiguration": {
+        "name": "Activities",
+        "nodeNames": [
+          "{ActivityName}",
+          "{ResultType}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName",
+        "DeviceType",
+        "Manufacturer",
+        "TelemetryIdentifier"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "MDM://OneFleetNode/DeviceOperations&DCMx-LowSev"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "yurido",
+      "lastUpdateTime": "2019-09-30T12:08:40-07:00",
+      "name": "PdusOffNetworkResource",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 162,
+      "viewConfiguration": {
+        "name": "PdusOffNetwork",
+        "nodeNames": [
+          "{ClusterName}",
+          "{DeviceType}",
+          "{Manufacturer}",
+          "{TelemetryIdentifier}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "CusterName",
+        "IsConnected"
+      ],
+      "incidentConfiguration": {
+        "deviceName": "{CusterName}",
+        "environment": "{CusterName}",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "DcmxConnectedToFabric",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 160,
+      "viewConfiguration": {
+        "name": "DCMX",
+        "nodeNames": [
+          "{CusterName}",
+          "{IsConnected}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ExceptionType",
+        "TaskName"
+      ],
+      "incidentConfiguration": {
+        "diagnosticsLink": "https://jarvis-west.dc.ad.msft.net?page=logs&be=DGrep&ep=Diagnostics%20PROD&ns=Dcmx&en=RhwScaleSchedulerTaskExceptionEtwTable&conditions=%5B%5B\"TaskName\",\"contains\",\"{TaskName}\"%5D%5D&dateFrom={StartTime}&dateTo={EndTime}&scopingConditions=%5B%5B\"\",\"\"%5D%5D",
+        "environment": "{TaskName}",
+        "metricsViewComponent": "Dcmx",
+        "metricsViewName": "AY: Scale Scheduler",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "ScaleSchedulerTaskFailure",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 159,
+      "viewConfiguration": {
+        "name": "ScaleScheduler",
+        "nodeNames": [
+          "Tasks",
+          "{TaskName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Tenant}",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "ScaleSchedulerTasksRunning",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 155,
+      "viewConfiguration": {
+        "name": "ScaleScheduler",
+        "nodeNames": [
+          "{Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Tenant}",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "ScaleScheduler-TimerWheel-Empty",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 152,
+      "viewConfiguration": {
+        "name": "ScaleScheduler",
+        "nodeNames": [
+          "TimerWheel",
+          "{Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Monitor.Tenant}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "doreamey",
+      "lastUpdateTime": "2019-10-02T10:34:55-07:00",
+      "name": "DeviceOperationResult",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 151,
+      "viewConfiguration": {
+        "name": "DeviceOperationResult",
+        "nodeNames": [
+          "{Monitor.Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Monitor.Component}",
+        "routingId": "MDM://Cloudnet/Physnet"
+      },
+      "isSystemResource": false,
+      "name": "SnmpProxy",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 146,
+      "viewConfiguration": {
+        "name": "SnmpProxy",
+        "nodeNames": [
+          "{Monitor.Component}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Monitor.Component}",
+        "routingId": "MDM://Cloudnet/Physnet"
+      },
+      "isSystemResource": false,
+      "name": "NGS",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 145,
+      "viewConfiguration": {
+        "name": "NGS",
+        "nodeNames": [
+          "{Monitor.Component}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName",
+        "DeviceType",
+        "Manufacturer",
+        "TelemetryIdentifier"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "MDM://OperationsCenter/WASH"
+      },
+      "isSystemResource": false,
+      "name": "DeviceNeedsConfigResource",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 144,
+      "viewConfiguration": {
+        "name": "DeviceNeedsConfig",
+        "nodeNames": [
+          "{ClusterName}",
+          "{DeviceType}",
+          "{Manufacturer}",
+          "{TelemetryIdentifier}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Monitor.Tenant}",
+        "routingId": "MDM://Compute Manager/Container Manager Low Sev"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "yurido",
+      "lastUpdateTime": "2019-09-30T22:53:10-07:00",
+      "name": "OfrThresholdFabricSetting",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 143,
+      "viewConfiguration": {
+        "name": "OfrThresholdFabricSetting",
+        "nodeNames": [
+          "{Monitor.Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster",
+        "Message",
+        "DMRepairState"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "SSTask.ApSvcMgrHealth",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 142,
+      "viewConfiguration": {
+        "name": "PfClientServiceHealth",
+        "nodeNames": [
+          "{AzureCluster}",
+          "{DMRepairState}",
+          "{Message}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Arguments",
+        "Environment",
+        "MachineName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "DCMX Role Instance",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 140,
+      "viewConfiguration": {
+        "name": "DCMX Role Instances",
+        "nodeNames": [
+          "{Arguments}",
+          "{Environment}",
+          "{MachineName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ProcessName",
+        "Environment",
+        "MachineName",
+        "Arguments"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "DcmxRoleInstanceV2",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 138,
+      "viewConfiguration": {
+        "name": "DcmxRoleInstance",
+        "nodeNames": [
+          "{ProcessName}",
+          "{Arguments}",
+          "{Environment}",
+          "{MachineName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster",
+        "DMRepairState",
+        "Message"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "ApSvcMgrHealthSStask.",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 137,
+      "viewConfiguration": {
+        "name": "ApSvcMgrHealth",
+        "nodeNames": [
+          "{AzureCluster}",
+          "{DMRepairState}",
+          "{Message}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "MachinePool"
+      ],
+      "incidentConfiguration": {
+        "environment": "{MachinePool}",
+        "routingId": "adrocs://Recovery/AzureComputeDcmx"
+      },
+      "isSystemResource": false,
+      "name": "MachinePoolHealthDegradedDCM",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 134,
+      "viewConfiguration": {
+        "name": "MachinePool",
+        "nodeNames": [
+          "DatacenterManager",
+          "{MachinePool}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "MachinePool"
+      ],
+      "incidentConfiguration": {
+        "environment": "{MachinePool}",
+        "routingId": "MDM://AzureHardware/DatacenterPlatform"
+      },
+      "isSystemResource": false,
+      "name": "MachinePoolHealthDegradedPlt",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 131,
+      "viewConfiguration": {
+        "name": "MachinePool",
+        "nodeNames": [
+          "DatacenterPlatform",
+          "{MachinePool}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "name": "DCMX_SS-PfClientHealth",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 128,
+      "viewConfiguration": {
+        "name": "PfClientHealth",
+        "nodeNames": [
+          "Monitor.Tenant",
+          "{ClusterName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Device"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Device}",
+        "routingId": "MDM://Cloudnet/PhysnetHwProxy"
+      },
+      "isSystemResource": false,
+      "name": "HwProxyDevice",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 126,
+      "viewConfiguration": {
+        "name": "HwProxy",
+        "nodeNames": [
+          "{Device}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "MachinePool",
+        "TargetTeam",
+        "HasSpares"
+      ],
+      "incidentConfiguration": {
+        "environment": "{MachinePool}",
+        "routingId": "MDM://Cloudnet/PhysnetHwProxy"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "akilm",
+      "lastUpdateTime": "2017-10-18T10:22:28-07:00",
+      "name": "MachinePoolHealthDegradedCloudnet",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 119,
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "WarmPathEnvironment",
+        "WarmPathAccount",
+        "WarmPathNamespace",
+        "AgentVersion",
+        "IdentityListMd5Hash"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "212B7243B6786581BD0121B2D60FD7B6B171026B",
+      "lastUpdateTime": "2017-11-01T11:51:26-07:00",
+      "metadataProperties": [
+        "Tenant",
+        "Role",
+        "RoleInstance",
+        "IsAutoUpdateDisabled"
+      ],
+      "name": "diagnosticsprod_dcmxprod_dcmx_fa6315c04c8b3fca23ddefd0c8bc2b42",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 118,
+      "viewConfiguration": {
+        "name": "GenevaMonitoringAgents-diagnosticsprod_dcmxprod_dcmx_fa6315c04c8b3fca23ddefd0c8bc2b42",
+        "nodeNames": [
+          "{WarmPathEnvironment}",
+          "{WarmPathAccount}",
+          "{WarmPathNamespace}",
+          "{AgentVersion}",
+          "{Tenant}",
+          "{Role}",
+          "{RoleInstance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "WarmPathEnvironment",
+        "WarmPathAccount",
+        "WarmPathNamespace",
+        "AgentVersion",
+        "IdentityListMd5Hash"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "212B7243B6786581BD0121B2D60FD7B6B171026B",
+      "lastUpdateTime": "2018-04-03T15:43:20-07:00",
+      "metadataProperties": [
+        "Tenant",
+        "Role",
+        "RoleInstance",
+        "IsAutoUpdateDisabled",
+        "ConfigVersion",
+        "BinaryVersion"
+      ],
+      "name": "genevamonitoringagents_fa6315c04c8b3fca23ddefd0c8bc2b42",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 118,
+      "viewConfiguration": {
+        "name": "GenevaMonitoringAgents-fa6315c04c8b3fca23ddefd0c8bc2b42",
+        "nodeNames": [
+          "{WarmPathEnvironment}",
+          "{WarmPathAccount}",
+          "{WarmPathNamespace}",
+          "{AgentVersion}",
+          "{Tenant}",
+          "{Role}",
+          "{RoleInstance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "TestName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{TestName}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "kogoh",
+      "lastUpdateTime": "2018-03-19T17:03:45-07:00",
+      "name": "SyntheticWorkload Test",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 118,
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName",
+        "Hierarchy"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "kogoh",
+      "lastUpdateTime": "2018-05-15T11:39:10-07:00",
+      "name": "ScaleSchedulerTaskSchedules",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 115,
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "DcmServiceName",
+        "PfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{PfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "vik",
+      "lastUpdateTime": "2018-05-25T11:53:45-07:00",
+      "name": "DcmPfServicesAvailable",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 113,
+      "viewConfiguration": {
+        "name": "DcmPfService",
+        "nodeNames": [
+          "{PfCluster}",
+          "{DcmServiceName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "DcmServiceName",
+        "PfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{PfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "vik",
+      "lastUpdateTime": "2018-05-31T10:56:30-07:00",
+      "name": "DbosResource",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 108,
+      "viewConfiguration": {
+        "name": "DbosResource",
+        "nodeNames": [
+          "{PfCluster}",
+          "{DcmServiceName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Service"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "cbilson",
+      "lastUpdateTime": "2019-02-04T16:41:46-08:00",
+      "name": "DcmService",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 103,
+      "viewConfiguration": {
+        "name": "DCM Services",
+        "nodeNames": [
+          "{Service}",
+          "{Environment}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName",
+        "PfClusterName"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2019-09-14T10:39:55-07:00",
+      "name": "FortKnoxCredHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 87,
+      "viewConfiguration": {
+        "name": "FortKnoxCredHealth",
+        "nodeNames": [
+          "{PfClusterName}",
+          "{ClusterName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/FortKnox"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-06-21T21:22:16-07:00",
+      "name": "FortKnoxCredHealthV2",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 86,
+      "viewConfiguration": {
+        "name": "FortKnoxCredHealthV2",
+        "nodeNames": [
+          "{ClusterName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Tenant"
+      ],
+      "incidentConfiguration": {
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "cbilson",
+      "lastUpdateTime": "2019-10-04T20:01:07-07:00",
+      "name": "DcmLifecycleManagement",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 78,
+      "viewConfiguration": {
+        "name": "DCM Lifecycle Managament",
+        "nodeNames": [
+          "{Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName",
+        "PfClusterName"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/FortKnox"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-06-13T18:42:41-07:00",
+      "name": "ClusterCredentialHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 76,
+      "viewConfiguration": {
+        "name": "ClusterCredentialHealth",
+        "nodeNames": [
+          "{ClusterName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "DcmServiceName",
+        "HostPfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "akilm",
+      "lastUpdateTime": "2019-10-16T15:45:48-07:00",
+      "name": "DcmPilotfishProcessCycling",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 75,
+      "viewConfiguration": {
+        "name": "{DcmServiceName}",
+        "nodeNames": [
+          "{DcmServiceName}",
+          "{HostPfCluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName",
+        "IsSuccess"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-07-23T10:05:38-07:00",
+      "name": "FortKnoxPingable",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 74,
+      "viewConfiguration": {
+        "name": "{ClusterName}",
+        "nodeNames": [
+          "{IsSuccess}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Cluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2019-12-04T10:07:25-08:00",
+      "name": "AzureCluster",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 73,
+      "viewConfiguration": {
+        "name": "TLS 10 Health",
+        "nodeNames": [
+          "{Cluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostPfCluster",
+        "ServiceName",
+        "ServiceVersion"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-01-09T19:06:19-08:00",
+      "name": "BlueJetPrimary",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 71,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostPfCluster",
+        "ServiceName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-02-20T09:26:57-08:00",
+      "name": "BlueJetPrimary2",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 70,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostMachineName",
+        "HostPfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-02-26T14:31:53-08:00",
+      "name": "RdmMonitoring",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 69,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostMachineName",
+        "HostPfCluster",
+        "ServiceName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-01-10T20:18:02-08:00",
+      "name": "BlueJetReplicaCycling",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 68,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "PfCluster",
+        "TestName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{PfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-01-21T18:42:11-08:00",
+      "name": "GlobalSyntheticTest",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 67,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster",
+        "PfCluster",
+        "TestName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-03-05T11:14:17-08:00",
+      "name": "ClusterSyntheticTest",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 66,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostPfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-02-21T23:14:39-08:00",
+      "name": "DurableSchedulerStalled",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 63,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "PfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{PfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-02-24T17:58:34-08:00",
+      "name": "GenevaMonitoringPipeline",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 62,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "PfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{PfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-02-24T18:01:32-08:00",
+      "name": "RdmMonitoringPipeline",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 61,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostMachineName",
+        "HostPfCluster",
+        "ServiceName",
+        "HostPfEnvironment"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-02-26T09:37:38-08:00",
+      "name": "ServiceCycling",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 60,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster",
+        "PfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-03-09T10:53:12-07:00",
+      "name": "AzureClusterLateny",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 54,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster",
+        "HostPfCluster",
+        "ServiceVersion"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-03-12T09:27:39-07:00",
+      "name": "DcmExternalLatency",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 53,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster",
+        "HostPfCluster",
+        "HostPfEnvironment"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-03-12T10:09:29-07:00",
+      "name": "DcmExternalLatency2",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 52,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Monitor.Tenant}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "haiczhu",
+      "lastUpdateTime": "2020-07-08T08:13:01-07:00",
+      "name": "Cluster",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 49,
+      "viewConfiguration": {
+        "name": "{Monitor.Tenant}",
+        "nodeNames": [
+          "{Monitor.Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "PfClusterName",
+        "FailureReason"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "AZUREHARDWAREDATACENTERMANAGER\\DatacenterManager(Internal)"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-05-25T17:24:08-07:00",
+      "name": "PfCredentialHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 47,
+      "viewConfiguration": {
+        "name": "PfCredentialHealth",
+        "nodeNames": [
+          "{PfClusterName}",
+          "{FailureReason}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ResourceId"
+      ],
+      "incidentConfiguration": {
+        "environment": "{ResourceId}",
+        "routingId": "AZUREHARDWAREDATACENTERMANAGER\\DatacenterManager(Internal)"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "haiczhu",
+      "lastUpdateTime": "2020-07-24T08:02:13-07:00",
+      "name": "DriveEncryption",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 46,
+      "viewConfiguration": {
+        "name": "ResourceId",
+        "nodeNames": [
+          "{ResourceId}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostPfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/FortKnox"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-06-13T13:57:43-07:00",
+      "name": "FortKnoxInstance",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 45,
+      "viewConfiguration": {
+        "name": "FortKnoxInstance",
+        "nodeNames": [
+          "{HostPfCluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Cluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/FortKnox"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-06-13T16:39:09-07:00",
+      "name": "ClusterRolloverHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 42,
+      "viewConfiguration": {
+        "name": "ClusterRolloverHealth",
+        "nodeNames": [
+          "{Cluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-06-16T16:55:43-07:00",
+      "name": "WosQueueDepth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 38,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "PfClusterName"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-07-23T10:00:28-07:00",
+      "name": "FortknoxInstance_CredHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 31,
+      "viewConfiguration": {
+        "name": "FortknoxInstance_CredHealth",
+        "nodeNames": [
+          "{PfClusterName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ClusterName"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-07-23T10:00:10-07:00",
+      "name": "AzureClusterCredentialHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 29,
+      "viewConfiguration": {
+        "name": "AzureClusterCredentialHealth",
+        "nodeNames": [
+          "{ClusterName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostPfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jialsu",
+      "lastUpdateTime": "2020-07-16T15:23:14-07:00",
+      "name": "FortknoxInstance_SyncCredential",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 28,
+      "viewConfiguration": {
+        "name": "FortknoxInstance_SyncCredential",
+        "nodeNames": [
+          "{HostPfCluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "haiczhu",
+      "lastUpdateTime": "2020-07-08T08:51:36-07:00",
+      "name": "ProvisionCluster",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 20,
+      "viewConfiguration": {
+        "name": "NbpProvisionFailure",
+        "nodeNames": [
+          "{AzureCluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "AzureCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{AzureCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "haiczhu",
+      "lastUpdateTime": "2020-07-08T12:26:33-07:00",
+      "name": "AbpProvisionCluster",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 18,
+      "viewConfiguration": {
+        "name": "AbpProvisionFailure",
+        "nodeNames": [
+          "{AzureCluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostPfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "{HostPfCluster}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2020-07-14T22:16:37-07:00",
+      "name": "MonitoringClient",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 15,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "HostPfCluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-07-21T15:18:33-07:00",
+      "name": "FortknoxInstance_PfCredRollover",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 12,
+      "viewConfiguration": {
+        "name": "FortknoxInstance_PfCredRollover",
+        "nodeNames": [
+          "{HostPfCluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "IsSuccess"
+      ],
+      "incidentConfiguration": {
+        "environment": "Prod",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "jasmit",
+      "lastUpdateTime": "2020-07-23T10:04:47-07:00",
+      "name": "FortKnox_RolloversNotHappening",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 11,
+      "viewConfiguration": {
+        "name": "FortKnox_RolloversNotHappening",
+        "nodeNames": [
+          "{IsSuccess}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "MetricsNamespace",
+        "KustoQueryName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{KustoQueryName}",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "cbilson",
+      "lastUpdateTime": "2019-01-22T13:05:44-08:00",
+      "name": "KustoToMetricsQos",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 101,
+      "viewConfiguration": {
+        "name": "KustoToMetricsQos",
+        "nodeNames": [
+          "{MetricsNamespace}",
+          "{KustoQueryName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component",
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "cbilson",
+      "lastUpdateTime": "2019-01-24T17:52:31-08:00",
+      "name": "LiteDiag",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 100,
+      "viewConfiguration": {
+        "name": "LiteDiag",
+        "nodeNames": [
+          "DBOS Worker"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Exception",
+        "IsSuccess"
+      ],
+      "incidentConfiguration": {
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "cbilson",
+      "lastUpdateTime": "2019-02-01T14:33:22-08:00",
+      "name": "DurableScheduler",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 98,
+      "viewConfiguration": {
+        "name": "Task Failures",
+        "nodeNames": [
+          "{Exception}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ApEnvironment",
+        "APService"
+      ],
+      "incidentConfiguration": {
+        "environment": "{ApEnvironment}",
+        "routingId": "MDM://AzureHardware/DatacenterManager"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "cbilson",
+      "lastUpdateTime": "2019-07-08T15:15:33-07:00",
+      "name": "RdmService",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 96,
+      "viewConfiguration": {
+        "name": "{ApService}",
+        "nodeNames": [
+          "{ApEnvironment}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Sku"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "MDM://AzureHardware/DatacenterManagerLowPri"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "asady",
+      "lastUpdateTime": "2019-07-11T10:26:32-07:00",
+      "name": "DefaultMOSBootResource",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 95,
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Cluster"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "MDM://OneFleetNode/OneBoot-DRI"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "yurido",
+      "lastUpdateTime": "2019-09-30T12:10:36-07:00",
+      "name": "MosPresenceTestResource",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 94,
+      "viewConfiguration": {
+        "name": "{Cluster}",
+        "nodeNames": [
+          "{Cluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component"
+      ],
+      "incidentConfiguration": {
+        "routingId": "MDM://AzureHardware/DatacenterManagerPilot"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "akilm",
+      "lastUpdateTime": "2020-03-17T14:16:41-07:00",
+      "name": "DataPipeline",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureComputeDcmx",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 88,
+      "viewConfiguration": {
+        "name": "{Monitor.Component}",
+        "nodeNames": []
+      },
+      "watchdogConfigurations": []
+    }
+  ],
+  "serviceBusConfiguration": null,
+  "tenant": "AzureComputeDcmx",
+  "tenantSettings": {
+    "environment": null,
+    "maximumResourcesCount": 200000,
+    "routingId": "adrocs://Recovery/AzureComputeDcmx",
+    "staleArtifactDeletionTime": "3.23:00:00",
+    "tenantName": "AzureComputeDcmx",
+    "viewModelPartitionCount": 1
+  },
+  "version": 0
+}

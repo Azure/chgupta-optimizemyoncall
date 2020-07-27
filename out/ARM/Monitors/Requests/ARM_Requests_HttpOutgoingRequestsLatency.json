@@ -1,0 +1,1073 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "HttpOutgoingRequestsLatency",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "actionConfigurations": [
+        {
+          "actionDetails": {
+            "actionAuthSignature": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "ActionAuthSignature",
+              "type": "string",
+              "value": "S5dFgTc+ZjhI/CcwLdcG/hb2qPYdSs6Vjd6E9+BXorOnoZLESgIDxMROFXBFAtf5S9uNaVi+uMYWekllkJ05fs84AvPL/Zn2S4oPuRkHtXUrtP2o70aL2MxT/CxUyaOR1AXwL7gIZGrQAceXnnKYmIOxE7KqBSzeVnUe+CfW1Y1qY7C0V+mzpa7jEYfZHZLHwAOvUbsJyI9mlYk919iUMilucbI6tITZ9jg10mDT3jXvEWUJ3Cu7j7bNe1610hc115yU3bog00QawtN/TCAYIWnSKB0V6BkpTaLXVSfaznpWWy8YpJpDoDTgtvWHhNxrG+hSb9QNKvq3sWmwW+uHUQ=="
+            },
+            "endpoint": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Endpoint",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "environment": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Environment",
+              "type": "string",
+              "value": "Public"
+            },
+            "extension": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Extension",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "operation": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Operation",
+              "type": "string",
+              "value": "RestartRoleInstance"
+            },
+            "signatureExpiryUtc": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "SignatureExpiryUtc",
+              "type": "string",
+              "value": "06/13/2019 21:29:55"
+            }
+          },
+          "actionType": 2,
+          "autoExecute": true,
+          "completionTimeout": 600,
+          "description": null,
+          "executionDelay": "00:00:00",
+          "executionKind": 2,
+          "externalRecoveryLink": "",
+          "externalWorkflowName": "Restart role instance",
+          "name": "Restart role instance",
+          "parameters": [
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "armservice",
+              "type": "string",
+              "value": "Frontdoor"
+            },
+            {
+              "description": null,
+              "metadataProperty": "Monitor.Dimension.RoleLocation",
+              "name": "locationname",
+              "type": "string",
+              "value": null
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "slotname",
+              "type": "string",
+              "value": "Production"
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "rolename",
+              "type": "string",
+              "value": "Frontdoor.Web.razzle"
+            },
+            {
+              "description": null,
+              "metadataProperty": "Monitor.Dimension.__RoleInstance",
+              "name": "roleinstanceid",
+              "type": "string",
+              "value": null
+            }
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "retryCount": 0,
+          "stablizationTimeout": 1200,
+          "title": "Restart role instance",
+          "type": "Action"
+        }
+      ],
+      "category": "Availability",
+      "conditions": [
+        [
+          "HttpMethod",
+          "GET",
+          ""
+        ],
+        [
+          "HttpStatusCode",
+          "200",
+          ""
+        ],
+        [
+          "OperationName",
+          "LocalHealthMonitor.CheckHealth",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Web.razzle",
+          ""
+        ],
+        [
+          "__RoleInstance",
+          "*",
+          ""
+        ],
+        [
+          "__Tenant",
+          "*",
+          ""
+        ],
+        [
+          "JarvisEndpoint",
+          "*",
+          ""
+        ],
+        [
+          "SourceNamespace",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.ActionConfiguration, Microsoft.Online.Metrics.Common",
+          "actionDetails": {
+            "actionAuthSignature": {
+              "description": null,
+              "metadataProperty": "actionAuthSignature",
+              "name": "actionAuthSignature",
+              "type": "string",
+              "value": null
+            },
+            "endpoint": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Endpoint",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "environment": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Environment",
+              "type": "string",
+              "value": "Public"
+            },
+            "extension": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Extension",
+              "type": "string",
+              "value": "Azure Resource Manager"
+            },
+            "operation": {
+              "description": null,
+              "metadataProperty": null,
+              "name": "Operation",
+              "type": "string",
+              "value": "RestartRoleInstance"
+            },
+            "signatureExpiryUtc": {
+              "description": null,
+              "metadataProperty": "signatureExpiryUtc",
+              "name": "signatureExpiryUtc",
+              "type": "string",
+              "value": null
+            }
+          },
+          "actionType": 2,
+          "autoExecute": false,
+          "completionTimeout": 600,
+          "description": null,
+          "executionDelay": "00:00:00",
+          "executionKind": 2,
+          "externalRecoveryLink": "",
+          "externalWorkflowName": "Restart role instance",
+          "name": "Restart role instance",
+          "parameters": [
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "armservice",
+              "type": "string",
+              "value": "Frontdoor"
+            },
+            {
+              "description": null,
+              "metadataProperty": "Monitor.Dimension.RoleLocation",
+              "name": "locationname",
+              "type": "string",
+              "value": null
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "slotname",
+              "type": "string",
+              "value": "Production"
+            },
+            {
+              "description": null,
+              "metadataProperty": null,
+              "name": "rolename",
+              "type": "string",
+              "value": "Frontdoor.Web.razzle"
+            },
+            {
+              "description": null,
+              "metadataProperty": "Monitor.Dimension.__RoleInstance",
+              "name": "roleinstanceid",
+              "type": "string",
+              "value": null
+            }
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "retryCount": 0,
+          "stablizationTimeout": 0,
+          "title": "Restart role instance",
+          "type": "Action"
+        }
+      ],
+      "customMessage": "Based on the operationName provided in the title, you can go to code for a deeper investigation.  There is some additional troubleshooting information available here:  https://aka.ms/ArmProvidersTsgGuide. If this alert fails to restart the role instance; please restart the role instance to mitigate the issue.",
+      "customTitle": "ARM [{monitor.Dimension.__RoleInstance}] in [{monitor.Dimension.RoleLocation}] was unable to make a  [{monitor.Dimension.OperationName}] request to itself and an automated restart of the role instance was scheduled to attempt a repair.",
+      "description": "This monitor is designed to fire when instances are not responding with 200 OK to the requests from their own local health monitor. It triggers a Geneva Action to restart the instance. (Expand this box for more details...)\n\nThe local health monitor is a periodic request on the loopback interface (or, in the case of instance 0, on the loopback interface AND through the load balancer) to check that the instance can serve basic healthchecks.\n\nThe monitor will fire if the following conditions are true when evaluated over the past 9 minutes (split into buckets of 3 minutes each):\n\n1. there are no responses with a status code of 200 within the bucket\n2. there are at least 3 (of the expected 5) \"\\Memory\\Available MBytes\" events emitted in the SysPerfCounters namespace for the same instance within the bucket\n3. every bucket meets the above criteria\n\nThe second condition is required to ensure that we don't fire this monitor when an instance ceases to exist (because we scaled in, for example).\nWe use buckets to minimize the risk of race conditions during a role update, in which memory info might be reported while the application starts, resulting in us triggering a restart.\n\nNote that the Geneva Action also has a stabilisation (or cooldown) period of 20 minutes. This is to ensure that we don't keep rebooting instances in the case that they take a long time to start up and start serving requests.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "HttpOutgoingRequestsLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:06:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Frontdoor_LocalHealthMonitor_2M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-07-13T11:04:55.3580875Z",
+      "lookbackDuration": "00:09:00",
+      "metadata": [
+        {
+          "metadataKey": "CorrelationId",
+          "metadataValue": " ARM://Region-Role/{monitor.Dimension.RoleLocation}/monitor.Dimension.__Role}/Availability"
+        }
+      ],
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": "",
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "recoveryRules": [
+        {
+          "actions": [
+            {
+              "actionDetails": {
+                "actionAuthSignature": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "ActionAuthSignature",
+                  "type": "string",
+                  "value": "S5dFgTc+ZjhI/CcwLdcG/hb2qPYdSs6Vjd6E9+BXorOnoZLESgIDxMROFXBFAtf5S9uNaVi+uMYWekllkJ05fs84AvPL/Zn2S4oPuRkHtXUrtP2o70aL2MxT/CxUyaOR1AXwL7gIZGrQAceXnnKYmIOxE7KqBSzeVnUe+CfW1Y1qY7C0V+mzpa7jEYfZHZLHwAOvUbsJyI9mlYk919iUMilucbI6tITZ9jg10mDT3jXvEWUJ3Cu7j7bNe1610hc115yU3bog00QawtN/TCAYIWnSKB0V6BkpTaLXVSfaznpWWy8YpJpDoDTgtvWHhNxrG+hSb9QNKvq3sWmwW+uHUQ=="
+                },
+                "endpoint": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Endpoint",
+                  "type": "string",
+                  "value": "Azure Resource Manager"
+                },
+                "environment": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Environment",
+                  "type": "string",
+                  "value": "Public"
+                },
+                "extension": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Extension",
+                  "type": "string",
+                  "value": "Azure Resource Manager"
+                },
+                "operation": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "Operation",
+                  "type": "string",
+                  "value": "RestartRoleInstance"
+                },
+                "signatureExpiryUtc": {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "SignatureExpiryUtc",
+                  "type": "string",
+                  "value": "06/13/2019 21:29:55"
+                }
+              },
+              "actionType": 2,
+              "autoExecute": true,
+              "completionTimeout": 600,
+              "description": null,
+              "executionDelay": "00:00:00",
+              "executionKind": 2,
+              "externalRecoveryLink": "",
+              "externalWorkflowName": "Restart role instance",
+              "name": "Restart role instance",
+              "parameters": [
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "armservice",
+                  "type": "string",
+                  "value": "Frontdoor"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": "Monitor.Dimension.RoleLocation",
+                  "name": "locationname",
+                  "type": "string",
+                  "value": null
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "slotname",
+                  "type": "string",
+                  "value": "Production"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": null,
+                  "name": "rolename",
+                  "type": "string",
+                  "value": "Frontdoor.Web.razzle"
+                },
+                {
+                  "description": null,
+                  "metadataProperty": "Monitor.Dimension.__RoleInstance",
+                  "name": "roleinstanceid",
+                  "type": "string",
+                  "value": null
+                }
+              ],
+              "preIncidentQueryTimeout": "00:00:50",
+              "retryCount": 0,
+              "stablizationTimeout": 1200,
+              "title": "Restart role instance",
+              "type": "Action"
+            }
+          ],
+          "condition": "",
+          "description": "",
+          "healthyAction": null,
+          "mode": 2,
+          "name": "Default Remediation Rule",
+          "priority": 0,
+          "shouldNotLockResource": false,
+          "successSeverity": 2
+        }
+      ],
+      "resourceType": "Region-Role-Instance",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedFailingBucketTemplate": {
+          "alertRules": [
+            {
+              "bucketsAnalyzed": 3,
+              "failingBuckets": 3,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 2,
+              "thresholds": [
+                {
+                  "comparator": "==",
+                  "label": "SuccessfulHealthchecks",
+                  "thresholdValue": 0.0
+                },
+                {
+                  "comparator": ">=",
+                  "label": "SysPerfReports",
+                  "thresholdValue": 2.0
+                }
+              ]
+            }
+          ],
+          "bucketSizeInMinutes": 3,
+          "expressions": [
+            {
+              "label": "SuccessfulHealthchecks",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            },
+            {
+              "label": "SysPerfReports",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__RoleInstance",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "CounterInstance",
+                          "__Empty",
+                          ""
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "\\Memory\\Available MBytes",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "SysPerfCounters",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 11,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 11,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "==",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 2.0
+        }
+      ],
+      "version": 40
+    },
+    {
+      "category": "",
+      "conditions": [
+        [
+          "OperationName",
+          "PUT/*/MICROSOFT.AUTHORIZATION/POLICY*",
+          "",
+          "w"
+        ],
+        [
+          "Result",
+          "*",
+          "ServerFailure"
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "Governance",
+          "autoExecute": false,
+          "dimensionsToOverride": [],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Policy Greenfield",
+            "Authorization RP"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Policy CRUD Dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.KustoJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "compressQuery": true,
+          "database": "ARMProd",
+          "endpoint": "https://armprod.kusto.windows.net",
+          "executionDelay": "00:01:00",
+          "maxResultRowCount": 15,
+          "preIncidentQueryTimeout": "00:00:50",
+          "query": "HttpOutgoingRequests\n| where TIMESTAMP >= datetime({monitor.DataStartTime}) and TIMESTAMP <= datetime({monitor.DataEndTime})\n| where TaskName == \"HttpOutgoingRequestEndWithClientFailure\" and httpStatusCode != 404 and httpMethod != \"GET\"\n| where targetResourceProvider =~ \"Microsoft.Authorization\" and targetResourceType startswith \"Policy\"\n",
+          "title": "Policy CRUD Client Errors",
+          "type": "Kusto"
+        }
+      ],
+      "customMessage": "This alert may indicate that publishing built-ins has caused creation/editing of assignments or policySetDefinitions using those built-ins to start failing. Possible causes include changes/removal of parameters, referencing RPs that don't exist in national clouds, etc...",
+      "customTitle": "Policy CRUD Alert: Abnormal client failure rate (4xx) for requests in [{monitor.Dimension.RoleLocation}] in 15M, operation [{monitor.Dimension.OperationName}]",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "Requests",
+        "id": "HttpOutgoingRequestsLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:15:00",
+      "healthyCountToMitigateIncident": 20,
+      "healthyDurationToMitigateIncident": "04:45:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Policy_Provider_Client_Failure_15M",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "cheggert",
+      "lastUpdateTime": "2020-07-14T22:30:21.951256Z",
+      "lookbackDuration": "01:00:00",
+      "metadata": [
+        {
+          "metadataKey": "Icm.CorrelationId",
+          "metadataValue": "Policy-Providers-ClientFailureAnomaly15M:{monitor.Dimension.OperationName}"
+        },
+        {
+          "metadataKey": "RoutingId",
+          "metadataValue": "mdm://AzureGovernance/Policy"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedFailingBucketTemplate": {
+          "alertRules": [
+            {
+              "bucketsAnalyzed": 6,
+              "failingBuckets": 6,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 3,
+              "thresholds": [
+                {
+                  "comparator": ">",
+                  "label": "ClientFailureCount",
+                  "thresholdValue": 10.0
+                },
+                {
+                  "comparator": ">",
+                  "label": "ClientFailurePercentage",
+                  "thresholdValue": 0.65
+                }
+              ]
+            }
+          ],
+          "bucketSizeInMinutes": 10,
+          "expressions": [
+            {
+              "label": "ClientFailureCount",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "OperationName",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "Result",
+                          "ClientFailure",
+                          ""
+                        ],
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            },
+            {
+              "label": "ClientFailurePercentage",
+              "percentageTemplate": {
+                "denominator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "OperationName",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "Result",
+                          "Success",
+                          ""
+                        ],
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  },
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "OperationName",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "Result",
+                          "ClientFailure",
+                          ""
+                        ],
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "OperationName",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "Result",
+                          "ClientFailure",
+                          ""
+                        ],
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "HttpOutgoingRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "Requests",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 11,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 11,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 2,
+          "severity": 3,
+          "value": 0.0
+        }
+      ],
+      "version": 10
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

@@ -1,0 +1,554 @@
+{
+  "bv": 10,
+  "component": "IISLogs",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "IISRequestsLatency",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "Frontdoor.Web.razzle",
+          ""
+        ]
+      ],
+      "customLinks": [],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Test monitor to help with debugging issue reported on IcM 190016058. This monitor is used in a bug in Geneva: https://msazure.visualstudio.com/One/_workitems/edit/7361384\n\nPlease keep it until the bug is resolved.\n",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "IISLogs",
+        "id": "IISRequestsLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "00:27:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Test Monitor For IcM 190016058",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": true,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "supescad",
+      "lastUpdateTime": "2020-06-03T17:27:54.6479545Z",
+      "lookbackDuration": "00:05:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [],
+          "evaluatePureFraction": true,
+          "multiplier": 1.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [
+                  [
+                    "RoleLocation",
+                    "*",
+                    "Australia Central"
+                  ],
+                  [
+                    "__Role",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ]
+                ],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "IISRequestsLatency",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "ARM",
+                "namespace": "IISLogs",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": false,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 2,
+          "value": 0.0
+        }
+      ],
+      "version": 3
+    },
+    {
+      "category": "Availability",
+      "conditions": [
+        [
+          "HttpStatusCode",
+          "200",
+          ""
+        ],
+        [
+          "RoleLocation",
+          "*",
+          ""
+        ],
+        [
+          "__Role",
+          "*",
+          ""
+        ],
+        [
+          "__RoleInstance",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "ARM",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "RoleLocation",
+            "__Role"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Global Health",
+            "Region"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Regional Health",
+          "type": "Dashboard"
+        }
+      ],
+      "customMessage": "This likely indicates a customer impacting issue with the role. If multiple roles are encountering the same issue, this is indicative of a problem in the region. Check the CPU load and lock contestation rates for the region to determine whether this is load related and if it is, scale out the region or direct traffic elsewhere.",
+      "customTitle": "ARM [{Monitor.Dimensions.__RoleInstance}] in [{Monitor.Dimensions.RoleLocation}] has been returning a high number of IIS 5xx errors because ARM is not reachable, or is overloaded.",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "This monitor checks the total number of IIS 5xx responses and dropped requests for an ARM instance.\n\nThresholds: (Scroll to see more)\n * If more than 50 errors per minute for 3/5 minutes: Sev 4 incident and mark the instance as degraded.\n * If more than 100 errors per minute for 3/5 minutes: Sev 3 incident and mark the instance as unhealthy.\n\nThe health hierarchy will then roll-up these failures and create a Sev 2 if more than 30% of the instances within a region are unhealthy for this monitor.",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "IISLogs",
+        "id": "IISRequestsLatency",
+        "tenant": "ARM"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 10,
+      "healthyDurationToMitigateIncident": "00:27:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "IISErrorMonitor",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": true,
+      "isThrottled": false,
+      "lastUpdatedBy": "bpannell",
+      "lastUpdateTime": "2020-06-23T10:57:09.9625465Z",
+      "lookbackDuration": "00:05:00",
+      "metadata": [
+        {
+          "metadataKey": "Icm.CorrelationId",
+          "metadataValue": "ARM://Region-Role/{Monitor.Dimensions.RoleLocation}/{Monitor.Dimensions.__Role}/Availability"
+        },
+        {
+          "metadataKey": "Health.AggregateIncident.Title",
+          "metadataValue": "Customers making requests to ARM [{Monitor.Dimensions.__Role}] in [{Monitor.Dimensions.RoleLocation}] have been receiving a high number of IIS 5xx errors because ARM is not reachable ({UnhealthyChildPercent}% [{UnhealthyChildCount} / {TotalChildCount}] instances impacted)."
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Region-Role-Instance",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": true,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "correlatedFailingBucketTemplate": {
+          "alertRules": [
+            {
+              "bucketsAnalyzed": 5,
+              "failingBuckets": 3,
+              "healthStatus": 2,
+              "metadata": [],
+              "severity": 4,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "ErrorCount",
+                  "thresholdValue": 50.0
+                }
+              ]
+            },
+            {
+              "bucketsAnalyzed": 5,
+              "failingBuckets": 3,
+              "healthStatus": 1,
+              "metadata": [],
+              "severity": 3,
+              "thresholds": [
+                {
+                  "comparator": ">=",
+                  "label": "ErrorCount",
+                  "thresholdValue": 100.0
+                }
+              ]
+            }
+          ],
+          "bucketSizeInMinutes": 1,
+          "expressions": [
+            {
+              "label": "ErrorCount",
+              "percentageTemplate": {
+                "denominator": [],
+                "evaluatePureFraction": true,
+                "multiplier": 1.0,
+                "numerator": [
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "FailureReason",
+                          "Connection_Abandoned_By_ReqQueue,Connection_Dropped_List_Full",
+                          ""
+                        ],
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__RoleInstance",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "IISErrors",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "IISLogs",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  },
+                  {
+                    "dataSourceType": 0,
+                    "fetchMetrics": {
+                      "aggregateType": 0,
+                      "conditions": [
+                        [
+                          "HttpStatusCode",
+                          "5*",
+                          "",
+                          "w"
+                        ],
+                        [
+                          "RoleLocation",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__Role",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ],
+                        [
+                          "__RoleInstance",
+                          "*",
+                          "",
+                          "w",
+                          "i"
+                        ]
+                      ],
+                      "dataSourceType": 0,
+                      "endTimeShift": "00:00:00",
+                      "isNegative": false,
+                      "lookbackDuration": "00:00:00",
+                      "metric": "IISRequestsLatency",
+                      "metricsSourceAggregateType": 0,
+                      "monitoringAccount": "ARM",
+                      "namespace": "IISLogs",
+                      "samplingType": "Count",
+                      "useTotalAggregate": false
+                    }
+                  }
+                ]
+              },
+              "templateType": 6,
+              "valueOnDivideByZero": 0,
+              "valueOnNull": 0
+            }
+          ]
+        },
+        "divideByZeroNotFailure": false,
+        "skipOnNoData": false,
+        "templateType": 11,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 11,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 2,
+          "severity": 4,
+          "value": 50.0
+        },
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 100.0
+        }
+      ],
+      "version": 3
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

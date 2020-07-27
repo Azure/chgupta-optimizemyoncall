@@ -1,0 +1,289 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheNotifications",
+  "computedMetrics": [
+    {
+      "displayName": "Average",
+      "expression": "raw.Sum / (raw.Count || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "Average",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "NullableAverage",
+      "expression": "raw.Count ? (raw.Sum / raw.Count) : null",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "NullableAverage",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Rate",
+      "expression": "raw.Sum / 60",
+      "expressionEngine": "",
+      "higherNumberIs": null,
+      "id": "Rate",
+      "isBuiltIn": true,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "",
+  "dimensions": [
+    {
+      "id": "ActivityException"
+    },
+    {
+      "id": "ActivityName"
+    },
+    {
+      "id": "Application"
+    },
+    {
+      "id": "Environment"
+    },
+    {
+      "id": "IsActivityFailed"
+    },
+    {
+      "id": "NodeNumber"
+    },
+    {
+      "id": "NodeType"
+    },
+    {
+      "id": "ParentActivityName"
+    },
+    {
+      "id": "Service"
+    },
+    {
+      "id": "Tenant"
+    },
+    {
+      "id": "ScaleUnit"
+    }
+  ],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "ActivityDuration",
+  "isFromNewPipeline": true,
+  "isQosMetric": false,
+  "metrics": [
+    {
+      "displayName": "Count",
+      "expression": null,
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Count",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Sum",
+      "expression": null,
+      "expressionEngine": null,
+      "higherNumberIs": null,
+      "id": "Sum",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": null,
+      "numberType": null,
+      "percentileConfiguration": null
+    }
+  ],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 13,
+  "views": [
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ActivityName"
+      ],
+      "displayName": "ActivityName",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ActivityName",
+        "IsActivityFailed"
+      ],
+      "displayName": "ActivityName/IsActivityFailed",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ActivityName",
+        "IsActivityFailed",
+        "Tenant"
+      ],
+      "displayName": "Tenant/ActivityName/IsActivityFailed",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ActivityName",
+        "Environment",
+        "IsActivityFailed",
+        "NodeNumber",
+        "NodeType",
+        "Tenant"
+      ],
+      "displayName": "By-Environment-Tenant-NodeType-NodeNumber-ActivityName-IsActivityFailed",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ActivityName",
+        "Environment",
+        "IsActivityFailed",
+        "NodeNumber",
+        "NodeType",
+        "ParentActivityName",
+        "Tenant"
+      ],
+      "displayName": "By-Environment-Tenant-NodeType-NodeNumber-ActivityName-ParentActivityName-IsActivityFailed",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ActivityName",
+        "Environment",
+        "IsActivityFailed"
+      ],
+      "displayName": "By-Environment-ActivityName-IsActivityFailed",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ActivityName",
+        "Environment",
+        "IsActivityFailed",
+        "ScaleUnit"
+      ],
+      "displayName": "By-Environment-ScaleUnit-ActivityName-IsActivityFailed",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "ActivityName",
+        "Environment",
+        "IsActivityFailed",
+        "NodeNumber",
+        "ParentActivityName",
+        "ScaleUnit"
+      ],
+      "displayName": "By-Environment-ScaleUnit-NodeNumber-ActivityName-ParentActivityName-IsActivityFailed",
+      "distinctCountColumns": [],
+      "doNotUseCacheServer": true,
+      "isFilterBased": false,
+      "isMStoreAggregated": true,
+      "minMaxMetricsEnabled": true,
+      "percentileMetricsEnabled": true,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "standardDeviationMetricsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

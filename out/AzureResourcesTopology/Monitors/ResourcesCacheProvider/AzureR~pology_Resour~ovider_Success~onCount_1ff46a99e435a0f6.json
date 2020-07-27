@@ -1,0 +1,268 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheProvider",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "SuccessfulAliasExtractionCount",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "Alias",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          "EUS2EUAP"
+        ],
+        [
+          "Service",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": null,
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            },
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityFailed",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Environment": [
+              "{Monitor.Dimension.Environment}"
+            ],
+            "Role": [
+              "nt0art"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-10&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted,ActivityFailed&conditions=[[\"activityName\",\"==\",\"PopulateAliasJob.ExecuteInternalWithInputAsync\"],[\"properties\",\"!contains\",\"TotalAliasCount=[0]\"]]&scopingConditions=[[\"Environment\",\"{Monitor.Dimension.Environment}\"],[\"Role\",\"nt0art\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=false&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]&UTC=false",
+          "lookback": "00:10:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "(activityName.EqualsI(\"PopulateAliasJob.ExecuteInternalWithInputAsync\")) and (!properties.ContainsI(\"TotalAliasCount=[0]\"))",
+          "serverQuerySimpleConditions": [
+            {
+              "comparand": "activityName",
+              "operator": "==",
+              "values": "PopulateAliasJob.ExecuteInternalWithInputAsync"
+            },
+            {
+              "comparand": "properties",
+              "operator": "!contains",
+              "values": "TotalAliasCount=[0]"
+            }
+          ],
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "PopulateAlias",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": false
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  ""
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "1- Monitor is looking at the count of aliases getting populated\n2- We monitor that aliases are getting populated for all resources concerned\n3- After a populate resource job (ingestion or partial ingestion) the alias column is populated based on the properties of the resources following the metadata cache (that gives the path to find the alias)\n4- A change in the manifest or a problem in our cache could result in alias not being populated.\n5- Alias is not a failure impacting the ingestion of the resource and serialization failures can probably not be mitigated. If the manifest is not getting populated correctly and this has strong impact, one possible mitigation would be to override the proxy manifest in cosmosDB, so that the cache would by populated with the given value.\n6- Investigate further by looking at the populate alias exceptions and the population of the metadataCache.  ",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "SuccessfulAliasExtractionCount",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:30:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "01:00:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "Alias count",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "ponaraya",
+      "lastUpdateTime": "2020-02-13T22:23:32.7110711Z",
+      "lookbackDuration": "00:30:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Service Health",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateSpecificParameters": {
+        "alertOnDivideByZeroError": "false",
+        "lookbackType": "1.00:00:00",
+        "metric": "Sum"
+      },
+      "templateType": 4,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": "<",
+          "healthStatus": 2,
+          "severity": 3,
+          "value": 0.25
+        }
+      ],
+      "version": 9
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

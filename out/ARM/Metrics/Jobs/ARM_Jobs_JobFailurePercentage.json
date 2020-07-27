@@ -1,0 +1,83 @@
+{
+  "bv": 10,
+  "component": "Jobs",
+  "computedMetrics": [
+    {
+      "displayName": "JobFailurePercentage",
+      "expression": "(100.0 * (Failure.Count || 0)) / (Total.Count || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "JobFailurePercentage",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": null,
+  "dimensions": [],
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "JobFailurePercentage",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "Failure": {
+      "metricName": "JobFailure",
+      "metricNamespace": "Jobs",
+      "monitoringAccount": "ARM"
+    },
+    "Total": {
+      "metricName": "JobExecutionDuration",
+      "metricNamespace": "Jobs",
+      "monitoringAccount": "ARM"
+    }
+  },
+  "metrics": [],
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": false,
+  "version": 1,
+  "views": [
+    {
+      "dimensions": [
+        "Callback",
+        "JarvisEndpoint",
+        "RoleLocation",
+        "SourceNamespace",
+        "__Role",
+        "__Tenant"
+      ],
+      "displayName": "JarvisEndpoint.Location.SourceNamespace.Tenant.Role.Callback",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}

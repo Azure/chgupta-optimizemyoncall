@@ -1,0 +1,1581 @@
+{
+  "dmsConfiguration": {
+    "actionManagerClassName": null,
+    "tenantName": "AzureResourcesTopology",
+    "topologyName": null,
+    "topologyRestServiceUrl": null,
+    "topologyWcfServiceUrl": null,
+    "version": 0,
+    "workItemWcfServiceUrl": null
+  },
+  "icmConfig": {
+    "connectorId": "0ae5e958-e64d-49cb-a0ec-36d9f6b40200",
+    "tenantName": "AzureResourcesTopology",
+    "url": "https://icm.ad.msft.net/Connector2/ConnectorIncidentManager.svc"
+  },
+  "resourceTypeConfigurations": [
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "WarmPathEnvironment",
+        "WarmPathAccount",
+        "WarmPathNamespace",
+        "AgentVersion",
+        "IdentityListMd5Hash"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "212B7243B6786581BD0121B2D60FD7B6B171026B",
+      "lastUpdateTime": "2018-03-29T21:23:02-07:00",
+      "metadataProperties": [
+        "Tenant",
+        "Environment",
+        "Role",
+        "RoleInstance",
+        "IsAutoUpdateDisabled",
+        "ConfigVersion",
+        "BinaryVersion"
+      ],
+      "name": "genevamonitoringagents_e6618b92a523fe38dbf46f6aa26652c2",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 231,
+      "viewConfiguration": {
+        "name": "GenevaMonitoringAgents-e6618b92a523fe38dbf46f6aa26652c2",
+        "nodeNames": [
+          "{WarmPathEnvironment}",
+          "{WarmPathAccount}",
+          "{WarmPathNamespace}",
+          "{AgentVersion}",
+          "{Tenant}",
+          "{Environment}",
+          "{Role}",
+          "{RoleInstance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component",
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "venul",
+      "lastUpdateTime": "2019-04-30T17:26:55-07:00",
+      "name": "KustoHealth",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 220,
+      "viewConfiguration": {
+        "name": "Node Health",
+        "nodeNames": [
+          "{Monitor.Tenant}",
+          "{Monitor.Component}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component",
+        "Monitor.Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-24T08:23:47-07:00",
+      "name": "Notification",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 218,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "Global",
+          "ARG"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerInstance",
+        "RunnerName",
+        "TestId"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-23T09:46:45-07:00",
+      "name": "RunnerHealthResourceType",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 204,
+      "viewConfiguration": {
+        "name": "RunnerHealth",
+        "nodeNames": [
+          "Query",
+          "{TestId}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Tenant",
+        "Monitor.Component"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "momihail",
+      "lastUpdateTime": "2020-05-18T14:39:53-07:00",
+      "name": "Query",
+      "onboardActivityLog": false,
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 193,
+      "viewConfiguration": {
+        "name": "Query",
+        "nodeNames": [
+          "{Monitor.Tenant}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "Service"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-24T08:32:07-07:00",
+      "name": "Service Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 180,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "{Environment}",
+          "{Service}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "NodeType",
+        "NodeNumber"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2018-12-06T18:44:28-08:00",
+      "name": "Node Healthh",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 179,
+      "viewConfiguration": {
+        "name": "Node Health",
+        "nodeNames": [
+          "{Environment}",
+          "{NodeType}",
+          "{NodeNumber}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "__Tenant",
+        "NodeType",
+        "NodeNumber"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2018-12-07T17:46:54-08:00",
+      "name": "NodeHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 177,
+      "viewConfiguration": {
+        "name": "Node Health",
+        "nodeNames": [
+          "{Environment}",
+          "{__Tenant}",
+          "{NodeType}",
+          "{NodeNumber}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Application",
+        "Environment",
+        "NodeNumber",
+        "NodeType",
+        "Tenant"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2018-12-07T18:08:23-08:00",
+      "name": "ApplicHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 174,
+      "viewConfiguration": {
+        "name": "Node Health",
+        "nodeNames": [
+          "{Environment}",
+          "{Tenant}",
+          "{NodeType}",
+          "{NodeNumber}",
+          "{Application}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "NodeType",
+        "NodeNumber",
+        "__Tenant",
+        "Instance"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2018-12-07T18:08:47-08:00",
+      "name": "Process Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 172,
+      "viewConfiguration": {
+        "name": "Node Health",
+        "nodeNames": [
+          "{Environment}",
+          "{__Tenant}",
+          "{NodeType}",
+          "{NodeNumber}",
+          "{Instance}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "Service",
+        "ActivityName"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2018-12-07T19:06:32-08:00",
+      "name": "Free Job Percentage",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 170,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "{Environment}",
+          "{Service}",
+          "Free Job Percentage",
+          "{ActivityName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-25T08:51:21-07:00",
+      "name": "RunnersHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 169,
+      "viewConfiguration": {
+        "name": "Runners",
+        "nodeNames": [
+          "MdmEngineMetrics",
+          "{Monitor.Component}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Service"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-24T14:14:52-07:00",
+      "name": "Global Prod Service Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 168,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "Global",
+          "{Service}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Account",
+        "Cluster",
+        "DataCenter"
+      ],
+      "incidentConfiguration": {
+        "environment": "{DataCenter}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "guayang",
+      "lastUpdateTime": "2019-01-22T12:04:55-08:00",
+      "name": "SailfishHealth",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 167,
+      "viewConfiguration": {
+        "name": "Sailfish Health",
+        "nodeNames": [
+          "{DataCenter}",
+          "{Account}",
+          "{Cluster}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "ActivityName",
+        "IsActivityFailed"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-24T08:37:51-07:00",
+      "name": "ActivityDuration",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 153,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "{Environment}",
+          "Scenario",
+          "Query"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "RunnerType"
+      ],
+      "incidentConfiguration": {
+        "environment": "{RunnerType}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-25T09:04:40-07:00",
+      "name": "RunnerType",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 147,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "Global",
+          "Runners",
+          "Notifications Missing",
+          "{RunnerType}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "rchapas",
+      "lastUpdateTime": "2019-04-18T08:38:30-07:00",
+      "name": "Environment",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 146,
+      "viewConfiguration": {
+        "name": "Runners",
+        "nodeNames": [
+          "{Environment}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerType"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "rchapas",
+      "lastUpdateTime": "2019-04-18T08:39:49-07:00",
+      "name": "CanaryRunnerTypeEnvironement",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 145,
+      "viewConfiguration": {
+        "name": "Runners",
+        "nodeNames": [
+          "{Environment}",
+          "{RunnerType}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "RunnerInstance",
+        "RunnerName",
+        "TestId"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-25T08:54:55-07:00",
+      "name": "EnvironmentTestId",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 142,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "Global",
+          "Runners",
+          "{TestId}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ActivityName",
+        "Environment",
+        "Service"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "ilidemi",
+      "lastUpdateTime": "2019-05-01T14:05:31-07:00",
+      "name": "Service Activity Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 138,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "{Environment}",
+          "{Service}",
+          "{ActivityName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "ScaleUnit"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-23T19:44:08-07:00",
+      "name": "NotificationServiceScaleUnit",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 108,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "{Environment}",
+          "{ScaleUnit}",
+          "NotificationPipeline"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "Service",
+        "ScaleUnit"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-23T19:36:39-07:00",
+      "name": "Scale Unit Service Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 106,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "{Environment}",
+          "{ScaleUnit}",
+          "Scenario",
+          "NotificationPipeline"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Service",
+        "ScaleUnit"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-23T19:40:37-07:00",
+      "name": "Global Scale Unit Service Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 103,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "Global",
+          "{ScaleUnit}",
+          "{Service}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment",
+        "ScaleUnit"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-23T19:39:35-07:00",
+      "name": "Notifications SLA Scale Unit",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 102,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "{Environment}",
+          "{ScaleUnit}",
+          "Notifications SLA"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ScaleUnit"
+      ],
+      "incidentConfiguration": {
+        "environment": "PROD",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-29T20:42:54-07:00",
+      "name": "Notifications SLA Global Scale Unit",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 101,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "Global",
+          "{ScaleUnit}",
+          "Scenario"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ActivityName",
+        "Environment",
+        "Service",
+        "ScaleUnit"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-23T19:41:44-07:00",
+      "name": "Scale Unit Activity Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "NotificationServiceScaleUnit",
+        "parentResourceTypes": null
+      },
+      "version": 100,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "{Environment}",
+          "{ScaleUnit}",
+          "NotificationPipeline",
+          "{ActivityName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ActivityName",
+        "Environment",
+        "ScaleUnit"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}",
+        "routingId": "AIMS://GOV_ART:AzureResourceTopology"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-29T15:54:27-07:00",
+      "name": "Scale Unit Notifications Activity Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": "NotificationServiceScaleUnit",
+        "parentResourceTypes": null
+      },
+      "version": 99,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "{Environment}",
+          "{ScaleUnit}",
+          "NotificationPipeline",
+          "{ActivityName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-24T08:43:33-07:00",
+      "name": "Service Health Per Environment",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 55,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "{Environment}",
+          "Scenario"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Environment"
+      ],
+      "incidentConfiguration": {
+        "environment": "{Environment}"
+      },
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-24T08:52:04-07:00",
+      "name": "Scenario Health Per Environment",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 54,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "{Environment}",
+          "Scenario"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "DiscoveryScenario"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-25T08:31:51-07:00",
+      "name": "Service Health DiscoveryScenario",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 52,
+      "viewConfiguration": {
+        "name": "Service Health",
+        "nodeNames": [
+          "Global",
+          "Scenario",
+          "{DiscoveryScenario}"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "Monitor.Component"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-29T20:29:03-07:00",
+      "name": "Global Scale Unit Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 18,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "Global"
+        ]
+      },
+      "watchdogConfigurations": []
+    },
+    {
+      "automationWebhooks": [],
+      "capacity": 0.0,
+      "failureTimeout": 0,
+      "healthExpressions": [
+        {
+          "$type": "Microsoft.Online.RecoveryService.Contract.Models.AnyFailingWatchdogHealthExpression, Microsoft.Online.RecoveryService.Contract",
+          "forceSeverity": false,
+          "severity": 4,
+          "suppressIncident": false,
+          "type": 2
+        }
+      ],
+      "identifierProperties": [
+        "ActivityName",
+        "ScaleUnit"
+      ],
+      "incidentConfiguration": {},
+      "isSystemResource": false,
+      "lastUpdatedBy": "chgupta",
+      "lastUpdateTime": "2020-06-29T20:37:30-07:00",
+      "name": "Global Scale Unit Activity Health",
+      "recoveryRules": [],
+      "shouldEmitHealthMetrics": true,
+      "successTimeout": 0,
+      "tenantName": "AzureResourcesTopology",
+      "topologyConfiguration": {
+        "dmsTargetResourceName": null,
+        "dmsTargetResourceType": null,
+        "leverageParentHealthStatus": null,
+        "logChildMetrics": false,
+        "parentResourceType": null,
+        "parentResourceTypes": null
+      },
+      "version": 16,
+      "viewConfiguration": {
+        "name": "Scale Unit",
+        "nodeNames": [
+          "Global",
+          "{ScaleUnit}",
+          "Scenario",
+          "{ActivityName}"
+        ]
+      },
+      "watchdogConfigurations": []
+    }
+  ],
+  "serviceBusConfiguration": null,
+  "tenant": "AzureResourcesTopology",
+  "tenantSettings": {
+    "environment": null,
+    "maximumResourcesCount": 200000,
+    "routingId": "adrocs://Recovery/AzureResourcesTopology",
+    "staleArtifactDeletionTime": "12:00:00",
+    "tenantName": "AzureResourcesTopology",
+    "updateIncidentOnSeverityChange": true,
+    "viewModelPartitionCount": 1
+  },
+  "version": 0
+}

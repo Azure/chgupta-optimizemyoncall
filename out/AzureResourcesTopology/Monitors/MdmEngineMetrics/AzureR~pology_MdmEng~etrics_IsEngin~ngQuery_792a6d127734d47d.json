@@ -1,0 +1,275 @@
+{
+  "bv": 10,
+  "component": "MdmEngineMetrics",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "IsEngineAnsweringQuery",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Account",
+          "ResourcesCacheSailfish",
+          ""
+        ],
+        [
+          "Cluster",
+          "*",
+          ""
+        ],
+        [
+          "DataCenter",
+          "*",
+          "eastus2euap,SouthEastAsia"
+        ],
+        [
+          "ErrorCode",
+          "None",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": true,
+          "dimensionsToOverride": [],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "12:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Store",
+            "Sailfish OS Image Upgrade Status"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "OS Image Upgrade",
+          "type": "Dashboard"
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Engine is not answering queries",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "MdmEngineMetrics",
+        "id": "IsEngineAnsweringQuery",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:01:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:02:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "EngineAnsweringQuery",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "guayang",
+      "lastUpdateTime": "2019-10-29T23:55:44.4692749Z",
+      "lookbackDuration": "00:15:00",
+      "metadata": [
+        {
+          "metadataKey": "Icm.TsgId",
+          "metadataValue": "https://microsoft.sharepoint.com/teams/GovernanceVteam/_layouts/OneNote.aspx?id=%2Fteams%2FGovernanceVteam%2FSiteAssets%2FGovernance%20Vteam%20Notebook&wd=target%28ARG%2FLivesite.one%7C0D4CF9B6-4A2C-40E4-92FE-742E1448468D%2FDMUnavailable%20EngineUnavailable%7C01D8DEB3-0F5D-4023-AB32-ABCCE3A931F6%2F%29 onenote:https://microsoft.sharepoint.com/teams/GovernanceVteam/SiteAssets/Governance%20Vteam%20Notebook/ARG/Livesite.one#DMUnavailable%20EngineUnavailable%20&section-id={0D4CF9B6-4A2C-40E4-92FE-742E1448468D}&page-id={01D8DEB3-0F5D-4023-AB32-ABCCE3A931F6}&object-id={ABABE45C-E4DA-08D7-08D3-8276386B8224}&DF"
+        }
+      ],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "SailfishHealth",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "failingBucketTemplate": {
+          "bucketComparator": "<",
+          "bucketDurationInMinutes": 3,
+          "bucketTemplate": {
+            "percentageTemplate": {
+              "denominator": [],
+              "evaluatePureFraction": true,
+              "multiplier": 1.0,
+              "numerator": [
+                {
+                  "dataSourceType": 0,
+                  "fetchMetrics": {
+                    "aggregateType": 0,
+                    "conditions": [
+                      [
+                        "Account",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "Cluster",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "DataCenter",
+                        "*",
+                        "",
+                        "w",
+                        "i"
+                      ],
+                      [
+                        "ErrorCode",
+                        "None",
+                        ""
+                      ]
+                    ],
+                    "dataSourceType": 0,
+                    "endTimeShift": "00:00:00",
+                    "isNegative": false,
+                    "lookbackDuration": "00:00:00",
+                    "metric": "IsEngineAnsweringQuery",
+                    "metricsSourceAggregateType": 0,
+                    "monitoringAccount": "AzureResourcesTopology",
+                    "namespace": "MdmEngineMetrics",
+                    "samplingType": "Average",
+                    "useTotalAggregate": false
+                  }
+                }
+              ]
+            },
+            "templateType": 6,
+            "valueOnDivideByZero": 0,
+            "valueOnNull": 0
+          },
+          "bucketTemplateType": 6,
+          "bucketThreshold": 1.0
+        },
+        "skipOnNoData": true,
+        "templateType": 7,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 7,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 2,
+          "severity": 3,
+          "value": 3.0
+        }
+      ],
+      "version": 18
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

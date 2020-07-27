@@ -1,0 +1,531 @@
+{
+  "bv": 10,
+  "component": "ResourcesCacheProvider",
+  "computedMetrics": null,
+  "deleted": false,
+  "description": null,
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "ErroredNotificationTime",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metrics": null,
+  "monitors": [
+    {
+      "category": "",
+      "conditions": [
+        [
+          "Environment",
+          "*",
+          "EUS2EUAP"
+        ],
+        [
+          "Service",
+          "*",
+          ""
+        ],
+        [
+          "NotificationQueueTypeDimension",
+          "EventHub",
+          ""
+        ],
+        [
+          "NotificationRetryPriorityQueueLevelDimension",
+          "*",
+          ""
+        ],
+        [
+          "ScaleUnit",
+          "*",
+          ""
+        ]
+      ],
+      "customLinks": [
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "Environment",
+            "ScaleUnit"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "ARG Write Path",
+            "Notifications",
+            "SLA"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "SLA dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "Environment",
+            "ScaleUnit"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "Store",
+            "Kusto Store Ingestion Health"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Ingestion health dashboard",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DashboardConfiguration, Microsoft.Online.Metrics.Common",
+          "accountName": "AzureResourcesTopology",
+          "autoExecute": false,
+          "dimensionsToOverride": [
+            "Environment",
+            "ScaleUnit"
+          ],
+          "executionDelay": "00:00:00",
+          "lookbackDuration": "1.00:00:00",
+          "name": null,
+          "namespace": null,
+          "path": [
+            "ARG Livesite",
+            "Delay in SLA"
+          ],
+          "preIncidentQueryTimeout": "00:00:50",
+          "title": "Delay in SLA",
+          "type": "Dashboard"
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "// Background failures\r\nwhere !properties.containsi(\"RaDoesNotExist\")\r\n",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityCompleted",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            },
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityFailed",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Environment": [
+              "{Monitor.Dimension.Environment}"
+            ],
+            "Role": [
+              "nt0art",
+              "nt4art"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-30&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityCompleted,ActivityFailed&serverQuery=where%20service%20==%20\"PartialSyncIngestionService\"\r%0A\r%0Awhere%20activityName%20==%20\"PartialSyncIngestionRetryJob.HandleExceptionAsync\"%20||%20activityName%20==%20\"PartialSyncIngestionJob.ExecuteInternalWithInputAsync\"\r%0A\r%0Awhere%20properties.contains(\"IsSuccess=[False]\")&scopingConditions=[[\"Environment\",\"{Monitor.Dimension.Environment}\"],[\"Role\",\"nt0art,nt4art\"]]&aggregatesVisible=false&aggregates=[]&chartsVisible=false&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]&UTC=false&clientQuery=//%20Background%20failures\r%0Awhere%20!properties.containsi(\"RaDoesNotExist\")\r%0A",
+          "lookback": "00:30:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "where service == \"PartialSyncIngestionService\"\r\n\r\nwhere activityName == \"PartialSyncIngestionRetryJob.HandleExceptionAsync\" || activityName == \"PartialSyncIngestionJob.ExecuteInternalWithInputAsync\"\r\n\r\nwhere properties.contains(\"IsSuccess=[False]\")",
+          "serverQuerySimpleConditions": null,
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Errored notifications",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": false
+            },
+            {
+              "key": "aggregates",
+              "value": []
+            },
+            {
+              "key": "chartsVisible",
+              "value": false
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  ""
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$type": "Microsoft.Online.Metrics.Common.EventConfiguration.DGrepJarvisLink, Microsoft.Online.Metrics.Common",
+          "autoExecute": false,
+          "clientQuery": "orderby exception asc\r\n\r\nlet SlimResourceType = Regex.Match(properties,\"(SlimResourceType=\\[|ResourceType=\\[|/providers/)(.*?/.*?)(\\]|/)\").groups[2].value\r\nlet KustoClusterUrl = Regex.Match(properties,\"KustoClusterUrl=\\[(.*?)\\]\").groups[1].value\r\nlet ScopeType = Regex.Match(properties,\"ScopeType=\\[(.*?)\\]\").groups[1].value\r\nlet SubscriptionId = Regex.Match(properties,\"SubscriptionId=\\[(.*?)\\]\").groups[1].value\r\n",
+          "dGrepEndpoint": "https://dgrepv2-frontend-prod.trafficmanager.net/",
+          "endpointAlias": "Diagnostics PROD",
+          "endTime": "{EndTime}",
+          "eventFilters": [
+            {
+              "isScrubbed": false,
+              "monikerRegex": null,
+              "nameRegex": "ActivityFailed",
+              "namespaceRegex": "ResourceTopology",
+              "versionRegex": null
+            }
+          ],
+          "eventInfos": null,
+          "executionDelay": "00:01:00",
+          "identityColumns": {
+            "Environment": [
+              "{Monitor.Dimension.Environment}"
+            ],
+            "Role": [
+              "nt4art",
+              "nt0art"
+            ]
+          },
+          "jarvisPathAndQuery": "?page=logs&be=DGrep&time={EndTime}&offset=-30&offsetUnit=Minutes&ep=Diagnostics%20PROD&ns=ResourceTopology&en=ActivityFailed&serverQuery=where%20activityName%20==%20\"KustoIngestor.IngestFromSourceRetryFailureAsync\"\r%0A||%20activityName%20==%20\"KustoIngestor.IngestFromSingleBlobAsync\"&scopingConditions=[[\"Environment\",\"{Monitor.Dimension.Environment}\"],[\"Role\",\"nt4art,nt0art\"]]&aggregatesVisible=true&aggregates=[\"Count%20by%20KustoClusterUrl\",\"Count%20by%20SlimResourceType\",\"Count%20by%20Environment\",\"Count%20by%20service\"]&chartsVisible=false&chartEditorVisible=true&chartType=Line&chartLayers=[[\"New%20Layer\",\"\"]]&UTC=false&clientQuery=orderby%20exception%20asc\r%0A\r%0Alet%20SlimResourceType%20=%20Regex.Match(properties,\"(SlimResourceType=\\[|ResourceType=\\[|/providers/)(.*?/.*?)(\\]|/)\").groups[2].value\r%0Alet%20KustoClusterUrl%20=%20Regex.Match(properties,\"KustoClusterUrl=\\[(.*?)\\]\").groups[1].value\r%0Alet%20ScopeType%20=%20Regex.Match(properties,\"ScopeType=\\[(.*?)\\]\").groups[1].value\r%0Alet%20SubscriptionId%20=%20Regex.Match(properties,\"SubscriptionId=\\[(.*?)\\]\").groups[1].value\r%0A",
+          "lookback": "00:30:00",
+          "maxResultRowCount": 15,
+          "maxRowCount": 500000,
+          "mdsEndpoint": "https://production.diagnostics.monitoring.core.windows.net/",
+          "preIncidentQueryTimeout": "00:00:50",
+          "serverQuery": "where activityName == \"KustoIngestor.IngestFromSourceRetryFailureAsync\"\r\n|| activityName == \"KustoIngestor.IngestFromSingleBlobAsync\"",
+          "serverQuerySimpleConditions": null,
+          "startTime": null,
+          "stepback": "00:00:00",
+          "title": "Kusto failures",
+          "type": "DGrep",
+          "uxParameters": [
+            {
+              "key": "aggregatesVisible",
+              "value": true
+            },
+            {
+              "key": "aggregates",
+              "value": [
+                "Count by KustoClusterUrl",
+                "Count by SlimResourceType",
+                "Count by Environment",
+                "Count by service"
+              ]
+            },
+            {
+              "key": "chartsVisible",
+              "value": false
+            },
+            {
+              "key": "chartEditorVisible",
+              "value": true
+            },
+            {
+              "key": "chartType",
+              "value": "Line"
+            },
+            {
+              "key": "chartLayers",
+              "value": [
+                [
+                  "New Layer",
+                  ""
+                ]
+              ]
+            },
+            {
+              "key": "UTC",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "customMessage": "",
+      "customTitle": "",
+      "dashboardName": "",
+      "dashboardNamespace": "",
+      "description": "Percentage of failed notifications (total from eventhub and retry queue) out of the total number of messages in the queue and eventhub",
+      "desiredConditions": null,
+      "eventIdentifier": {
+        "component": "ResourcesCacheProvider",
+        "id": "ErroredNotificationTime",
+        "tenant": "AzureResourcesTopology"
+      },
+      "explicitPreAgg": null,
+      "frequency": "00:03:00",
+      "healthyCountToMitigateIncident": 3,
+      "healthyDurationToMitigateIncident": "00:06:00",
+      "hintsLookbackDuration": "1.00:00:00",
+      "id": "NotificationFailures",
+      "ingestionDelay": "00:00:00",
+      "inputResourceType": "",
+      "isDisabled": false,
+      "isRegularMonitor": true,
+      "isSilent": false,
+      "isThrottled": false,
+      "lastUpdatedBy": "oltkache",
+      "lastUpdateTime": "2020-06-18T01:12:40.6430061Z",
+      "lookbackDuration": "00:10:00",
+      "metadata": [],
+      "metricsViewName": "",
+      "monitorActorConfiguration": {
+        "additionalDataForMonitorsEnabled": false,
+        "azureCacheTimeToExclude": "00:00:00",
+        "baselineConcurrentGetAnomalyCallsV2": 0,
+        "baselineFastServiceUri": null,
+        "baselineFastServiceUriForAzure": null,
+        "baselineIsAnomalyBatchProcessingSize": 0,
+        "baselineServiceUri": null,
+        "baselineServiceUriForAzure": null,
+        "baselineServiceUseQueryService": false,
+        "baselineUiFacingServiceUri": null,
+        "baselineUiFacingServiceUriForAzure": null,
+        "baseReportExpirationTimeInSeconds": 0,
+        "batchReportingMonitor": false,
+        "cacheTimeToExclude": "00:00:00",
+        "cadMaxCombinationsEvaluationThreshold": 0,
+        "certificateIdentifier": null,
+        "certificateThumbprint": null,
+        "combinationDeltaFetchLookback": "00:00:00",
+        "combinationRefreshMinInterval": "00:00:00",
+        "combinationsChunkSizePerConcurrentEvaluateBlock": 0,
+        "consecutiveMonitorTimeoutsForAlerting": 0,
+        "customizeSeverityForMonitorExecutionFailure": false,
+        "debug": false,
+        "disabled": false,
+        "disableMetricDataInAlerts": false,
+        "dqConcurrencyConfiguration": null,
+        "dynamicThresholdMaxCombinationsEvaluationThreshold": 0,
+        "enableCombinationsThrottlingForCad": false,
+        "enableCostReporting": false,
+        "enableDictionaryBasedMetricsSourceMatching": false,
+        "enableGroupingByCommonDimensions": false,
+        "enableHealthMonitors": false,
+        "enableMonitorTimeoutAlerts": false,
+        "enableQueryServiceQosMetricSupport": false,
+        "enableSelectPreaggregate": false,
+        "enableSubmitMetricsFromJs": false,
+        "evaluatorTimeout": "00:00:00",
+        "fetchDeltaHints": false,
+        "hasUserConfigCacheTimeToExclude": null,
+        "hintLookbackDuration": "00:00:00",
+        "includeTimeSeriesInformationInWatchdogMetadata": false,
+        "isThirdPartyStamp": false,
+        "kenshoServiceUri": null,
+        "logCombinationsInfo": false,
+        "maxBufferSizeForRetrievedData": 0,
+        "maxCombinationsCountPerPartition": 0,
+        "maxCombinationsEvaluationThreshold": 0,
+        "maxCombinationsForDataSources": 0,
+        "maxCombinationsForMetricSources": 0,
+        "maxConcurrentRetrieveOperations": 0,
+        "maxDegreeOfParallelismForEvaluateBlock": 0,
+        "maxFetchMetricsInJs": 0,
+        "minCombinationsCountToRequirePartition": 0,
+        "notQueryMetricsSourceCombinationIfNoWildcard": false,
+        "overrideHealthDataValidation": false,
+        "overrideMetricDataValidation": false,
+        "partnerClientCertificateIdentifier": null,
+        "preferMetricsStore": false,
+        "preventCombinationsOverwriteByDeltaRefresh": false,
+        "previewWithHistoricData": false,
+        "removeExtraIngestionDelayInExecution": false,
+        "removeExtraQueryComparison": false,
+        "resourceTypeOverride": null,
+        "treatInheritNotAsWildcard": false,
+        "useAccountMigrationSupport": false,
+        "useDefaultAzureMonitorLatency": false,
+        "useHealthService": false,
+        "useInternalHintingApi": false,
+        "useLatestQueryRequestSerializationVersion": false,
+        "useLowLatencyPipelineDataQualityForAzureMonitor": false,
+        "useMetricsStoreMigrationSupport": false,
+        "useNewHintingApi": false,
+        "useNewMonitorTemplateInterface": false,
+        "useNewMonitorTemplateInterfaceForDynamicThreshold": false,
+        "useOptimizedMetricFetch": false,
+        "useQueryServiceBatching": false,
+        "useQueryServiceBatchingForJs": false,
+        "useQueryServiceForCrossStampQuery": false,
+        "useQueryServiceInMdmDataQualityClient": false,
+        "useResolutionForAnomalyTimeWindowLookback": false,
+        "zeroAsNoValueSentinel": false
+      },
+      "monitorDataSourceType": 0,
+      "raiseIncientOnMonitorFailure": null,
+      "resourceType": "Scale Unit Service Health",
+      "severityForMonitorFailure": 0,
+      "shouldMitigateIncident": false,
+      "shouldSendToAutomation": false,
+      "templateConfiguration": {
+        "alertOnDivideByZero": false,
+        "divideByZeroNotFailure": false,
+        "percentageTemplate": {
+          "denominator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [
+                  [
+                    "Environment",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ],
+                  [
+                    "Service",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ],
+                  [
+                    "NotificationQueueTypeDimension",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ],
+                  [
+                    "NotificationSourceDimension",
+                    "EventGrid,LinkedNotification",
+                    ""
+                  ],
+                  [
+                    "ScaleUnit",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ]
+                ],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "TotalNotifcationCount",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "AzureResourcesTopology",
+                "namespace": "ResourcesCacheProvider",
+                "samplingType": "TotalNotificationCount",
+                "useTotalAggregate": false
+              }
+            }
+          ],
+          "evaluatePureFraction": true,
+          "multiplier": 100.0,
+          "numerator": [
+            {
+              "dataSourceType": 0,
+              "fetchMetrics": {
+                "aggregateType": 0,
+                "conditions": [
+                  [
+                    "Environment",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ],
+                  [
+                    "Service",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ],
+                  [
+                    "NotificationQueueTypeDimension",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ],
+                  [
+                    "NotificationRetryPriorityQueueLevelDimension",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ],
+                  [
+                    "ScaleUnit",
+                    "*",
+                    "",
+                    "w",
+                    "i"
+                  ]
+                ],
+                "dataSourceType": 0,
+                "endTimeShift": "00:00:00",
+                "isNegative": false,
+                "lookbackDuration": "00:00:00",
+                "metric": "ErroredNotificationTime",
+                "metricsSourceAggregateType": 0,
+                "monitoringAccount": "AzureResourcesTopology",
+                "namespace": "ResourcesCacheProvider",
+                "samplingType": "Count",
+                "useTotalAggregate": false
+              }
+            }
+          ]
+        },
+        "skipOnNoData": false,
+        "templateType": 6,
+        "valueOnDivideByZero": 0
+      },
+      "templateSpecificParameters": {
+        "_DUMMY_PROPERTY_": "Dummy"
+      },
+      "templateType": 6,
+      "tenantName": "",
+      "thresholds": [
+        {
+          "comparator": ">",
+          "healthStatus": 1,
+          "severity": 3,
+          "value": 15.0
+        }
+      ],
+      "version": 20
+    }
+  ],
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "tenant": "AzureResourcesTopology",
+  "treatMissingSeriesAsZeros": false,
+  "version": 0,
+  "views": null
+}

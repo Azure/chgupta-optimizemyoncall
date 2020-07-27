@@ -1,0 +1,142 @@
+{
+  "bv": 10,
+  "component": "Requests",
+  "computedMetrics": [
+    {
+      "displayName": "PlatformAvailability",
+      "expression": "100 * (ARMTotal.Count - ARMErrors.Count) / (Math.max(ARMTotal.Count, IISTotal.Count) || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "PlatformAvailability",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "RPAvailability",
+      "expression": "100 * (ARMTotal.Count - RPErrors.Count) / (ARMTotal.Count || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "RPAvailability",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "IncomingCount",
+      "expression": "Math.max(ARMTotal.Count, IISTotal.Count)",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "IncomingCount",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "SuccessCount",
+      "expression": "ARMTotal.Count - ARMErrors.Count",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "SuccessCount",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    },
+    {
+      "displayName": "Availability",
+      "expression": "100 * (ARMTotal.Count - ARMErrors.Count - RPErrors.Count) / (Math.max(ARMTotal.Count, IISTotal.Count) || 1)",
+      "expressionEngine": "",
+      "higherNumberIs": "",
+      "id": "Availability",
+      "isBuiltIn": false,
+      "minMaxMetricsEnabled": false,
+      "numberSuffix": "",
+      "numberType": "",
+      "percentileConfiguration": null
+    }
+  ],
+  "deleted": false,
+  "description": "This pre-aggregate metric is used to calculate ARM's general availability indicators. It reports a series of high-level metrics, as well as some lower-level indicators which can be used to calculate specific availability representations.\n\nHigh level metrics:\n - [Availability] represents the total control plane availability (including ARM and RPs).\n - [PlatformAvailability] represents ARM's availability contribution to the control plane availability.\n - [RPAvailability] represents the RP's contribution to control plane availability.\n\nLow level metrics:\n - [IncomingCount] is the estimated total number of requests which are received each minute (including those which are not processed by ARM due to availability failures).\n - [SuccessCount] is the estimated number of requests which ARM serves successfully (i.e. without a failureCause: gateway)\n",
+  "dimensions": null,
+  "displayName": null,
+  "enableClientEtwPublication": true,
+  "enableClientSideForking": true,
+  "enableClientSideLastSamplingMode": false,
+  "enableClientSidePublication": true,
+  "id": "IncomingRequestAvailability",
+  "isFromNewPipeline": false,
+  "isQosMetric": false,
+  "metricIdentifiers": {
+    "ARMErrors": {
+      "metricName": "IncomingFrontdoorFailureLatency",
+      "metricNamespace": "Requests",
+      "monitoringAccount": "ARM"
+    },
+    "ARMTotal": {
+      "metricName": "HttpIncomingRequestsLatency",
+      "metricNamespace": "Requests",
+      "monitoringAccount": "ARM"
+    },
+    "IISErrors": {
+      "metricName": "IISErrors",
+      "metricNamespace": "IISLogs",
+      "monitoringAccount": "ARM"
+    },
+    "IISTotal": {
+      "metricName": "IISRequestsLatency",
+      "metricNamespace": "IISLogs",
+      "monitoringAccount": "ARM"
+    },
+    "RPErrors": {
+      "metricName": "IncomingProviderFailureLatency",
+      "metricNamespace": "Requests",
+      "monitoringAccount": "ARM"
+    }
+  },
+  "metrics": null,
+  "monitors": null,
+  "pendingMetricsOrderingFix": false,
+  "preferQueryMetricsStore": null,
+  "replicationState": 0,
+  "scalingFactor": 1.0,
+  "tenant": "ARM",
+  "treatMissingSeriesAsZeros": true,
+  "version": 14,
+  "views": [
+    {
+      "dimensions": [],
+      "displayName": "Total",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    },
+    {
+      "dimensions": [
+        "RoleLocation",
+        "__Role"
+      ],
+      "displayName": "Location.Role",
+      "distinctCountColumns": null,
+      "doNotUseCacheServer": false,
+      "isMStoreAggregated": false,
+      "minMaxMetricsEnabled": false,
+      "percentileMetricsEnabled": false,
+      "preaggregateThrottled": false,
+      "rollupsEnabled": false,
+      "useMetricsStore": true
+    }
+  ]
+}
